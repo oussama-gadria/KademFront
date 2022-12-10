@@ -46,18 +46,18 @@
                         </tr>
                     </thead>
                     <tbody>
-                        <tr>
-                            <td>1</td>
-                            <td>Jhon</td>
-                            <td>Thomas Hardy</td>
-                            <td>89 Chiaroscuro Rd.</td>
-                            <td>Portland</td>
+                        <tr *ngFor="let equipe of listEquipe">
+                            <td>{{equipe.idEquipe}}</td>
+                            <td>{{equipe.nomEquipe}}</td>
+                            <td>{{equipe.score}}</td>
+                            <td>{{equipe.responsable}}</td>
+                            <td>{{equipe.niveau}}</td>
                             <td>
-                                <a routerLink="/equipes/listMembres" class="view" title="View" data-toggle="tooltip"><i class="material-icons">&#xE417;</i></a>
+                                <a routerLink="listMembres" class="view" title="View" data-toggle="tooltip"><i class="material-icons">&#xE417;</i></a>
                             </td>
                             <td>
-                                <a href="#" class="edit" title="Edit" data-toggle="tooltip"><i class="material-icons">&#xE254;</i></a>
-                                <a href="#" class="delete" title="Delete" data-toggle="tooltip"><i class="material-icons">&#xE872;</i></a>
+                                <a [routerLink]="['updateEquipe',0]" class="edit" title="Edit" data-toggle="tooltip"><i class="material-icons">&#xE254;</i></a>
+                                <button class="delete" title="Delete" data-toggle="tooltip" data-target="#myModal" (click)="getIdEquipe(equipe.idEquipe)" data-toggle="modal"><i class="material-icons">&#xE872;</i></button>
                             </td>
                         </tr>    
                     </tbody>
@@ -67,3 +67,21 @@
     </div> 
     
     </body>
+
+    <div class="modal fade" id="myModal">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">Confirm Delete</h5>
+                    
+                </div>
+                <div class="modal-body">
+                    <p>Are you sure to delete Esprit Universite </p>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-primary" data-dismiss="modal" (click)="deleteEquipe()">Confirm</button>
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                </div>
+            </div>
+        </div>
+    </div>
