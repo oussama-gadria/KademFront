@@ -9,6 +9,7 @@ import { FooterComponent } from './footer/footer.component';
 import { ErrorPageComponent } from './error-page/error-page.component';
 
 
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -16,7 +17,7 @@ import { ErrorPageComponent } from './error-page/error-page.component';
     HeaderComponent,
     FooterComponent,
     ErrorPageComponent,
-    
+
   ],
   imports: [
     BrowserModule,
