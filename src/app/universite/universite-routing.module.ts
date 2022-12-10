@@ -1,9 +1,12 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { UniversiteComponent } from './universite/universite.component';
+import { UniversiteFormAddComponent } from './universite-form-add/universite-form-add.component';
+import { UniversiteMainComponent } from './universite-main/universite-main.component';
 
 const routes: Routes = [
-  {path:"",component:UniversiteComponent}
+  {path:"",component:UniversiteMainComponent},
+  {path:"addUniversite",component:UniversiteFormAddComponent}
+  
 ];
 
 @NgModule({
