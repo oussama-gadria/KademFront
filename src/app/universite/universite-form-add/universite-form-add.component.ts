@@ -9,8 +9,6 @@ import { FormControl, FormGroup, Validators } from '@angular/forms';
 export class UniversiteFormAddComponent implements OnInit {
   myforme=new FormGroup({  
     nomUniversite:new FormControl('',Validators.required),
-    nomDepartement:new FormControl('',Validators.required),
-    bloc:new FormControl('',[Validators.required]),
   })
 
   constructor() { }
