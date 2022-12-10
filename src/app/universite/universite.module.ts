@@ -5,6 +5,7 @@ import { UniversiteRoutingModule } from './universite-routing.module';
 import { UniversiteComponent } from './universite/universite.component';
 import { UniversiteMainComponent } from './universite-main/universite-main.component';
 import { UniversiteFormAddComponent } from './universite-form-add/universite-form-add.component';
+import { UniversiteFormUpdateComponent } from './universite-form-update/universite-form-update.component';
 
 
 @NgModule({
@@ -12,6 +13,8 @@ import { UniversiteFormAddComponent } from './universite-form-add/universite-for
     UniversiteComponent,
     UniversiteFormAddComponent,
     UniversiteMainComponent,
+    UniversiteFormUpdateComponent
+
   ],
   imports: [
     CommonModule,
