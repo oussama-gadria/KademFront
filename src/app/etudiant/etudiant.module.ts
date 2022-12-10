@@ -16,7 +16,8 @@ import { UpdateEtudiantComponent } from './update-etudiant/update-etudiant.compo
   ],
   imports: [
     CommonModule,
-    EtudiantRoutingModule
+    EtudiantRoutingModule,
+   
    
   ]
 })
