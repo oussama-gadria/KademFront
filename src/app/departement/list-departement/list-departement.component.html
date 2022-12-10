@@ -6,10 +6,10 @@
          <!-- navbar -->
                 <ul class="navbar-nav me-auto mb-2 mb-lg-0 " style="padding-left: 78px;">
                   <li class="nav-item">
-                    <a class="nav-link " href="#" style="font-family:'Poppins', sans-serif;font-size: 20px; color: #493ea2 ;">Departmnet </a>
+                    <a class="nav-link " style="font-family:'Poppins', sans-serif;font-size: 20px; color: #493ea2 ;">Department </a>
                   </li>
                   <li class="nav-item">
-                    <a class="nav-link" href="#" style="font-family:'Poppins', sans-serif;font-size: 20px; color: #493ea2;">/ Module</a>
+                    <a class="nav-link" routerLink="ListModule" style="font-family:'Poppins', sans-serif;font-size: 20px; color: #493ea2;">/ Module</a>
                   </li>
                 </ul> 
           </nav>
@@ -25,7 +25,7 @@
                     <div class="row">
                         <div class="col-sm-8 " style="color:black"><h2>Department <b>Details</b></h2></div>
                         <div class="col-sm-4">
-                            <button type="button" class="btn btn-primary btn-sm">ADD Departement</button>
+                            <button type="button" class="btn btn-primary btn-sm" (click)="GoToAddDepartement()">ADD Departement</button>
                             <div class="search-box">
                                 <i class="material-icons">&#xE8B6;</i>
                                 <input type="text" class="form-control" placeholder="Search&hellip;">
@@ -37,18 +37,20 @@
                     <thead>
                         <tr>
                             <th>Id <i class="fa fa-sort"></i></th>
-                            <th>Name <i class="fa fa-sort"></i></th>
-                    
+                            <th>Department Name <i class="fa fa-sort"></i></th>
+                            <th>Bloc <i class="fa fa-sort"></i></th>
+                            <th> </th>
                         </tr>
                     </thead>
                     <tbody>
-                        <tr>
-                            <td>1</td>
-                            <td>USA</td>
+                        <tr *ngFor="let depart of ListDepart">
+                            <td>{{depart.idDepart}}</td>
+                            <td>{{depart.nomDepart}}</td>
+                            <td>{{depart.bloc}}</td>
                             <td>
                                 <a href="#" class="view" title="View" data-toggle="tooltip"><i class="material-icons">&#xE417;</i></a>
-                                <a href="#" class="edit" title="Edit" data-toggle="tooltip"><i class="material-icons">&#xE254;</i></a>
-                                <a href="#" class="delete" title="Delete" data-toggle="tooltip"><i class="material-icons">&#xE872;</i></a>
+                                <a [routerLink]="['UpdateDepartement',0]" class="edit" title="Edit" data-toggle="tooltip"><i class="material-icons">&#xE254;</i></a>
+                                <a href="#" class="delete" title="Delete" data-toggle="tooltip"   data-target="#myModal"  (click)="getIdToDelete(depart.idDepart)"  data-toggle="modal"><i class="material-icons">&#xE872;</i></a>
                             </td>
                         </tr>    
                     </tbody>
@@ -56,5 +58,22 @@
             </div>
         </div>  
     </div> 
-    
+  
     </body>
+    <div class="modal fade" id="myModal">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">Confirm Delete</h5>
+                    
+                </div>
+                <div class="modal-body">
+                    <p>Are you sure to delete Esprit Universite </p>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-primary"  data-dismiss="modal" (click)="deleteDepart()" >Confirm</button>
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                </div>
+            </div>
+        </div>
+    </div>
