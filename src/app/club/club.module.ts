@@ -2,10 +2,18 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
 import { ClubRoutingModule } from './club-routing.module';
+import { AddClubComponent } from './add-club/add-club.component';
+import { UpdateClubComponent } from './update-club/update-club.component';
+import { ListClubComponent } from './list-club/list-club.component';
 
 
 @NgModule({
-  declarations: [],
+  declarations: [
+    AddClubComponent,
+    UpdateClubComponent,
+    ListClubComponent,
+  ],
+
   imports: [
     CommonModule,
     ClubRoutingModule
