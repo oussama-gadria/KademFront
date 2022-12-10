@@ -2,11 +2,11 @@ import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 
 @Component({
-  selector: 'app-enseignant-form-add',
-  templateUrl: './enseignant-form-add.component.html',
-  styleUrls: ['./enseignant-form-add.component.css']
+  selector: 'app-enseignant-form-update',
+  templateUrl: './enseignant-form-update.component.html',
+  styleUrls: ['./enseignant-form-update.component.css']
 })
-export class EnseignantFormAddComponent implements OnInit {
+export class EnseignantFormUpdateComponent implements OnInit {
   myforme=new FormGroup({  
     nomEnseignant:new FormControl('',Validators.required),
     prenomEnseignant:new FormControl('',Validators.required),
@@ -17,7 +17,6 @@ export class EnseignantFormAddComponent implements OnInit {
     experienceParAnnee:new FormControl('',Validators.required),
     module:new FormControl('',Validators.required)  
   })
-
 
   constructor() { }
 

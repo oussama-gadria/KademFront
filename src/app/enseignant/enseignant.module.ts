@@ -5,6 +5,8 @@ import { EnseignantRoutingModule } from './enseignant-routing.module';
 import { EnseignantComponent } from './enseignant/enseignant.component';
 import { EnseignantFormAddComponent } from './enseignant-form-add/enseignant-form-add.component';
 import { EnseignantMainComponent } from './enseignant-main/enseignant-main.component';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { EnseignantFormUpdateComponent } from './enseignant-form-update/enseignant-form-update.component';
 
 
 @NgModule({
@@ -12,12 +14,16 @@ import { EnseignantMainComponent } from './enseignant-main/enseignant-main.compo
     EnseignantComponent,
     EnseignantFormAddComponent,
     EnseignantMainComponent,
+    EnseignantFormUpdateComponent
+
     
 
   ],
   imports: [
     CommonModule,
-    EnseignantRoutingModule
+    EnseignantRoutingModule,
+    ReactiveFormsModule,
+    FormsModule
   ]
 })
 export class EnseignantModule { }
