@@ -17,7 +17,7 @@ import { ErrorPageComponent } from './error-page/error-page.component';
     HeaderComponent,
     FooterComponent,
     ErrorPageComponent,
-    
+
   ],
   imports: [
     BrowserModule,
