@@ -7,7 +7,9 @@ export class Etudiant
    numeroTelephone:string;
    adresse:String;
    age:String;
-   classe:number;
    niveauEtudiant:number;
+   
+   classe:number;
    moyenneE:number;
+   
 }

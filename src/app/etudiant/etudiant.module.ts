@@ -5,6 +5,7 @@ import { EtudiantRoutingModule } from './etudiant-routing.module';
 import { AddEtudiantComponent } from './add-etudiant/add-etudiant.component';
 import { ListEtudiantComponent } from './list-etudiant/list-etudiant.component';
 import { UpdateEtudiantComponent } from './update-etudiant/update-etudiant.component';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 
 
@@ -17,6 +18,8 @@ import { UpdateEtudiantComponent } from './update-etudiant/update-etudiant.compo
   imports: [
     CommonModule,
     EtudiantRoutingModule,
+    ReactiveFormsModule,
+    FormsModule
    
    
   ]
