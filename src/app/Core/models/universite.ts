@@ -2,6 +2,6 @@ import { Departement } from "./departement";
 
 export class Universite{ 
     idUniversite:number;
-    nomUniversite:String;
+    nomUniversite:string;
     departements:Departement[];
 }

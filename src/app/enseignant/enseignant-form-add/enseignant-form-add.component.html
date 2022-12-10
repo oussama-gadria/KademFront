@@ -17,44 +17,53 @@
                            <form class="row g-3" [formGroup]="myforme">
 
                             <!--Nom Enseignant-->
-                              <div class="col-md-6"  >
-                                <label for="validationServer01" class="form-label font-weight-bold" style="font-size:20px;" >First name</label>
-                                <input type="text" class="form-control " id="validationServer01" style=" border:3px solid #493ea2;height:50px;font-size:18px;" formControlName="nomEnseignant">
-                                <div class="valid-feedback">
-                                  Looks good!
-                                </div>
-                              </div>
-            
+                          <div class="col-md-6"  >
+                                <label for="validationServer01" class="form-label font-weight-bold" style="font-size:15px;" >First name</label>
+                                <input name="nomEnseignant" type="text" class="form-control " id="validationServer01" style=" border:2px solid #493ea2;height:39px;font-size:14px;width: 400px; border-radius: 10px;" formControlName="nomEnseignant">
+                                <div class="alertText" 
+                                *ngIf=" myforme.get('nomEnseignant')?.touched && myforme.get('nomEnseignant')?.errors?.['required'] ">                                 
+                                  <p class="text-danger">Please enter the First name to continue !</p>
+                              </div> 
+                          </div>
+                         
                           
                             <!--Prenom Enseignant-->
 
 
                               <div class="col-md-6">
-                                <label for="validationServer02" class="form-label font-weight-bold" style="font-size:20px;" >Last name</label>
-                                <input type="text" class="form-control " id="validationServer02"   style=" border:3px solid #493ea2;height:50px;font-size:18px;" formControlName="prenomEnseignant">
-                                <div class="valid-feedback">
-                                  Looks good!
-                                </div>
+                                <label for="validationServer02" class="form-label font-weight-bold" style="font-size:15px;" >Last name</label>
+                                <input name="prenomEnseignant" type="text" class="form-control " id="validationServer02"  style=" border:2px solid #493ea2;height:39px;font-size:14px;width: 400px; border-radius: 10px;" formControlName="prenomEnseignant">
+                                <div class="alertText" 
+                                *ngIf=" myforme.get('prenomEnseignant')?.touched && myforme.get('prenomEnseignant')?.errors?.['required'] ">                                 
+                                  <p class="text-danger">Please enter the last name to continue !</p>
                               </div>
+                              </div>
+                             
 
                               <!--Subject Name-->
                         
                               <div class="col-md-6">
-                                <label for="validationServer03" class="form-label font-weight-bold" style="font-size:20px;">Subject</label>
-                                <input type="text" class="form-control " id="validationServer03" aria-describedby="validationServer03Feedback"  style=" border:3px solid #493ea2;height:50px;font-size:18px;" formControlName="nomMatiere">
-                                <div id="validationServer03Feedback" class="invalid-feedback">
-                                  Please provide a valid city.
-                                </div>
+                                <label for="validationServer03" class="form-label font-weight-bold" style="font-size:15px;">Subject</label>
+                                <input name="nomMatiere" type="text" class="form-control " id="validationServer03" aria-describedby="validationServer03Feedback"  style=" border:2px solid #493ea2;height:39px;font-size:14px;width: 400px; border-radius: 10px;"  formControlName="nomMatiere">
+                                <div class="alertText" 
+                                *ngIf=" myforme.get('nomMatiere')?.touched && myforme.get('nomMatiere')?.errors?.['required'] ">                                 
+                                  <p class="text-danger">Please enter the Subject to continue !</p>
+                              </div>
                               </div>
 
                                <!--Email--> 
 
                               <div class="col-md-6">
-                                <label for="validationServer03" class="form-label font-weight-bold" style="font-size:20px;">Email</label>
-                                <input type="text" class="form-control " id="validationServer03" aria-describedby="validationServer03Feedback"  style=" border:3px solid #493ea2;height:50px;font-size:18px;" formControlName="email">
-                                <div id="validationServer03Feedback" class="invalid-feedback">
-                                  Please provide a valid city.
-                                </div>
+                                <label for="validationServer03" class="form-label font-weight-bold" style="font-size:15px;">Email</label>
+                                <input name="email" type="text" class="form-control " id="validationServer03" aria-describedby="validationServer03Feedback" style=" border:2px solid #493ea2;height:39px;font-size:14px;width: 400px; border-radius: 10px;"  formControlName="email">
+                                <div class="alertText" 
+                                *ngIf=" myforme.get('email')?.touched && myforme.get('email')?.errors?.['required'] ">                                 
+                                  <p class="text-danger">Please enter the email to continue !</p>
+                              </div>
+                              <div class="alertText" 
+                                *ngIf=" myforme.get('email')?.touched && myforme.get('email')?.errors?.['pattern']    ">                                 
+                                  <p class="text-danger">Please enter valid email !</p>
+                              </div>
                               </div>
 
                         
@@ -62,49 +71,54 @@
                                 <!--Age-->
 
                               <div class="col-md-6">
-                                <label for="validationServer03" class="form-label font-weight-bold" style="font-size:20px;">Age</label>
-                                <input type="text" class="form-control " id="validationServer03" aria-describedby="validationServer03Feedback"  style=" border:3px solid #493ea2;height:50px;font-size:18px;" formControlName="age">
-                                <div id="validationServer03Feedback" class="invalid-feedback">
-                                  Please provide a valid city.
-                                </div>
+                                <label for="validationServer03" class="form-label font-weight-bold" style="font-size:15px;">Age</label>
+                                <input name="age" type="number" class="form-control " id="validationServer03" aria-describedby="validationServer03Feedback"  style=" border:2px solid #493ea2;height:39px;font-size:14px;width:400px; border-radius: 10px;"  formControlName="age">
+                                <div class="alertText" 
+                                *ngIf=" myforme.get('age')?.touched && myforme.get('age')?.errors?.['required'] ">                                 
+                                  <p class="text-danger">Please enter the age to continue !</p>
+                              </div>
                               </div>
 
                                <!--salary-->
                                <div class="col-md-6">
-                                <label for="validationServer03" class="form-label font-weight-bold" style="font-size:20px;">Salary</label>
-                                <input type="text" class="form-control " id="validationServer03" aria-describedby="validationServer03Feedback"  style=" border:3px solid #493ea2;height:50px;font-size:18px;" formControlName="salaire">
-                                <div id="validationServer03Feedback" class="invalid-feedback">
-                                  Please provide a valid city.
-                                </div>
+                                <label for="validationServer03" class="form-label font-weight-bold" style="font-size:15px;">Salary</label>
+                                <input name="salaire" type="number" class="form-control " id="validationServer03" aria-describedby="validationServer03Feedback"  style=" border:2px solid #493ea2;height:39px;font-size:14px;width: 400px; border-radius: 10px;"  formControlName="salaire">
+                                <div class="alertText" 
+                                *ngIf=" myforme.get('salaire')?.touched && myforme.get('salaire')?.errors?.['required'] ">                                 
+                                  <p class="text-danger">Please the salary to continue !</p>
+                              </div>
                               </div>
                                <!--Experience-->
                                <div class="col-md-6">
-                                <label for="validationServer03" class="form-label font-weight-bold" style="font-size:20px;">Salary</label>
-                                <input type="text" class="form-control " id="validationServer03" aria-describedby="validationServer03Feedback"  style=" border:3px solid #493ea2;height:50px;font-size:18px;" formControlName="experienceParAnnee">
-                                <div id="validationServer03Feedback" class="invalid-feedback">
-                                  Please provide a valid city.
-                                </div>
+                                <label for="validationServer03" class="form-label font-weight-bold" style="font-size:15px;">Experience</label>
+                                <input name=" experienceParAnnee" type="number" class="form-control " id="validationServer03" aria-describedby="validationServer03Feedback" style=" border:2px solid #493ea2;height:39px;font-size:14px;width: 400px; border-radius: 10px;"  formControlName="experienceParAnnee">
+                                <div class="alertText" 
+                                *ngIf=" myforme.get('experienceParAnnee')?.touched && myforme.get('experienceParAnnee')?.errors?.['required'] ">                                 
+                                  <p class="text-danger">Please enter the number of experience year  to continue !</p>
+                              </div>
                               </div>
                                 <!--List Module-->
                               <div class="col-md-3">
-                                <label for="validationServer04" class="form-label font-weight-bold" style="font-size:20px;">Module</label>
-                                <select class="form-select " id="validationServer04" aria-describedby="validationServer04Feedback"  style=" border:3px solid #493ea2;height:50px;font-size:18px;"  formControlName="module">
+                                <label for="validationServer04" class="form-label font-weight-bold" style="font-size:15px;">Module</label>
+                                <select name="module" class="form-select " id="validationServer04" aria-describedby="validationServer04Feedback"  style=" border:2px solid #493ea2;height:39px;font-size:14px;width: 400px; border-radius: 10px;"   formControlName="module">
                                   <option>...</option>
                                 </select>
-                                <div id="validationServer04Feedback" class="invalid-feedback">
-                                  Please select a valid state.
-                                </div>
+                                <div class="alertText" 
+                                *ngIf=" myforme.get('module')?.touched && myforme.get('module')?.errors?.['required'] ">                                 
+                                  <p class="text-danger">Please enter the module to continue !</p>
+                              </div>
                               </div>
                              
-                              <div class="col-12">
-                                <button class="btn btn-primary" type="submit">Submit form</button>
+                              <div class="col-12"  >
+                                <button class="btn btn-success" type="submit" >ADD Enseignant</button>
                               </div>
+              
                             </form>
                           </section>
-     
                       </div>
                       </div>
 </div>
 </section>
+
 
 
