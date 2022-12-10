@@ -15,7 +15,7 @@ export class EnseignantFormAddComponent implements OnInit {
     age:new FormControl('',Validators.required),
     salaire:new FormControl('',Validators.required),
     experienceParAnnee:new FormControl('',Validators.required),
-    categorie:new FormControl('',Validators.required)
+    module:new FormControl('',Validators.required)  
   })
 
 
