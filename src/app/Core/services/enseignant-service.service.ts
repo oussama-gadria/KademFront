@@ -26,14 +26,20 @@ export class EnseignantServiceService {
   deleteEnseignant(id:number){
     return this.http.delete(this.url+'/'+'deleteEnseignant'+'/'+id);
   }
-  addEneignantWithModule(id:number,enseignant:Enseignant ){ 
-    return this.http.post(this.url+'/'+'addEnseignantWithModule'+id,enseignant);
+  addEneignantWithModule(id:String,enseignant:Enseignant ){ 
+    return this.http.post(this.url+'/'+'addEnseignantWithModule'+'/'+id,enseignant);
   }
   getEnseignantByUniversiteAndModuleAndDepartement(idUniversite:number,idModule:number,idDepartement:number):Observable<Enseignant[]>{ 
     return this.http.get<Enseignant[]>(this.url+'/'+'getEnseignantByNomUniversite'+'/'+idUniversite+idDepartement+idModule);
   }
   triEnseignantByUniversiteAndModuleAndDepartement(idUniversite:number,idModule:number,idDepartement:number):Observable<Enseignant[]>{ 
     return this.http.get<Enseignant[]>(this.url+'/'+'triEnseignantBySalary'+'/'+idUniversite+'/'+idDepartement+'/'+idModule);
+  }
+  triEnseignant():Observable<Enseignant[]>{
+    return this.http.get<Enseignant[]>(this.url+'/'+'triEnseignant');
+  }
+  triEnseignantcroissant():Observable<Enseignant[]>{
+    return this.http.get<Enseignant[]>(this.url+'/'+'triEnseignantcroissant');
   }
  
 }

@@ -44,7 +44,7 @@
                         
                               <div class="col-md-6">
                                 <label for="validationServer03" class="form-label font-weight-bold" style="font-size:15px;">Subject</label>
-                                <input name="nomMatiere" type="text" class="form-control " id="validationServer03" aria-describedby="validationServer03Feedback"  style=" border:2px solid #493ea2;height:39px;font-size:14px;width: 400px; border-radius: 10px;"  formControlName="nomMatiere">
+                                <input name="nomMatiere" type="text" class="form-control " id="validationServer03" aria-describedby="validationServer03Feedback"  style=" border:2px solid #493ea2;height:39px;font-size:14px;width: 400px; border-radius: 10px;"  formControlName="nomMatiere" >
                                 <div class="alertText" 
                                 *ngIf=" myforme.get('nomMatiere')?.touched && myforme.get('nomMatiere')?.errors?.['required'] ">                                 
                                   <p class="text-danger">Please enter the Subject to continue !</p>
@@ -55,7 +55,7 @@
 
                               <div class="col-md-6">
                                 <label for="validationServer03" class="form-label font-weight-bold" style="font-size:15px;">Email</label>
-                                <input name="email" type="text" class="form-control " id="validationServer03" aria-describedby="validationServer03Feedback" style=" border:2px solid #493ea2;height:39px;font-size:14px;width: 400px; border-radius: 10px;"  formControlName="email">
+                                <input name="email" type="text" class="form-control " id="validationServer03" aria-describedby="validationServer03Feedback" style=" border:2px solid #493ea2;height:39px;font-size:14px;width: 400px; border-radius: 10px;"  formControlName="email" >
                                 <div class="alertText" 
                                 *ngIf=" myforme.get('email')?.touched && myforme.get('email')?.errors?.['required'] ">                                 
                                   <p class="text-danger">Please enter the email to continue !</p>
@@ -82,7 +82,7 @@
                                <!--salary-->
                                <div class="col-md-6">
                                 <label for="validationServer03" class="form-label font-weight-bold" style="font-size:15px;">Salary</label>
-                                <input name="salaire" type="number" class="form-control " id="validationServer03" aria-describedby="validationServer03Feedback"  style=" border:2px solid #493ea2;height:39px;font-size:14px;width: 400px; border-radius: 10px;"  formControlName="salaire">
+                                <input name="salaire" type="number" class="form-control " id="validationServer03" aria-describedby="validationServer03Feedback"  style=" border:2px solid #493ea2;height:39px;font-size:14px;width: 400px; border-radius: 10px;"  formControlName="salaire" >
                                 <div class="alertText" 
                                 *ngIf=" myforme.get('salaire')?.touched && myforme.get('salaire')?.errors?.['required'] ">                                 
                                   <p class="text-danger">Please the salary to continue !</p>
@@ -100,8 +100,9 @@
                                 <!--List Module-->
                               <div class="col-md-3">
                                 <label for="validationServer04" class="form-label font-weight-bold" style="font-size:15px;">Module</label>
-                                <select name="module" class="form-select " id="validationServer04" aria-describedby="validationServer04Feedback"  style=" border:2px solid #493ea2;height:39px;font-size:14px;width: 400px; border-radius: 10px;"   formControlName="module">
-                                  <option>...</option>
+                                <select name="module" class="form-select " id="validationServer04" aria-describedby="validationServer04Feedback"  style=" border:2px solid #493ea2;height:39px;font-size:14px;width: 400px; border-radius: 10px;"     #idModule>
+                                  <option selected disabled value="">Choose...</option>
+                                  <option *ngFor="let module of listModule" [value]="module.idModule">{{module.nomModule}}</option>                   
                                 </select>
                                 <div class="alertText" 
                                 *ngIf=" myforme.get('module')?.touched && myforme.get('module')?.errors?.['required'] ">                                 
@@ -110,7 +111,7 @@
                               </div>
                              
                               <div class="col-12"  >
-                                <button class="btn btn-success" type="submit" >ADD Enseignant</button>
+                                <button class="btn btn-success" type="submit" [disabled]="myforme.invalid" (click)="save(idModule.value)">ADD Enseignant</button>
                               </div>
               
                             </form>

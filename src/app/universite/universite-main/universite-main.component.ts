@@ -52,6 +52,7 @@ export class UniversiteMainComponent implements OnInit {
   }
   addDepartToUniv(idDepartement:string){
     this.UniversiteService.addDepartementToUniversite(this.idUniversiteToDelete,idDepartement).subscribe(()=>this.UniversiteList=this.UniversiteList.filter(Universite=>Universite.idUniversite!=this.idUniversiteToDelete));
+    location.reload();
   }
   
   search() 

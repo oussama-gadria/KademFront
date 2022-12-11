@@ -1,6 +1,5 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-
 import { UniversiteRoutingModule } from './universite-routing.module';
 import { UniversiteMainComponent } from './universite-main/universite-main.component';
 import { UniversiteFormAddComponent } from './universite-form-add/universite-form-add.component';
@@ -21,7 +20,8 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
     CommonModule,
     UniversiteRoutingModule,
     FormsModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    
 
   ]
 })

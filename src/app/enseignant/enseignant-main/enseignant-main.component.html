@@ -1,6 +1,7 @@
 <header id="portfolio" class="w3-content " style="max-width:1300px; margin-top:80px">
     <div class="w3-container ">
     <h1>Espace Enseignant</h1>
+    
     <div class="w3-section w3-bottombar ">
     </div>
     </div>
@@ -11,12 +12,16 @@
             <div class="table-wrapper">
                 <div class="table-title">
                     <div class="row">
-                        <div class="col-sm-8 "><h2>Customer <b>Details</b></h2></div>
+                        <p class="font-weight-bold" style="color: black;">trier selon : </p>
+                        <div class="col-sm-8 ">
+                            <button   type="button" class="btn btn-primary btn-sm"(click)="tricroissant()"style="width:130px">Salaire croissant</button>
+                            <button type="button" class="btn btn-primary btn-sm" (click)="triDecroissant()" style="margin-left:10px;width:130px">Salaire Décroissant</button>
+                        </div>
                         <div class="col-sm-4">
                             <button type="button" class="btn btn-primary btn-sm" routerLink="addEnseignant">ADD Enseignant</button>
                             <div class="search-box">
                                 <i class="material-icons">&#xE8B6;</i>
-                                <input type="text" class="form-control" placeholder="Search&hellip;">
+                                <input type="text" class="form-control"  [(ngModel)]="searchEnseignant" placeholder="Search&hellip;">
                             </div>
                         </div>
                     </div>
@@ -24,29 +29,29 @@
                 <table class="table table-striped table-hover table-bordered">
                     <thead>
                         <tr>
-                            <th>Nom Enseignant <i class="fa fa-sort"></i></th>
+                            <th>Nom Enseignant</th>
                             <th>Prenom Enseignant</th>
-                            <th>Nom Matiere <i class="fa fa-sort"></i></th>
+                            <th>Nom Matiere</th>
                             <th>Email</th>
-                            <th>Age <i class="fa fa-sort"></i></th>
+                            <th>Age</th>
                             <th>Salaire</th>
                             <th>experience Par Annee</th>
                             <th>Actions</th>
                         </tr>
                     </thead>
-                    <tbody>
+                    <tbody *ngFor="let enseignant of search()">
                         <tr>
-                            <td>1</td>
-                            <td>Thomas Hardy</td>
-                            <td>89 Chiaroscuro Rd.</td>
-                            <td>Portland</td>
-                            <td>97219</td>
-                            <td>USA</td>
-                            <td>test</td>
+                            <td>{{enseignant.nomEnseignant}}</td>
+                            <td>{{enseignant.prenomEnseignant}}</td>
+                            <td>{{enseignant.nomMatiere}}</td>
+                            <td>{{enseignant.email}}</td>
+                            <td>{{enseignant.age}}</td>
+                            <td>{{enseignant.salaire}}</td>
+                            <td>{{enseignant.experienceParAnnee}} ans</td>
                             <td>
-                                <a  class="view" title="View" data-toggle="tooltip"><i class="material-icons" >&#xE417;</i></a>
+                                
                                 <a  class="edit" title="Edit" data-toggle="tooltip"><i class="material-icons" [routerLink]="['EditEnseignant',0]">&#xE254;</i></a>
-                                <a  class="delete" title="Delete" data-toggle="tooltip" href="#myModal" data-toggle="modal"><i class="material-icons">&#xE872;</i></a>
+                                <a  class="delete" title="Delete" data-toggle="tooltip" href="#myModal" data-toggle="modal" (click)="getEnseignantid(enseignant.idEnseignant)"><i class="material-icons">&#xE872;</i></a>
                             </td>
                         </tr>    
                     </tbody>
@@ -54,7 +59,6 @@
             </div>
         </div>  
     </div> 
-    <button></button>  
     </body>
     <div class="modal fade" id="myModal">
         <div class="modal-dialog" role="document">
@@ -64,10 +68,10 @@
                     
                 </div>
                 <div class="modal-body">
-                    <p>Are you sure to delete Esprit Universite </p>
+                    <p>Click Confirm to Delete  </p>
                 </div>
                 <div class="modal-footer">
-                    <button type="button" class="btn btn-primary">Save changes</button>
+                    <button type="button" class="btn btn-primary" data-dismiss="modal" (click)="delete()">Confirm</button>
                     <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
                 </div>
             </div>
