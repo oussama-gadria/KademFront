@@ -1,4 +1,8 @@
+import { club } from "./club";
+import { Contrat } from "./contrat";
+import { Departement } from "./departement";
 import { Option } from "./enum/option";
+import { equipe } from "./equipe";
 
 export class Etudiant
 {
@@ -10,8 +14,13 @@ export class Etudiant
    adresse:String;
    age:String;
    niveauEtudiant:number;
-   option:Option;
+   option:Option
    classe:number;
    moyenneE:number;
-   
+   contrats:Contrat[];
+   equipes:equipe[];
+   departement:Departement;
+   clubs:club[];
+
+
 }
