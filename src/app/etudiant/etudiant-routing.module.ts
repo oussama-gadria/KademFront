@@ -10,11 +10,13 @@ import { UpdateEtudiantComponent } from './update-etudiant/update-etudiant.compo
 const routes: Routes = [
   {path:"",component:ListEtudiantComponent},
   {path:"AddEtudiant",component:AddEtudiantComponent},
-  {path:"UpdateEtudiant",component:UpdateEtudiantComponent},
+  {path:"UpdateEtudiant/:id",component:UpdateEtudiantComponent},
 
   {path:"AddContrat/:id",component:AddContratComponent},
-  {path:"ListContrat/UpdateContrat",component:UpdateContratComponent},
+  {path: "UpdateContrat", component:UpdateContratComponent},
   {path:"ListContrat",component:ListContratComponent}
+ 
+    
 
 
 

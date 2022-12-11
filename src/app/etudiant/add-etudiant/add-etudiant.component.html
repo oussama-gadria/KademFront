@@ -4,7 +4,7 @@
                         <div class="col-md-10 offset-md-1">
                                 
     
-                            <section id="portfolio" class="w3-content " style="max-width:1300px; margin-top:80px">
+                            <section id="portfolio" class="w3-content " style="max-width:1500px; margin-top:80px">
                                 <div class="w3-container ">
                                 <h1>Espace</h1>
                                 <div class="w3-section w3-bottombar ">
@@ -138,21 +138,31 @@
                                     <p class="text-danger" style="font-size: 18px;">class is required !</p>
                                   </div>
                                 </div>
+                              </div>
+                              </form>
+                            </section>
+
+
+                            <section  class=" w3-content  offset-md-1 ">
+                            <form  class="row g-3">
                                
                                 <div class="col-md-4">
                                   <label for="validationServer04" class="form-label font-weight-bold" style="font-size:20px;">Department</label>
-                                  <select class="form-select " id="validationServer04" aria-describedby="validationServer04Feedback"  style=" border:3px solid #493ea2;height:50px;font-size:18px;" formControlName="departement" >
+                                  <select class="form-select " id="validationServer04" aria-describedby="validationServer04Feedback"  style=" border:3px solid #493ea2;height:50px;font-size:18px;" #nomDepart  >
                                     <option selected disabled value="">Choose Department</option>
-                                    <option>...</option>
+
+                                    <option *ngFor="let depart of listDepartments" [value]="depart.nomDepart">{{depart.nomDepart}} </option>
+                                    
                                   </select>
-                                  <div class="alertText" *ngIf="AddFormEtudiant.get('departement')?.touched && AddFormEtudiant.get('departement')?.errors?.['required']">
+                                  <div class="alertText" >
                                     <p class="text-danger" style="font-size: 18px;">Departement is required !</p>
                                   </div>
                                   
                                 </div>
 
-                        
-                              </div>
+                              </form>
+                            </section>
+                              
                             <!--moyenne
                             <div class="row">
                               <div class="col-md-3 ">
@@ -169,13 +179,12 @@
 
                             <div class="row">
                                 <div class="col-12">
-                                  <button class="btn btn-primary" type="submit">Submit form</button>
+                                  <button class="btn btn-primary" (click)="AddEtudiant(nomDepart.value)">Submit form</button>
                                 </div>
                             </div>
 
 
-                            </form>
-                            </section>
+                           
        
                         </div>
                         </div>

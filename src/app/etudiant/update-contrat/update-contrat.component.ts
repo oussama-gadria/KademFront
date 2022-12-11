@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 
 @Component({
@@ -7,6 +7,8 @@ import { FormControl, FormGroup, Validators } from '@angular/forms';
   styleUrls: ['./update-contrat.component.css']
 })
 export class UpdateContratComponent implements OnInit {
+
+
 
   UpdateContratForm=new FormGroup({  
     dateDebutContrat:new FormControl('',Validators.required),

@@ -51,29 +51,31 @@
                         </thead>
     
                         <tbody>
-                            <tr>
-                                <td>22/12/2020</td>
-                                <td>23/12/2020</td>
-                                <td>RESEAUX</td>
-                                <td>true</td>
-                                <td>200</td>
-                                <td>Nour makni</td>
+                            <tr *ngFor="let contrat of listContrat">
+                                <td>{{contrat.dateDebutContrat}}</td>
+                                <td>{{contrat.dateFinContrat}}</td>
+                                <td>{{contrat.specialite}}</td>
+                                <td>{{contrat.archive}}</td>
+                                <td>{{contrat.montantC}}</td>
+                                <td>{{contrat.etudiant.nomE}} {{contrat.etudiant.prenomE}}</td>
                             
                                 <td colspan="3">
                                 <div class="d-flex">
                                     <button type="button" class="btn btn-primary px-2 "><span class="bi bi-eye-fill"></span></button>
-                                    <button type="button" class="btn btn-warning px-2 mx-1" ><span class="bi bi-pencil-fill"></span></button>
-                                    <button type="button" class="btn btn-danger px-2 mx-1" data-target="#myModal" data-toggle="modal"><span class="bi bi-trash"></span></button>
+                                    <button type="button" class="btn btn-warning px-2 mx-1" ><span class="bi bi-pencil-fill" (click)="updateContrat()"></span></button>
+                                    <button type="button" class="btn btn-danger px-2 mx-1" data-target="#myModal" data-toggle="modal" (click)="getIdContratToDelete(contrat.idContrat)"><span class="bi bi-trash"></span></button>
                                 </div>  
-                                
                                 </td>
+
                             </tr>    
                         </tbody>
                     </table>
                 </div>
             </div>  
         </div> 
+        
         </body>
+      
     
          <!-- modal delete  -->
         <div class="modal fade" id="myModal">
@@ -87,12 +89,13 @@
                         <p>Are you sure you to delete ? </p>
                     </div>
                     <div class="modal-footer">
-                        <button type="button" class="btn btn-primary" data-dismiss="modal">Confirm</button>
+                        <button type="button" class="btn btn-primary" data-dismiss="modal" (click)="deleteContrat()">Confirm</button>
                         <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
                     </div>
                 </div>
             </div>
         </div>
+     
     
 
 

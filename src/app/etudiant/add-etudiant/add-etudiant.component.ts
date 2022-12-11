@@ -1,5 +1,11 @@
 import { Component, OnInit } from '@angular/core';
-import { FormControl, FormGroup, Validators } from '@angular/forms';
+import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
+import { Router } from '@angular/router';
+
+import { Departement } from 'src/app/Core/models/departement';
+import { Etudiant } from 'src/app/Core/models/etudiant';
+import { DepartementService } from 'src/app/Core/services/departement.service';
+import { EtudiantService } from 'src/app/Core/services/etudiant.service';
 
 @Component({
   selector: 'app-add-etudiant',
@@ -7,31 +13,54 @@ import { FormControl, FormGroup, Validators } from '@angular/forms';
   styleUrls: ['./add-etudiant.component.css']
 })
 export class AddEtudiantComponent implements OnInit {
+  nomDepart:String
+  listDepartments:Departement[]; 
+  etudiant:Etudiant
+  
 
-
-  AddFormEtudiant=new FormGroup({  
-    nomE:new FormControl('',Validators.required),
-    prenomE:new FormControl('',Validators.required),
-    email:new FormControl('',[Validators.required,Validators.email]),
-    numeroTelephone:new FormControl('',[Validators.required,Validators.minLength(8)]),
-    adresse:new FormControl('',Validators.required),
-    age:new FormControl('',Validators.required),
-    niveauEtudiant:new FormControl('',Validators.required),
-    option:new FormControl('',Validators.required),
-    classe:new FormControl('',Validators.required) ,
-    moyenneE:new FormControl('',Validators.required),
-    departement:new FormControl('',Validators.required)
+    AddFormEtudiant=this.fb.group({  
+    nomE:["",Validators.required],
+    prenomE:["",Validators.required],
+    email:["",[Validators.required,Validators.email]],
+    numeroTelephone:["",[Validators.required,Validators.minLength(8)]],
+    adresse:["",Validators.required],
+    age:["",Validators.required],
+    niveauEtudiant:[0,Validators.required],
+    option:["",Validators.required],
+    classe:[0,Validators.required],
+    moyenneE:[0,Validators.required]
+   
   })
 
 
 
 
+  constructor(private DepartServ:DepartementService, private etudiantServ:EtudiantService,private route:Router, private fb:FormBuilder) { }
 
-  constructor() { }
+
 
   ngOnInit(): void {
+    this.getAllDepartments();
+    console.log(this.listDepartments)
   }
   
+  ///// recuperez la liste des departements pour afficher dans la formulaire de l'ajout de l'etudiant
+  getAllDepartments()
+  {
+    this.DepartServ.getDepart().subscribe((data)=>this.listDepartments=data);
+  }
+
+
+  AddEtudiant(nom:string)
+  {
+  let etudiant=this.AddFormEtudiant.value as unknown as Etudiant;
+  this.etudiantServ.addEtudiant(nom,etudiant).subscribe((data)=>
+  {this.etudiant=data
+  this.route.navigate(['/etudiant']);
+  })
+  }
+
+
 
 
 

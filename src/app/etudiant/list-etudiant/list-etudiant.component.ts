@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { Etudiant } from 'src/app/Core/models/etudiant';
+import { EtudiantService } from 'src/app/Core/services/etudiant.service';
 
 @Component({
   selector: 'app-list-etudiant',
@@ -7,10 +9,12 @@ import { Router } from '@angular/router';
   styleUrls: ['./list-etudiant.component.css']
 })
 export class ListEtudiantComponent implements OnInit {
-
-  constructor(private route:Router) { }
+  listEtudiant:Etudiant[];
+  IdEtudiantToDelete:number;
+  constructor(private route:Router, private etudiantServ:EtudiantService) { }
 
   ngOnInit(): void {
+  this.getAllEtudiant();
   }
 
 
@@ -23,9 +27,25 @@ export class ListEtudiantComponent implements OnInit {
   {
     this.route.navigate(['etudiant/AddContrat',id]);
   }
-  GoToUpdateEtudiant()
+  GoToUpdateEtudiant(id:number)
   {
-    this.route.navigate(['etudiant/UpdateEtudiant'])
+    this.route.navigate(['etudiant/UpdateEtudiant',id])
   }
 /////////////////
+
+getAllEtudiant()
+{
+  this.etudiantServ.getAllEtudiant().subscribe((data)=>this.listEtudiant=data);
+}
+
+getIdEtudiantToDelete(id:number)
+{
+this.IdEtudiantToDelete=id;
+}
+
+
+deleteEtudiant()
+{
+  this.etudiantServ.deleteEtudiant(this.IdEtudiantToDelete).subscribe(() =>this.getAllEtudiant())
+}
 }

@@ -139,19 +139,6 @@
                                     <p class="text-danger" style="font-size: 18px;">class is required !</p>
                                   </div>
                                 </div>
-                               
-                                <div class="col-md-4">
-                                  <label for="validationServer04" class="form-label font-weight-bold" style="font-size:20px;">Department</label>
-                                  <select class="form-select " id="validationServer04" aria-describedby="validationServer04Feedback"  style=" border:3px solid #493ea2;height:50px;font-size:18px;" formControlName="departement" >
-                                    <option selected disabled value="">Choose Department</option>
-                                    <option>...</option>
-                                  </select>
-                                  <div class="alertText" *ngIf="UpdateFormEtudiant.get('departement')?.touched && UpdateFormEtudiant.get('departement')?.errors?.['required']">
-                                    <p class="text-danger" style="font-size: 18px;">Departement is required !</p>
-                                  </div>
-                                  
-                                </div>
-
                         
                               </div>
                             <!--moyenne
@@ -183,7 +170,7 @@
 
                             <div class="row">
                                 <div class="col-12">
-                                  <button class="btn btn-primary" type="submit">Submit form</button>
+                                  <button class="btn btn-primary" type="submit" (click)="updateEtudiant()">Submit form</button>
                                 </div>
                             </div>
 

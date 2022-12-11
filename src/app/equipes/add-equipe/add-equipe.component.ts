@@ -35,6 +35,6 @@ export class AddEquipeComponent implements OnInit {
     this.equipeService.addEquipeWithResponsable(this.equipe,id).subscribe(()=>this.listEquipe=[this.equipe,...this.listEquipe]);
     console.log(this.myForm);
     this.route.navigate(['/equipes'])
-
+ 
   }
 }
