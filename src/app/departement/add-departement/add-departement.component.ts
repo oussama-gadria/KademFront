@@ -1,5 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
+import { Router } from '@angular/router';
+import { Departement } from 'src/app/Core/models/departement';
+import { DepartementService } from 'src/app/Core/services/departement.service';
 
 @Component({
   selector: 'app-add-departement',
@@ -8,16 +11,23 @@ import { FormControl, FormGroup, Validators } from '@angular/forms';
 })
 export class AddDepartementComponent implements OnInit {
 
-  myForm = new FormGroup({
-    name: new FormControl('',Validators.required)
-  })
-  constructor() { }
+  ListDepart:Departement[];
+  departement:Departement
 
+  myForm = new FormGroup({
+    name: new FormControl('',Validators.required),
+    bloc: new FormControl('',Validators.required)
+  })
+  constructor(private route:Router,private departementService:DepartementService) { 
+    this.departement=new Departement();
+  }
+
+ 
   ngOnInit(): void {
   }
 
-  onSubmit(){
-    console.log(this.myForm.get('name'))
+  GoToAddDep(){
+    this.departementService.addDepartement(this.departement).subscribe(()=>this.ListDepart=[this.departement,...this.ListDepart]);
+    this.route.navigate(['departement']);
   }
-
 }
