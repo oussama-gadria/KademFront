@@ -20,10 +20,10 @@
                                   <label for="validationServer01" class="form-label font-weight-bold" style="font-size:20px;">Equipe Name</label>
                                   <input type="text" class="form-control" style=" border:3px solid #493ea2;height:50px;font-size:18px;" formControlName="fName" required pattern="[a-zA-Z ]*" [(ngModel)]="equipe.nomEquipe">
                                   <div class="alertText" *ngIf="myForm.get('fName').touched && myForm.get('fName').hasError('required')">
-                                    <p class="text-danger">this input Name is required</p>
+                                    <p [ngClass]="'redAlert'">this input Name is required</p>
                                   </div>
-                                  <div class="alert alert-danger" *ngIf="myForm.get('fName').touched && myForm.get('fName').hasError('pattern')">
-                                    Only Characters
+                                  <div class="alertText" *ngIf="myForm.get('fName').touched && myForm.get('fName').hasError('pattern')">
+                                    <p [ngClass]="'redAlert'">Only Characters</p>
                                   </div>
                                 </div>
 
@@ -33,13 +33,13 @@
                                   <label for="validationServer02" class="form-label font-weight-bold" style="font-size:20px;">Score</label>
                                   <input type="number" class="form-control " id="validationServer02" value="Otto"  style=" border:3px solid #493ea2;height:50px;font-size:18px;" formControlName="fScore" required min="0" max="100" [(ngModel)]="equipe.score">
                                   <div class="alertText" *ngIf="myForm.get('fScore').touched && myForm.get('fScore').hasError('required')">
-                                    this input Score is required
+                                    <p [ngStyle]="{'color':style1,'font-weight':style2,'font-size':style3}">this input Score is required</p>
                                   </div>
-                                  <div class="alert alert-danger" *ngIf="myForm.get('fScore').touched && myForm.get('fScore').hasError('min')">
-                                    Minimum score is 0
+                                  <div class="alertText" *ngIf="myForm.get('fScore').touched && myForm.get('fScore').hasError('min')">
+                                    <p [ngStyle]="{'color':style1,'font-weight':style2,'font-size':style3}">Minimum score is 0</p>
                                   </div>
-                                  <div class="alert alert-danger" *ngIf="myForm.get('fScore').touched && myForm.get('fScore').hasError('max')">
-                                    Maximum score is 100
+                                  <div class="alertText" *ngIf="myForm.get('fScore').touched && myForm.get('fScore').hasError('max')">
+                                    <p [ngStyle]="{'color':style1,'font-weight':style2,'font-size':style3}">Maximum score is 100</p>
                                   </div>
                                 </div>
 
@@ -52,8 +52,8 @@
                                     <option selected disabled value="">Choose...</option>
                                     <option *ngFor="let enseignant of listEnseignant" [value]="enseignant.idEnseignant">{{enseignant.nomEnseignant}} {{enseignant.prenomEnseignant}}</option>
                                   </select>
-                                  <div id="validationServer03Feedback" class="alert alert-danger" *ngIf="myForm.get('fResponsable').touched && myForm.get('fResponsable').hasError('required')">
-                                    this input Responsable is required
+                                  <div id="validationServer03Feedback" class="alertText" *ngIf="myForm.get('fResponsable').touched && myForm.get('fResponsable').hasError('required')">
+                                    <p [ngClass]="'redAlert'">this input Responsable is required</p>
                                   </div>
                                 </div>
 
@@ -66,8 +66,8 @@
                                     <option>SENIOR</option>
                                     <option>EXPERT</option>
                                   </select>
-                                  <div id="validationServer04Feedback" class="alert alert-danger" *ngIf="myForm.get('fNiveau').touched && myForm.get('fNiveau').hasError('required')">
-                                    this input Niveau is required
+                                  <div id="validationServer04Feedback" class="alertText" *ngIf="myForm.get('fNiveau').touched && myForm.get('fNiveau').hasError('required')">
+                                    <p [ngStyle]="{'color':style1,'font-weight':style2,'font-size':style3}">this input Niveau is required</p>
                                   </div>
                                 </div>
 

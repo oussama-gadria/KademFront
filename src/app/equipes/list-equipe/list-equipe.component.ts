@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { equipe } from 'src/app/Core/models/equipe';
+import { Etudiant } from 'src/app/Core/models/etudiant';
 import { EquipeService } from 'src/app/Core/services/equipe.service';
 
 @Component({
@@ -22,11 +23,15 @@ export class ListEquipeComponent implements OnInit {
   }
 
   getIdEquipe(id:number){
-   
    this.idEquipeToDelete=id;
   }
+
   deleteEquipe(){
    this.equipeService.deleteEquipe(this.idEquipeToDelete).subscribe(()=>this.listEquipe=this.listEquipe.filter(Equipe =>Equipe.idEquipe!=this.idEquipeToDelete));
+  }
+
+  membres(listEtudiant:Etudiant[]){
+    this.equipeService.listEtudiant=listEtudiant;
   }
 
 

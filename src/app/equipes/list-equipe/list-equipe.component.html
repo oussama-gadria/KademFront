@@ -53,11 +53,11 @@
                             <td>{{equipe.responsable}}</td>
                             <td>{{equipe.niveau}}</td>
                             <td>
-                                <a routerLink="listMembres" class="view" title="View" data-toggle="tooltip"><i class="material-icons">&#xE417;</i></a>
+                                <a (click)="membres(equipe.etudiant)" routerLink="listMembres" class="view" title="View" data-toggle="tooltip"><i class="material-icons">&#xE417;</i></a>
                             </td>
                             <td>
                                 <a [routerLink]="['updateEquipe',0]" class="edit" title="Edit" data-toggle="tooltip"><i class="material-icons">&#xE254;</i></a>
-                                <button class="delete" title="Delete" data-toggle="tooltip" data-target="#myModal" (click)="getIdEquipe(equipe.idEquipe)" data-toggle="modal"><i class="material-icons">&#xE872;</i></button>
+                                <a href="#" class="delete" title="Delete" data-toggle="tooltip" data-target="#myModal" (click)="getIdEquipe(equipe.idEquipe)" data-toggle="modal"><i class="material-icons">&#xE872;</i></a>
                             </td>
                         </tr>    
                     </tbody>
@@ -76,7 +76,7 @@
                     
                 </div>
                 <div class="modal-body">
-                    <p>Are you sure to delete Esprit Universite </p>
+                    <p>Are you sure to delete this Team</p>
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-primary" data-dismiss="modal" (click)="deleteEquipe()">Confirm</button>

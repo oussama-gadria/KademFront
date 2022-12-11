@@ -1,3 +1,5 @@
+import { Option } from "./enum/option";
+
 export class Etudiant
 {
    idEtudiant:number;
@@ -8,7 +10,7 @@ export class Etudiant
    adresse:String;
    age:String;
    niveauEtudiant:number;
-   
+   option:Option;
    classe:number;
    moyenneE:number;
    
