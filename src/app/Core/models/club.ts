@@ -1,3 +1,4 @@
-export class club{
-    
+export class club {
+    idClub:number;
+    nomClub:string;
 }

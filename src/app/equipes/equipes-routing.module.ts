@@ -8,7 +8,7 @@ import { UpdateEquipeComponent } from './update-equipe/update-equipe.component';
 
 const routes: Routes = [
   {path:"addEquipe",component:AddEquipeComponent},
-  {path:"updateEquipe",component:UpdateEquipeComponent},
+  {path:"updateEquipe/:id",component:UpdateEquipeComponent},
   {path:"listMembres",component:ListEtudiantComponent},
   {path:"**",component:ListEquipeComponent}
 ];
