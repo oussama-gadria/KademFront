@@ -34,7 +34,7 @@ export class UniversiteServiceService {
     return this.http.get(this.url+'/'+'getChiffreAffaireEntreDeuxDate'+'/'+startDate+'/'+endDate)
   }
   getDetailsUniversite(idUniversite:number){
-    return this.http.get(this.url+'/'+idUniversite);
+    return this.http.get(this.url+'/'+'detailsUniversite'+'/'+idUniversite);
   }
   getEvenementByIdUniversite(idUniversite:number,startDate:Date,endDate:Date){
     return this.http.get(this.url+'/'+idUniversite+'/'+startDate+'/'+endDate);
