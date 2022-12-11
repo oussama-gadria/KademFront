@@ -6,7 +6,7 @@
     
                             <section id="portfolio" class="w3-content " style="max-width:1300px; margin-top:80px">
                                 <div class="w3-container ">
-                                <h1>Espace</h1>
+                                <h1>Espace Evenement</h1>
                                 <div class="w3-section w3-bottombar ">
                                 </div>
                                 </div>
@@ -15,56 +15,41 @@
                           
                             <section  class=" w3-content  offset-md-2 ">
 
-                             <form class="row g-3">
+                             <form class="row g-3" [formGroup]="myformeevent">
 
-                                <div class="col-md-4"  >
-                                  <label for="validationServer01" class="form-label font-weight-bold" style="font-size:20px;">First name</label>
-                                  <input type="text" class="form-control " id="validationServer01" value="Mark" style=" border:3px solid #493ea2;height:50px;font-size:18px;" >
-                                  <div class="valid-feedback">
-                                    Looks good!
-                                  </div>
+                                <div class="col-md-7"  >
+                                  <label for="validationServer01" class="form-label font-weight-bold" style="font-size:15px;">Event Name</label>
+                                  <input type="text" class="form-control " id="validationServer01" formControlName="nomEvenement" value="Mark" style=" border:3px solid #493ea2;height:39px;font-size:15px;width: 400px; border-radius: 10px;" >
+                                  <div class="alertText" *ngIf="myformeevent.get('nomEvenement')?.touched && myformeevent.get('nomEvenement')?.errors?.['required']">
+                                    <p class="text-danger"> event name is required !</p>
+                                </div>
                                 </div>
 
 
 
-                                <div class="col-md-4">
-                                  <label for="validationServer02" class="form-label font-weight-bold" style="font-size:20px;">Last name</label>
-                                  <input type="text" class="form-control " id="validationServer02" value="Otto"  style=" border:3px solid #493ea2;height:50px;font-size:18px;" >
-                                  <div class="valid-feedback">
-                                    Looks good!
-                                  </div>
+                                <div class="col-md-7">
+                                  <label for="validationServer02" class="form-label font-weight-bold" style="font-size:15px;">Event Location</label>
+                                  <input type="text" class="form-control " id="validationServer02" formControlName="emplacementEvenement" value="Otto"  style=" border:3px solid #493ea2;height:39px;font-size:15px;width: 400px; border-radius: 10px;" >
+                                  <div class="alertText" *ngIf="myformeevent.get('emplacementEvenement')?.touched && myformeevent.get('emplacementEvenement')?.errors?.['required']">
+                                    <p class="text-danger">event location is required !</p>
+                                </div>
                                 </div>
 
 
 
                           
-                                <div class="col-md-6">
-                                  <label for="validationServer03" class="form-label font-weight-bold" style="font-size:20px;">City</label>
-                                  <input type="text" class="form-control " id="validationServer03" aria-describedby="validationServer03Feedback"  style=" border:3px solid #493ea2;height:50px;font-size:18px;">
+                                <div class="col-md-7">
+                                  <label for="validationServer03" class="form-label font-weight-bold" style="font-size:15px;">date</label>
+                                  <input type="text" class="form-control " id="validationServer03" aria-describedby="validationServer03Feedback"  style=" border:3px solid #493ea2;height:39px;font-size:15px;width: 400px; border-radius: 10px;">
                                   <div id="validationServer03Feedback" class="invalid-feedback">
                                     Please provide a valid city.
                                   </div>
                                 </div>
 
 
-                                <div class="col-md-3">
-                                  <label for="validationServer04" class="form-label font-weight-bold" style="font-size:20px;">State</label>
-                                  <select class="form-select " id="validationServer04" aria-describedby="validationServer04Feedback"  style=" border:3px solid #493ea2;height:50px;font-size:18px;">
-                                    <option selected disabled value="">Choose...</option>
-                                    <option>...</option>
-                                  </select>
-                                  <div id="validationServer04Feedback" class="invalid-feedback">
-                                    Please select a valid state.
-                                  </div>
-                                </div>
-
-
                                 
-
-
-                                
-                                <div class="col-12">
-                                  <button class="btn btn-primary" type="submit">Submit form</button>
+                                <div class="col-12 my-3">
+                                  <button class="btn btn-primary" type="submit">Update</button>
                                 </div>
                               </form>
                             </section>

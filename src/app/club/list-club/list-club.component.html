@@ -25,7 +25,7 @@
                     <div class="row">
                         <div class="col-sm-8 " style="color:black"><h2>Club <b>Details</b></h2></div>
                         <div class="col-sm-4">
-                            <button type="button" class="btn btn-primary btn-sm">ADD Club</button>
+                            <button type="button" class="btn btn-primary btn-sm" (click)="GoToAddClub()" >ADD Club</button>
                             <div class="search-box">
                                 <i class="material-icons">&#xE8B6;</i>
                                 <input type="text" class="form-control" placeholder="Search&hellip;">
@@ -36,23 +36,23 @@
                 <table class="table table-striped table-hover table-bordered">
                     <thead>
                         <tr>
-                            <th>id_club <i class="fa fa-sort"></i></th>
+                            <th>id_club </th>
                             <th>Club Name</th>
-                            <th>Responsible First Name <i class="fa fa-sort"></i></th>
-                            <th>Responsible Last Name</th>
-                            <th>Responsible Email <i class="fa fa-sort"></i></th>
+                            <th>Manager First Name</th>
+                            <th>Manager Last Name</th>
+                            <th>Manager Email </th>
                         </tr>
                     </thead>
                     <tbody>
-                        <tr>
-                            <td>1</td>
-                            <td>Thomas Hardy</td>
-                            <td>89 Chiaroscuro Rd.</td>
-                            <td>Portland</td>
-                            <td>97219</td>
+                        <tr *ngFor="let club of Listclub">
+                            <td>{{club.idClub}}</td>
+                            <td>{{club.nomClub}}</td>
+                            <td>{{this.club.ResponsableClub.prenomE}}</td>
+                            <td>.</td>
+                            <td>.</td>
                             <td>
-                                <a href="#" class="edit" title="Edit" data-toggle="tooltip"><i class="material-icons">&#xE254;</i></a>
-                                <a href="#" class="delete" title="Delete" data-toggle="tooltip"><i class="material-icons">&#xE872;</i></a>
+                                <a  class="edit" title="Edit" data-toggle="tooltip"><i class="material-icons" (click)="GoToUpdateClub()"  >&#xE254;</i> </a>
+                                <a  class="delete" title="Delete" data-toggle="tooltip"   data-target="#myModal"  (click)="getIdToDelete(club.idClub)"  data-toggle="modal"><i class="material-icons">&#xE872;</i></a>
                             </td>
                             <td><button type="button" class="btn btn-primary btn-sm">ADD Event</button></td>
                         </tr>    
@@ -61,5 +61,28 @@
             </div>
         </div>  
     </div> 
-    
     </body>
+    <div class="modal fade" id="myModal">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">Confirm Delete</h5>
+                    
+                </div>
+                <div class="modal-body">
+                    <p>Are you sure to delete this club ? </p>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-primary"  data-dismiss="modal" (click)="DeleteClub()" >Confirm</button>
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+
+
+
+    
+   
