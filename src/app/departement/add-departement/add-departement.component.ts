@@ -11,18 +11,23 @@ import { DepartementService } from 'src/app/Core/services/departement.service';
 })
 export class AddDepartementComponent implements OnInit {
 
+  ListDepart:Departement[];
+  departement:Departement
+
   myForm = new FormGroup({
     name: new FormControl('',Validators.required),
     bloc: new FormControl('',Validators.required)
   })
-  constructor(private route:Router,private departementService:DepartementService) { }
-  ListDepart:Departement[];
+  constructor(private route:Router,private departementService:DepartementService) { 
+    this.departement=new Departement();
+  }
+
+ 
   ngOnInit(): void {
   }
 
   GoToAddDep(){
-    
+    this.departementService.addDepartement(this.departement).subscribe(()=>this.ListDepart=[this.departement,...this.ListDepart]);
     this.route.navigate(['departement']);
-    this.departementService.getDepart().subscribe((data:Departement[])=>this.ListDepart=data);
   }
 }

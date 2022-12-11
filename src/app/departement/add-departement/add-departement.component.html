@@ -20,7 +20,7 @@
                               <div class="row"  >
                                 <div class="col-md-4"  >
                                   <label for="validationServer01" class="form-label font-weight-bold" style="font-size:20px;">Department name</label>
-                                  <input type="text" class="form-control " id="validationServer01" formControlName="name" style=" border:3px solid #493ea2;height:50px;font-size:18px;" formControlName="name">
+                                  <input type="text" class="form-control " id="validationServer01" formControlName="name" style=" border:3px solid #493ea2;height:50px;font-size:18px;" formControlName="name" [(ngModel)]="departement.nomDepart">
                                   <div class="alertText" *ngIf="myForm.get('name')?.touched && myForm.get('name')?.errors?.['required']">
                                     <p class="text-danger">Please enter the department name to continue !</p>
                                 </div>
@@ -30,7 +30,7 @@
                               <div class="row"  >
                                 <div class="col-md-3">
                                   <label for="validationServer04" class="form-label font-weight-bold" style="font-size:20px;">Bloc</label>
-                                  <select class="form-select " id="validationServer04" aria-describedby="validationServer04Feedback"  style=" border:3px solid #493ea2;height:50px;font-size:18px;" formControlName="bloc">
+                                  <select class="form-select " id="validationServer04" aria-describedby="validationServer04Feedback"  style=" border:3px solid #493ea2;height:50px;font-size:18px;" formControlName="bloc" [(ngModel)]="departement.bloc">
                                     <option selected disabled value="">Choose a bloc</option>
                                     <option>A</option>
                                     <option>B</option>

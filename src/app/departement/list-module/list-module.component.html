@@ -43,14 +43,14 @@
                         </tr>
                     </thead>
                     <tbody>
-                        <tr>
-                            <td>1</td>
-                            <td>USA</td>
-                            <td>aaaa</td>
+                        <tr *ngFor="let mod of ListModule">
+                            <td>{{mod.idModule}}</td>
+                            <td>{{mod.nomModule}}</td>
+                            <td>{{mod.nbrMatieres}}</td>
                             <td>
                                 <a href="#" class="view" title="View" data-toggle="tooltip"><i class="material-icons">&#xE417;</i></a>
-                                <a routerLink="UpdateModule" class="edit" title="Edit" data-toggle="tooltip"><i class="material-icons">&#xE254;</i></a>
-                                <a href="#" class="delete" title="Delete" data-toggle="tooltip"><i class="material-icons">&#xE872;</i></a>
+                                <a [routerLink]="['UpdateModule']" class="edit" title="Edit" data-toggle="tooltip"><i class="material-icons">&#xE254;</i></a>
+                                <a href="#" class="delete" title="Delete" data-toggle="tooltip"   data-target="#myModal"   (click)="getIdTooDelete(mod.idModule)" data-toggle="modal"><i class="material-icons">&#xE872;</i></a>
                             </td>
                         </tr>    
                     </tbody>
@@ -58,5 +58,22 @@
             </div>
         </div>  
     </div> 
-    
+  
     </body>
+    <div class="modal fade" id="myModal">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">Confirm Delete</h5>
+                    
+                </div>
+                <div class="modal-body">
+                    <p>Are you sure to delete Esprit Universite </p>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-primary"  data-dismiss="modal" (click)="deleteModule()">Confirm</button>
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                </div>
+            </div>
+        </div>
+    </div>

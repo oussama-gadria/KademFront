@@ -20,7 +20,7 @@
                               <div class="row"  >
                                 <div class="col-md-4"  >
                                   <label for="validationServer01" class="form-label font-weight-bold" style="font-size:20px;">Module name</label>
-                                  <input type="text" class="form-control " id="validationServer01" formControlName="moduleNom" style=" border:3px solid #493ea2;height:50px;font-size:18px;" formControlName="moduleNom">
+                                  <input type="text" class="form-control " id="validationServer01" formControlName="moduleNom" style=" border:3px solid #493ea2;height:50px;font-size:18px;" formControlName="moduleNom"  [(ngModel)]="module.nomModule">
                                   <div class="alertText" *ngIf="myFormM.get('moduleNom')?.touched && myFormM.get('moduleNom')?.errors?.['required']">
                                     <p class="text-danger">Please enter the module name to continue !</p>
                                 </div>
@@ -30,7 +30,7 @@
                               <div class="row"  >
                                 <div class="col-md-3">
                                   <label for="validationServer04" class="form-label font-weight-bold" style="font-size:20px;">Subject number</label>
-                                  <select class="form-select " id="validationServer04" aria-describedby="validationServer04Feedback"  style=" border:3px solid #493ea2;height:50px;font-size:18px;" formControlName="moduleNbr">
+                                  <select class="form-select " id="validationServer04" aria-describedby="validationServer04Feedback"  style=" border:3px solid #493ea2;height:50px;font-size:18px;" formControlName="moduleNbr" [(ngModel)]="module.nbrMatieres">
                                     <option selected disabled value="">Choose a number</option>
                                     <option>1</option>
                                     <option>2</option>
@@ -55,9 +55,9 @@
                               <div class="row"  >
                                 <div class="col-md-4">
                                   <label for="validationServer04" class="form-label font-weight-bold" style="font-size:20px;">Department name</label>
-                                  <select class="form-select " id="validationServer04" aria-describedby="validationServer04Feedback"  style=" border:3px solid #493ea2;height:50px;font-size:18px;" formControlName="DepartmentNom">
+                                  <select class="form-select " id="validationServer04" aria-describedby="validationServer04Feedback"  style=" border:3px solid #493ea2;height:50px;font-size:18px;" formControlName="DepartmentNom" required #nomDep>
                                     <option selected disabled value="">Choose a Department name</option>
-                                    <option>1</option>
+                                    <option *ngFor="let item of ListDep" [value]="item.nomDepart">{{item.nomDepart}}</option>
                          
                                   </select>
                                   <div class="alertText" *ngIf="myFormM.get('DepartmentNom')?.touched && myFormM.get('DepartmentNom')?.errors?.['required']">
@@ -72,7 +72,7 @@
 
                                 
                                 <div class="col-12">
-                                  <button class="btn btn-primary" type="submit">Add</button>
+                                  <button class="btn btn-primary" type="submit" (click)="AddMod(nomDep.value)">Add</button>
                                 </div>
                               </form>
                             </section>

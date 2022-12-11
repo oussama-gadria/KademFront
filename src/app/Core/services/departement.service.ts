@@ -1,9 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
-import { niveau } from '../models/enum/niveau';
-import { equipe } from '../models/equipe';
-import { Etudiant } from '../models/etudiant';
 import { Departement } from '../models/departement';
 
 @Injectable({
