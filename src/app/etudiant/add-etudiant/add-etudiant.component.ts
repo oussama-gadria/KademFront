@@ -12,13 +12,15 @@ export class AddEtudiantComponent implements OnInit {
   AddFormEtudiant=new FormGroup({  
     nomE:new FormControl('',Validators.required),
     prenomE:new FormControl('',Validators.required),
-    email:new FormControl('',[Validators.required,Validators.pattern("[a-zA-Z0-9._-]+@[a-zA-Z0-9._-]+.[a-zA-Z.]{2,15}")]),
-    numeroTelephone:new FormControl('',[Validators.required]),
+    email:new FormControl('',[Validators.required,Validators.email]),
+    numeroTelephone:new FormControl('',[Validators.required,Validators.minLength(8)]),
     adresse:new FormControl('',Validators.required),
     age:new FormControl('',Validators.required),
     niveauEtudiant:new FormControl('',Validators.required),
+    option:new FormControl('',Validators.required),
     classe:new FormControl('',Validators.required) ,
-    moyenneE:new FormControl('',Validators.required)
+    moyenneE:new FormControl('',Validators.required),
+    departement:new FormControl('',Validators.required)
   })
 
 
@@ -29,6 +31,7 @@ export class AddEtudiantComponent implements OnInit {
 
   ngOnInit(): void {
   }
+  
 
 
 

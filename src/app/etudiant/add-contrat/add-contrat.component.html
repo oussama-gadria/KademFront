@@ -1,0 +1,99 @@
+<section class="colorRegister">
+    <div class="sigupbloc" >
+                        <div class="row no-gutters">
+                        <div class="col-md-10 offset-md-1">
+                                
+    
+                            <section id="portfolio" class="w3-content " style="max-width:1300px; margin-top:80px">
+                                <div class="w3-container ">
+                                <h1>Espace</h1>
+                                <div class="w3-section w3-bottombar ">
+                                </div>
+                                </div>
+                            </section>
+                          
+                          
+                            <section  class=" w3-content  offset-md-2 ">
+
+                             <form [formGroup]="AddContratForm" class="row g-3">
+                           
+                            <!--date debut contrat-->
+                              <div class="row  ">
+                                <div class="col-md-6 "  >
+                                  <label for="validationServer01" class="form-label font-weight-bold" style="font-size:20px;">Date Debut Contrat</label>
+                                  <input type="text" class="form-control " id="validationServer01" value="" style=" border:3px solid #493ea2;height:50px;font-size:18px;border-radius:15px;" placeholder="Date debut contrat" formControlName="dateDebutContrat">
+                              
+                                  <div class="alertText" *ngIf="AddContratForm.get('dateDebutContrat')?.touched && AddContratForm.get('dateDebutContrat')?.errors?.['required']">
+                                    <p class="text-danger" style="font-size: 18px;" >Date Debut is required ! </p>
+                                  </div>
+                                </div>
+
+
+                            <!--date fin contrat-->
+                                <div class="col-md-6 ">
+                                  <label for="validationServer02" class="form-label font-weight-bold" style="font-size:20px;">Date Fin</label>
+                                  <input type="text" class="form-control " id="validationServer02" value="Otto"  style=" border:3px solid #493ea2;height:50px;font-size:18px;border-radius:15px;"placeholder="Last Name" formControlName="dateFinContrat" >
+                                  <div class="alertText" *ngIf="AddContratForm.get('dateFinContrat')?.touched && AddContratForm.get('dateFinContrat')?.errors?.['required']">
+                                    <p class="text-danger" style="font-size: 18px;">Date Fin is required ! </p>
+                                  </div>
+                                </div>
+                              </div>
+
+                        
+                                <!--specialite-->
+                                <div class="row">
+                                <div class="col-md-3">
+                                  <label for="validationServer04" class="form-label font-weight-bold" style="font-size:20px;">Specialite</label>
+                                  <select class="form-select " id="validationServer04" aria-describedby="validationServer04Feedback"  style=" border:3px solid #493ea2;height:50px;font-size:18px;"  formControlName="specialite">
+                                    <option selected disabled value="">Choose Specialite</option>
+                                    <option>1</option>
+                                    <option>2</option>
+                                    <option>3</option>
+                                    <option>4</option>
+                                    <option>5</option>
+                                  </select>
+                                  <div class="alertText" *ngIf="AddContratForm.get('specialite')?.touched && AddContratForm.get('specialite')?.errors?.['required']">
+                                    <p class="text-danger" style="font-size: 18px;">Specialite is required !</p>
+                                  </div>
+                                </div>
+
+                                
+                            <!--archive-->
+                            <div class="col-md-6 ">
+                                <label for="validationServer02" class="form-label font-weight-bold" style="font-size:20px;">Archive</label>
+                                <input type="text" class="form-control " id="validationServer02" value="Otto"  style=" border:3px solid #493ea2;height:50px;font-size:18px;border-radius:15px;"placeholder="archive" formControlName="archive" >
+                                <div class="alertText" *ngIf="AddContratForm.get('archive')?.touched && AddContratForm.get('archive')?.errors?.['required']">
+                                  <p class="text-danger" style="font-size: 18px;">Last name is required ! </p>
+                                </div>
+                              </div>
+                            </div>
+
+
+                             <!--montantC-->
+                            <div class="col-md-6 ">
+                                    <label for="validationServer02" class="form-label font-weight-bold" style="font-size:20px;">Montant contrat</label>
+                                    <input type="text" class="form-control " id="validationServer02" value="Otto"  style=" border:3px solid #493ea2;height:50px;font-size:18px;border-radius:15px;"placeholder="montantC" formControlName="montantC" >
+                                    <div class="alertText" *ngIf="AddContratForm.get('montantC')?.touched && AddContratForm.get('montantC')?.errors?.['required']">
+                                      <p class="text-danger" style="font-size: 18px;">Last name is required ! </p>
+                                    </div>
+                            </div>
+
+
+                            <div class="row">
+                                <div class="col-12">
+                                  <button class="btn btn-primary" type="submit">Submit form</button>
+                                </div>
+                            </div>
+
+
+                            </form>
+                            </section>
+       
+                        </div>
+                        </div>
+</div>
+</section>
+
+
+
+
