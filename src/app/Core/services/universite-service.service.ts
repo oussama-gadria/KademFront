@@ -24,8 +24,8 @@ export class UniversiteServiceService {
   deleteUniversite(id:number){
     return this.http.delete(this.url+'/'+'deleteUniversite'+'/'+id);
   }
-  addDepartementToUniversite(idUniversite:number,idDepartement:number){
-    return this.http.post(this.url+'/'+'addDepartementToUniversite'+'/'+idUniversite+'/'+idDepartement,null);
+  addDepartementToUniversite(idUniversite:number,idDepartement:string){
+    return this.http.post(this.url+'/'+'addDepartementToUniversite'+'/'+idDepartement+'/'+idUniversite,null);
   }
   getDepartementByIdUniversite(idUniversite:number){
     return this.http.get(this.url+'/'+'getDepartmentByUniversite'+'/'+idUniversite)
@@ -39,4 +39,5 @@ export class UniversiteServiceService {
   getEvenementByIdUniversite(idUniversite:number,startDate:Date,endDate:Date){
     return this.http.get(this.url+'/'+idUniversite+'/'+startDate+'/'+endDate);
   }
+  
 }

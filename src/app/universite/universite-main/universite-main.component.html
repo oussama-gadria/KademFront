@@ -20,7 +20,7 @@
                                 Universite</button>
                             <div class="search-box">
                                 <i class="material-icons">&#xE8B6;</i>
-                                <input type="text" class="form-control" placeholder="Search&hellip;">
+                                <input type="text" class="form-control" [(ngModel)]="searchUniversite" placeholder="Search&hellip;">
                             </div>
                         </div>
                     </div>
@@ -32,20 +32,22 @@
                             <th>Name Department</th>
                         </tr>
                     </thead>
-                    <tbody *ngFor="let universite of UniversiteList">
+                    <tbody *ngFor="let universite of search()">
                         <tr>
                             <td>{{universite.nomUniversite}}</td>
                             <td>
                                 <p *ngFor="let departement of universite.departements">{{departement.nomDepart}}</p>
                             </td>
                             <td>
+                         
                                 <a class="view" title="view" data-toggle="tooltip" data-target="#myModall"
-                                    (click)="getIdUniversite(universite.idUniversite)" (click)="getAllDepartment()" data-toggle="modal"><i
-                                        class="material-icons">&#xE417;</i></a>
+                                    (click)="getIdUniversite(universite.idUniversite)" (click)="getAllDepartment()"
+                                    data-toggle="modal"><i class="material-icons">&#xE417;</i></a>
                                 <a class="edit" title="Edit" data-toggle="tooltip" (click)="up(universite)"><i
                                         class="material-icons">&#xE254;</i></a>
-                                <a class="delete" title="Delete" data-toggle="tooltip" data-target="#myModal"
-                                    (click)="getIdUniversite(universite.idUniversite)" data-toggle="modal"><i
+                                <a class="delete" title="Delete"
+                                (click)="getIdUniversite(universite.idUniversite)" 
+                                    data-toggle="tooltip" data-target="#myModal" data-toggle="modal"><i
                                         class="material-icons">&#xE872;</i></a>
                             </td>
                         </tr>
@@ -87,7 +89,6 @@
 
 
 
-
 <!--Details Modal-->
 
 <!-- Modal -->
@@ -99,19 +100,19 @@
 
             </div>
             <div class="modal-body">
-         <!--    <label for="validationServer03" class="form-label font-weight-bold"
-                    style="font-size:20px;">Department Name</label>
+                <label for="validationServer03" class="form-label font-weight-bold" style="font-size:20px;">Department
+                    Name</label>
                 <select class="form-select " id="validationServer04" aria-describedby="validationServer04Feedback"
-                    style=" border:3px solid #493ea2;height:50px;font-size:18px;" formControlName="fResponsable"
-                    required #idEnseignant>
+                    style=" border:3px solid #493ea2;height:50px;font-size:18px;" required #idDepart>
                     <option selected disabled value="">Choose...</option>
-                    <option *ngFor="let enseignant of listEnseignant" [value]="enseignant.idEnseignant">
-                        {{enseignant.nomEnseignant}} {{enseignant.prenomEnseignant}}</option>
+                    <option *ngFor="let departement of listDepartment" [value]="departement.idDepart">
+                        {{departement.nomDepart}}</option>
                 </select>
-                -->   
+
             </div>
             <div class="modal-footer">
-                <button type="button" class="btn btn-success" data-dismiss="modal">Save</button>
+                <button type="button" class="btn btn-success" data-dismiss="modal"
+                    (click)="addDepartToUniv(idDepart.value)">Save</button>
             </div>
         </div>
     </div>
