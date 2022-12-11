@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
+import { equipe } from 'src/app/Core/models/equipe';
 import { Etudiant } from 'src/app/Core/models/etudiant';
 import { EquipeService } from 'src/app/Core/services/equipe.service';
 
@@ -8,11 +10,19 @@ import { EquipeService } from 'src/app/Core/services/equipe.service';
   styleUrls: ['./list-etudiant.component.css']
 })
 export class ListEtudiantComponent implements OnInit {
-  public listEtudiant:Etudiant[];
-  constructor(private equipeService:EquipeService) { }
+  public idEquipe:number;
+  public equipe:equipe;
+  constructor(private equipeService:EquipeService,private activatedRoute:ActivatedRoute) { }
 
   ngOnInit(): void {
-    this.listEtudiant=this.equipeService.listEtudiant;
+    this.activatedRoute.paramMap.subscribe(data => this.idEquipe = Number(data.get('id')));
+
+    this.equipeService.getEquipeById(this.idEquipe).subscribe((data)=>{
+      this.equipe=data
+      console.log(this.equipe.etudiants);
+    });
+    
   }
+
 
 }

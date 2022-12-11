@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
+import { EquipeService } from 'src/app/Core/services/equipe.service';
 
 @Component({
   selector: 'app-update-equipe',
@@ -7,9 +8,13 @@ import { Component, OnInit } from '@angular/core';
 })
 export class UpdateEquipeComponent implements OnInit {
 
-  constructor() { }
+  constructor(private equipeService:EquipeService) { }
 
   ngOnInit(): void {
+
   }
+
+
+
 
 }

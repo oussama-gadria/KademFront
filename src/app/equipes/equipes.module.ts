@@ -6,6 +6,7 @@ import { ListEquipeComponent } from './list-equipe/list-equipe.component';
 import { AddEquipeComponent } from './add-equipe/add-equipe.component';
 import { UpdateEquipeComponent } from './update-equipe/update-equipe.component';
 import { ListEtudiantComponent } from './list-etudiant/list-etudiant.component';
+import { AddDetailComponent } from './add-detail/add-detail.component';
 
 
 @NgModule({
@@ -13,7 +14,8 @@ import { ListEtudiantComponent } from './list-etudiant/list-etudiant.component';
     ListEquipeComponent,
     AddEquipeComponent,
     UpdateEquipeComponent,
-    ListEtudiantComponent
+    ListEtudiantComponent,
+    AddDetailComponent
   ],
   imports: [
     CommonModule,
