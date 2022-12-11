@@ -1,1 +1,11 @@
-<p>universite-form-update works!</p>
+<form  [formGroup]="myforme" (ngSubmit)="upEvent()" style="padding-left: 110px;">
+
+  <!--Name of Univerisite-->
+    <div class="col-md-6 form-group"  >
+      <label  class="form-label font-weight-bold" style="font-size:15px;">Name Universite</label>
+      <input name="nomUniversite" type="text" class="form-control "  style=" border:2px solid #493ea2;height:39px;font-size:14px;width:400px; border-radius: 10px;" formControlName="nomUniversite">
+    </div>                           
+  <div class="col-12">
+    <button class="btn btn-success" type="submit" >Update Universite</button>
+  </div>
+</form>
