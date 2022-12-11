@@ -1,15 +1,15 @@
 <header id="portfolio" class="w3-content " style="max-width:1300px; margin-top:80px">
     <div class="w3-container ">
-    <h1>Espace</h1>
+    <h1>Espace Module</h1>
     <div class="w3-section w3-bottombar ">
         <nav class="navbar navbar-expand-lg ">
          <!-- navbar -->
                 <ul class="navbar-nav me-auto mb-2 mb-lg-0 " style="padding-left: 78px;">
                   <li class="nav-item">
-                    <a class="nav-link " style="font-family:'Poppins', sans-serif;font-size: 20px; color: #493ea2 ;">Department </a>
+                    <a class="nav-link " routerLink="/departement/" style="font-family:'Poppins', sans-serif;font-size: 20px; color: #493ea2 ;">Department </a>
                   </li>
                   <li class="nav-item">
-                    <a class="nav-link" routerLink="ListModule" style="font-family:'Poppins', sans-serif;font-size: 20px; color: #493ea2;">/ Module</a>
+                    <a class="nav-link"   style="font-family:'Poppins', sans-serif;font-size: 20px; color: #493ea2;" >/ Module</a>
                   </li>
                 </ul> 
           </nav>
@@ -23,9 +23,9 @@
             <div class="table-wrapper">
                 <div class="table-title">
                     <div class="row">
-                        <div class="col-sm-8 " style="color:black"><h2>Department <b>Details</b></h2></div>
+                        <div class="col-sm-8 " style="color:black"><h2>Module <b>Details</b></h2></div>
                         <div class="col-sm-4">
-                            <button type="button" class="btn btn-primary btn-sm" (click)="GoToAddDepartement()">ADD Departement</button>
+                            <button type="button" class="btn btn-primary btn-sm" (click)="GoToAddModule()">ADD Module</button>
                             <div class="search-box">
                                 <i class="material-icons">&#xE8B6;</i>
                                 <input type="text" class="form-control" placeholder="Search&hellip;">
@@ -37,20 +37,20 @@
                     <thead>
                         <tr>
                             <th>Id <i class="fa fa-sort"></i></th>
-                            <th>Department Name <i class="fa fa-sort"></i></th>
-                            <th>Bloc <i class="fa fa-sort"></i></th>
+                            <th>Module name <i class="fa fa-sort"></i></th>
+                            <th>Subject number <i class="fa fa-sort"></i></th>
                             <th> </th>
                         </tr>
                     </thead>
                     <tbody>
-                        <tr *ngFor="let depart of ListDepart">
-                            <td>{{depart.idDepart}}</td>
-                            <td>{{depart.nomDepart}}</td>
-                            <td>{{depart.bloc}}</td>
+                        <tr *ngFor="let mod of ListModule">
+                            <td>{{mod.idModule}}</td>
+                            <td>{{mod.nomModule}}</td>
+                            <td>{{mod.nbrMatieres}}</td>
                             <td>
                                 <a href="#" class="view" title="View" data-toggle="tooltip"><i class="material-icons">&#xE417;</i></a>
-                                <a [routerLink]="['UpdateDepartement',0]" class="edit" title="Edit" data-toggle="tooltip"><i class="material-icons">&#xE254;</i></a>
-                                <a href="#" class="delete" title="Delete" data-toggle="tooltip"   data-target="#myModal"  (click)="getIdToDelete(depart.idDepart)"  data-toggle="modal"><i class="material-icons">&#xE872;</i></a>
+                                <a [routerLink]="['UpdateModule']" class="edit" title="Edit" data-toggle="tooltip"><i class="material-icons">&#xE254;</i></a>
+                                <a href="#" class="delete" title="Delete" data-toggle="tooltip"   data-target="#myModal"   (click)="getIdTooDelete(mod.idModule)" data-toggle="modal"><i class="material-icons">&#xE872;</i></a>
                             </td>
                         </tr>    
                     </tbody>
@@ -71,7 +71,7 @@
                     <p>Are you sure to delete Esprit Universite </p>
                 </div>
                 <div class="modal-footer">
-                    <button type="button" class="btn btn-primary"  data-dismiss="modal" (click)="deleteDepart()" >Confirm</button>
+                    <button type="button" class="btn btn-primary"  data-dismiss="modal" (click)="deleteModule()">Confirm</button>
                     <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
                 </div>
             </div>
