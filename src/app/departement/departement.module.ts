@@ -6,6 +6,9 @@ import { AddDepartementComponent } from './add-departement/add-departement.compo
 import { ListDepartementComponent } from './list-departement/list-departement.component';
 import { UpdateDepartmenetComponent } from './update-departement/update-departmenet.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { AddModuleComponent } from './add-module/add-module.component';
+import { UpdateModuleComponent } from './update-module/update-module.component';
+import { ListModuleComponent } from './list-module/list-module.component';
 
 
 @NgModule({
@@ -13,6 +16,10 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
     AddDepartementComponent,
     ListDepartementComponent,
     UpdateDepartmenetComponent,
+    AddModuleComponent,
+    UpdateModuleComponent,
+    ListModuleComponent,
+
   ],
   imports: [
     CommonModule,

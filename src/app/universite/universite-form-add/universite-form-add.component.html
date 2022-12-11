@@ -12,19 +12,21 @@
                         </header>                       
                           <section  class=" w3-content  offset-md-2 ">
 
-                           <form class="row g-3" FormGroupName="myforme">
+                           <form class="row g-3" [formGroup]="myforme">
 
                             <!--Name of Univerisite-->
                               <div class="col-md-6"  >
-                                <label for="validationServer01" class="form-label font-weight-bold" style="font-size:20px;">Name Universite</label>
-                                <input type="text" class="form-control " id="validationServer01" style=" border:3px solid #493ea2;height:50px;font-size:18px;" >
-                                <div class="valid-feedback">
-                                  Looks good!
-                                </div>
+                                <label  for="validationServer01" class="form-label font-weight-bold" style="font-size:15px;">Name Universite</label>
+                                <input name="nomUniversite" type="text" class="form-control " id="validationServer01" style=" border:2px solid #493ea2;height:39px;font-size:14px;width:400px; border-radius: 10px;" formControlName="nomUniversite" [(ngModel)]="universite.nomUniversite">
+                               
                               </div>                           
-                              <div class="col-12">
-                                <button class="btn btn-primary" type="submit">Confirm</button>
-                              </div>
+                              <div class="alertText" 
+                              *ngIf=" myforme.get('nomUniversite')?.touched && myforme.get('nomUniversite')?.errors?.['required'] ">                                 
+                                <p class="text-danger">Please enter the name of universite !</p>
+                            </div>
+                            <div class="col-12"  >
+                              <button class="btn btn-success" type="submit" (click)="save()" >ADD Universite</button>
+                            </div>
                             </form>
                           </section>
      
