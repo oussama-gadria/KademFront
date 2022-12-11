@@ -1,4 +1,7 @@
-
+.container
+{
+    background-color: #fff;
+}
 body {
     color:  #fff;
     background: #fff;
