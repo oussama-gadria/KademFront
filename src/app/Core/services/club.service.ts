@@ -20,11 +20,8 @@ export class ClubService {
   AddClub(club_add:club,prenom:String,nom:String,email:String){
     return this.http.post(this.url+"addClubwithResponsable/"+prenom+"/"+nom+"/"+email,club_add);
   }
+  updateClub(id:number,club:club){
+    return this.http.put(this.url+'updateClub'+'/'+id,club);
 }
 
-
-
-
-
-
-
+}
