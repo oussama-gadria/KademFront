@@ -1,7 +1,10 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { Router } from '@angular/router';
 import { club } from 'src/app/Core/models/club';
+import { Etudiant } from 'src/app/Core/models/etudiant';
+import { evenement } from 'src/app/Core/models/evenement';
 import { ClubService } from 'src/app/Core/services/club.service';
+import { AddEvenementComponent } from 'src/app/evenement/add-evenement/add-evenement.component';
 import { UpdateClubComponent } from '../update-club/update-club.component';
 
 
@@ -12,8 +15,11 @@ import { UpdateClubComponent } from '../update-club/update-club.component';
 })
 export class ListClubComponent implements OnInit {
 Listclub:club[];
+Listetudiant:Etudiant[];
 idTodelete:number;
 searchclub:string="";
+idclub:club;
+idetudiant:string;
 
 
 constructor(private clubService:ClubService ,private router:Router) { }
@@ -21,8 +27,9 @@ constructor(private clubService:ClubService ,private router:Router) { }
  
 
   ngOnInit(): void {
-    this.clubService.getAllClubs().subscribe((data)=>this.Listclub=data);
-    console.log(this.Listclub);
+    this.clubService.getAllClubs().subscribe((data)=>
+    {this.Listclub=data;
+    console.log(this.Listclub[0].responsableClub);})
   }
   GoToAddClub(){
     this.router.navigate(['club/AddClub']);
@@ -57,5 +64,21 @@ getIdToDelete(id:number)
     }) 
     this.clubService.getAllClubs().subscribe(data=>this.Listclub=data);
   }
-  
+  goToAddEvent(idClub:number){
+this.router.navigate(['evenement/AddEvenement',idClub])
+  }
+  getlistetudiant(club2:club){
+    this.Listetudiant = club2.etudiantsclub;
+    this.idclub = club2;
+  }
+  assignetudiant(id:string,idClub:number){
+    //this.Listclub[this.Listclub.indexOf(this.idclub)].etudiantsclub.push()
+   
+    this.clubService.assignEtudiantToClubbyId(Number(id),idClub).subscribe((data)=> {})   
+    this.clubService.getAllClubs().subscribe((data)=>
+    {this.Listclub=data;
+    console.log(this.Listclub[0].responsableClub);})
+    this.search() 
+    this.idetudiant ="";
+  }
 }

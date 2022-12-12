@@ -49,20 +49,23 @@
                         <tr *ngFor="let club of search()">
                             <td>{{club.idClub}}</td>
                             <td>{{club.nomClub}}</td>
-                            <td>.</td>
-                            <td>.</td>
-                            <td>.</td>
+                            <td>{{club.responsableClub.prenomE}}</td>
+                            <td>{{club.responsableClub.nomE}}</td>
+                            <td>{{club.responsableClub.email}}</td>
                             
                             <td colspan="3">
                              
                                 <div class="d-flex">
-                                    <button type="button" class="btn btn-primary px-2 "><span class="bi bi-eye-fill"></span></button>
+                                    <button type="button" class="btn btn-primary px-2 " data-target="#myModalview" (click)="getlistetudiant(club)" data-toggle="modal" ><span class="bi bi-eye-fill"></span></button>
                                     <button type="button" class="btn btn-warning px-2 mx-1" (click)="up(club)"><span class="bi bi-pencil-fill"></span></button>
                                     <button type="button" class="btn btn-danger px-2 mx-1" data-target="#myModal" data-toggle="modal" (click)="getIdToDelete(club.idClub)" ><span class="bi bi-trash"></span></button>
-                                    <button type="button" class="btn btn-success px-2 py-1" ><span class="bi bi-plus "></span>ADD Event</button> 
+                                    <button type="button" class="btn btn-success px-2 py-1" (click)="goToAddEvent(club.idClub)" ><span class="bi bi-plus "></span>ADD Event</button> 
                                 </div>  
                                 
                                 </td>
+                                
+    
+
                         </tr>    
                     </tbody>
                 </table>
@@ -87,7 +90,47 @@
             </div>
         </div>
     </div>
+    <div class="modal fade" id="myModalview">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">List Etudiants :</h5>
+                    
+                </div>
+                <table>
+                    <tr>
+                        <th>
+                            Id
+                        </th>
+                        <th>
+                            nom
+                        </th>
+                        <th>
+                            prenom
+                        </th>
+                    </tr>
+                <tbody>
+                <tr *ngFor="let etudiant of Listetudiant">
+                    <td>{{etudiant.idEtudiant}}</td>
+                    <td>{{etudiant.nomE}}</td>
+                    <td>{{etudiant.prenomE}}</td>
+                </tr>
+            </tbody>
+        </table>
+                <div class="modal-body">
+                    <div class="col-md-4"  >
+                    <p>Add etudiant : </p>  <input type="text" [(ngModel)]="idetudiant" class="form-control" placeholder="id">
+                    </div>
+                    <button type="button" class="btn btn-primary"  data-dismiss="modal" (click)="assignetudiant(idetudiant,idclub.idClub)" >add </button>
 
+                </div>
+                <div class="modal-footer">
+                    
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                </div>
+            </div>
+        </div>
+    </div>
 <app-update-club (updateEvent)="update($event)"></app-update-club>
 
 

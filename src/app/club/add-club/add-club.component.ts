@@ -20,20 +20,26 @@ export class AddClubComponent implements OnInit {
 
   public club_add:club;
   public error_back:Boolean;
+  style1="red";
+  style2="bold";
+  style3="small";
   constructor(private clubservice:ClubService, private route:Router) { }
 
   ngOnInit(): void {
     this.error_back= false;
     this.club_add = new club;
-    this.club_add.ResponsableClub = new Etudiant;
+    this.club_add.responsableClub = new Etudiant;
   }
 
   add_club(){
-    this.clubservice.AddClub(this.club_add,this.club_add.ResponsableClub.prenomE ,this.club_add.ResponsableClub.nomE,this.club_add.ResponsableClub.email).subscribe(
+    this.clubservice.AddClub(this.club_add,this.club_add.responsableClub.prenomE ,this.club_add.responsableClub.nomE,this.club_add.responsableClub.email).subscribe(
       ()=> this.route.navigate(["club"]),
       ()=>{this.error_back=true,
       ()=>{console.log("complete")}}
     )
   }
 
+
 }
+
+

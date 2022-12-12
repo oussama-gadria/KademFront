@@ -23,5 +23,8 @@ export class ClubService {
   updateClub(id:number,club:club){
     return this.http.put(this.url+'updateClub'+'/'+id,club);
 }
+assignEtudiantToClubbyId(id:number,idClub:number){
+  return this.http.post(this.url+"assignEtudiantToClubbyId/"+id+"/"+idClub,new club);
+}
 
 }

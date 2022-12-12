@@ -21,7 +21,7 @@
                                   <label for="validationServer01" class="form-label font-weight-bold" style="font-size:15px;">Club Name</label>
                                   <input type="text" [(ngModel)]="club_add.nomClub" class="form-control " id="validationServer01" formControlName="nomClub" value="Mark" style=" border:3px solid #493ea2;height:39px;font-size:15px;width: 400px; border-radius: 10px;" >
                                   <div class="alertText" *ngIf="myformeclub.get('nomClub')?.touched && myformeclub.get('nomClub')?.errors?.['required']">
-                                    <p class="text-danger">club name is required !</p>
+                                    <p [ngClass]="'redAlert'">club name is required !</p>
                                 </div>
                                 </div>
 
@@ -29,9 +29,9 @@
 
                                 <div class="col-md-7">
                                   <label for="validationServer02" class="form-label font-weight-bold" style="font-size:15px;">Manager First Name</label>
-                                  <input type="text" class="form-control "  [(ngModel)]="club_add.ResponsableClub.nomE"  id="validationServer02" formControlName="managerfname" value="Otto"  style=" border:3px solid #493ea2;height:39px;font-size:15px;width: 400px; border-radius: 10px;" >
+                                  <input type="text" class="form-control "  [(ngModel)]="club_add.responsableClub.nomE"  id="validationServer02" formControlName="managerfname" value="Otto"  style=" border:3px solid #493ea2;height:39px;font-size:15px;width: 400px; border-radius: 10px;" >
                                   <div class="alertText" *ngIf="myformeclub.get('managerfname')?.touched && myformeclub.get('managerfname')?.errors?.['required']">
-                                    <p class="text-danger">first name is required !</p>
+                                    <p [ngStyle]="{'color':style1,'font-weight':style2,'font-size':style3}">first name is required !</p>
                                 </div>
                                 </div>
 
@@ -40,24 +40,24 @@
                           
                                 <div class="col-md-7">
                                   <label for="validationServer03" class="form-label font-weight-bold" style="font-size:15px;">Manager Last Name                                  </label>
-                                  <input type="text" class="form-control "  [(ngModel)]="club_add.ResponsableClub.prenomE"  id="validationServer03" formControlName="managerlname" aria-describedby="validationServer03Feedback"  style="border:3px solid #493ea2;height:39px;font-size:15px;width: 400px; border-radius: 10px;">
+                                  <input type="text" class="form-control "  [(ngModel)]="club_add.responsableClub.prenomE"  id="validationServer03" formControlName="managerlname" aria-describedby="validationServer03Feedback"  style="border:3px solid #493ea2;height:39px;font-size:15px;width: 400px; border-radius: 10px;">
                                   <div class="alertText" *ngIf="myformeclub.get('managerlname')?.touched && myformeclub.get('managerlname')?.errors?.['required']">
-                                    <p class="text-danger"> last name is required !</p>
+                                    <p [ngStyle]="{'color':style1,'font-weight':style2,'font-size':style3}"> last name is required !</p>
                                 </div>
                                 </div>
 
                                 <div class="col-md-7">
                                   <label for="validationServer03" class="form-label font-weight-bold" style="font-size:15px;">Manager Email                                 </label>
-                                  <input type="text" class="form-control "  [(ngModel)]="club_add.ResponsableClub.email"  id="validationServer03" formControlName="manageremail" aria-describedby="validationServer03Feedback"  style=" border:3px solid #493ea2;height:39px;font-size:15px;width: 400px; border-radius: 10px;">
+                                  <input type="text" class="form-control "  [(ngModel)]="club_add.responsableClub.email"  id="validationServer03" formControlName="manageremail" aria-describedby="validationServer03Feedback"  style=" border:3px solid #493ea2;height:39px;font-size:15px;width: 400px; border-radius: 10px;">
                                   <div class="alertText" *ngIf="myformeclub.get('manageremail')?.touched && myformeclub.get('manageremail')?.errors?.['required']">
-                                    <p class="text-danger">email is required  !</p>
+                                    <p [ngStyle]="{'color':style1,'font-weight':style2,'font-size':style3}" >email is required  !</p>
                                 </div>
                                 <div class="alertText" *ngIf="myformeclub.get('manageremail')?.touched && myformeclub.get('manageremail')?.errors?.['email']">
-                                  <p class="text-danger">Please enter a valid email !</p>
+                                  <p [ngClass]="'redAlert'">Please enter a valid email !</p>
                               </div>
                               
                               <div class="alertText" *ngIf="error_back">
-                                <p class="text-danger">etudiant invalid</p>
+                                <p [ngClass]="'redAlert'">etudiant invalid</p>
                             </div>
                                 </div>
                                

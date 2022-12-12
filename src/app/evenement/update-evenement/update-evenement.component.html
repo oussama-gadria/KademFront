@@ -19,7 +19,7 @@
 
                                 <div class="col-md-7"  >
                                   <label for="validationServer01" class="form-label font-weight-bold" style="font-size:15px;">Event Name</label>
-                                  <input type="text" class="form-control " id="validationServer01" formControlName="nomEvenement" value="Mark" style=" border:3px solid #493ea2;height:39px;font-size:15px;width: 400px; border-radius: 10px;" >
+                                  <input type="text" class="form-control " id="validationServer01" formControlName="nomEvenement"  style=" border:3px solid #493ea2;height:39px;font-size:15px;width: 400px; border-radius: 10px;" >
                                   <div class="alertText" *ngIf="myformeevent.get('nomEvenement')?.touched && myformeevent.get('nomEvenement')?.errors?.['required']">
                                     <p class="text-danger"> event name is required !</p>
                                 </div>
@@ -40,7 +40,7 @@
                           
                                 <div class="col-md-7">
                                   <label for="validationServer03" class="form-label font-weight-bold" style="font-size:15px;">date</label>
-                                  <input type="text" class="form-control " id="validationServer03" aria-describedby="validationServer03Feedback"  style=" border:3px solid #493ea2;height:39px;font-size:15px;width: 400px; border-radius: 10px;">
+                                  <input type="date" class="form-control " id="validationServer03" formControlName="dateEvenement"   aria-describedby="validationServer03Feedback"  style=" border:3px solid #493ea2;height:39px;font-size:15px;width: 400px; border-radius: 10px;">
                                   <div id="validationServer03Feedback" class="invalid-feedback">
                                     Please provide a valid city.
                                   </div>
@@ -49,7 +49,7 @@
 
                                 
                                 <div class="col-12 my-3">
-                                  <button class="btn btn-primary" type="submit">Update</button>
+                                  <button class="btn btn-primary" type="submit"  (click)="updateEvenement()" >Update</button>
                                 </div>
                               </form>
                             </section>
