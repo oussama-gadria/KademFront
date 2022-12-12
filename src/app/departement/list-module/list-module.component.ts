@@ -12,6 +12,8 @@ export class ListModuleComponent implements OnInit {
 
   ListModule:module[];
   idTodelete:number;
+  module:module;
+  searchMod:string="";
 
   constructor(private route:Router, private moduleService:ModuleService) { }
 
@@ -29,6 +31,12 @@ export class ListModuleComponent implements OnInit {
   deleteModule()
   {
     this.moduleService.deleteModule(this.idTodelete).subscribe(()=>this.ListModule=this.ListModule.filter(module=>module.idModule!=this.idTodelete));
+  }
+  search() 
+  { 
+    return this.ListModule.filter(module=> { 
+      return module.nomModule.includes(this.searchMod);
+    })
   }
 
 }

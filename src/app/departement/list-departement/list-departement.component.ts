@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { Departement } from 'src/app/Core/models/departement';
+import { module } from 'src/app/Core/models/module';
 import { DepartementService } from 'src/app/Core/services/departement.service';
 
 @Component({
@@ -12,6 +13,8 @@ export class ListDepartementComponent implements OnInit {
 
   ListDepart:Departement[];
   idTodelete:number;
+  departement:Departement;
+  searchDepart:string="";
 
   constructor(private route:Router,private departementService:DepartementService) { }
 
@@ -32,5 +35,12 @@ export class ListDepartementComponent implements OnInit {
   deleteDepart()
   {
     this.departementService.deleteDepartement(this.idTodelete).subscribe(()=>this.ListDepart=this.ListDepart.filter(Departement=>Departement.idDepart!=this.idTodelete));
+  }
+
+  search() 
+  { 
+    return this.ListDepart.filter(departement=> { 
+      return departement.nomDepart.includes(this.searchDepart);
+    })
   }
 }

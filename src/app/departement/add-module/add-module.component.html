@@ -22,7 +22,7 @@
                                   <label for="validationServer01" class="form-label font-weight-bold" style="font-size:20px;">Module name</label>
                                   <input type="text" class="form-control " id="validationServer01" formControlName="moduleNom" style=" border:3px solid #493ea2;height:50px;font-size:18px;" formControlName="moduleNom"  [(ngModel)]="module.nomModule">
                                   <div class="alertText" *ngIf="myFormM.get('moduleNom')?.touched && myFormM.get('moduleNom')?.errors?.['required']">
-                                    <p class="text-danger">Please enter the module name to continue !</p>
+                                    <p [ngStyle]="{'color':style1,'font-weight':style2,'font-size':style3}">Please enter the module name to continue !</p>
                                 </div>
                                 </div>   
                               </div>
@@ -44,7 +44,7 @@
                                     <option>10</option>
                                   </select>
                                   <div class="alertText" *ngIf="myFormM.get('moduleNbr')?.touched && myFormM.get('moduleNbr')?.errors?.['required']">
-                                    <p class="text-danger">Please enter the number to continue !</p>
+                                    <p [ngStyle]="{'color':style1,'font-weight':style2,'font-size':style3}">Please enter the number to continue !</p>
                                 </div>
                                   <div id="validationServer04Feedback" class="invalid-feedback">
                                     Please select a valid number.
@@ -61,7 +61,7 @@
                          
                                   </select>
                                   <div class="alertText" *ngIf="myFormM.get('DepartmentNom')?.touched && myFormM.get('DepartmentNom')?.errors?.['required']">
-                                    <p class="text-danger">Please enter the Department name to continue !</p>
+                                    <p [ngStyle]="{'color':style1,'font-weight':style2,'font-size':style3}">Please enter the Department name to continue !</p>
                                 </div>
                                   <div id="validationServer04Feedback" class="invalid-feedback">
                                     Please select a valid Department name.

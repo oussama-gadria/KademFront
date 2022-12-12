@@ -16,6 +16,9 @@ export class AddModuleComponent implements OnInit {
 module:module;
 ListDep:Departement[];
 ListModule:module[];
+style1="red";
+  style2="bold";
+  style3="small";
 
   myFormM = new FormGroup({
     moduleNom: new FormControl('',Validators.required),

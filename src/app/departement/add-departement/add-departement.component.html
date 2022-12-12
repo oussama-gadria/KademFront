@@ -22,7 +22,7 @@
                                   <label for="validationServer01" class="form-label font-weight-bold" style="font-size:20px;">Department name</label>
                                   <input type="text" class="form-control " id="validationServer01" formControlName="name" style=" border:3px solid #493ea2;height:50px;font-size:18px;" formControlName="name" [(ngModel)]="departement.nomDepart">
                                   <div class="alertText" *ngIf="myForm.get('name')?.touched && myForm.get('name')?.errors?.['required']">
-                                    <p class="text-danger">Please enter the department name to continue !</p>
+                                    <p [ngClass]="'redAlert'">Please enter the department name to continue !</p>
                                 </div>
                                 </div>   
                               </div>
@@ -60,7 +60,7 @@
                                     <option>Z</option>
                                   </select>
                                   <div class="alertText" *ngIf="myForm.get('bloc')?.touched && myForm.get('bloc')?.errors?.['required']">
-                                    <p class="text-danger">Please enter the bloc to continue !</p>
+                                    <p [ngClass]="'redAlert'">Please enter the bloc to continue !</p>
                                 </div>
                                   <div id="validationServer04Feedback" class="invalid-feedback">
                                     Please select a valid Bloc.
