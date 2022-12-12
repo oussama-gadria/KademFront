@@ -1,1 +1,187 @@
-<p>update-etudiant works!</p>
+
+<section class="colorRegister">
+    <div class="sigupbloc" >
+                        <div class="row no-gutters">
+                        <div class="col-md-10 offset-md-1">
+                                
+    
+                            <section id="portfolio" class="w3-content " style="max-width:1300px; margin-top:80px">
+                                <div class="w3-container ">
+                                <h1>Espace</h1>
+                                <div class="w3-section w3-bottombar ">
+                                </div>
+                                </div>
+                            </section>
+                          
+                          
+                            <section  class=" w3-content  offset-md-2 ">
+
+                             <form [formGroup]="UpdateFormEtudiant" class="row g-3">
+                           
+                            <!--first name-->
+                              <div class="row  ">
+                                <div class="col-md-6 "  >
+                                  <label for="validationServer01" class="form-label font-weight-bold" style="font-size:20px;">First name</label>
+                                  <input type="text" class="form-control " id="validationServer01" value="" style=" border:3px solid #493ea2;height:50px;font-size:18px;border-radius:15px;" placeholder="First Name" formControlName="nomE">
+                              
+                                  <div class="alertText" *ngIf="UpdateFormEtudiant.get('nomE')?.touched && UpdateFormEtudiant.get('nomE')?.errors?.['required']">
+                                    <p class="text-danger" style="font-size: 18px;" >First name is required ! </p>
+                                  </div>
+                                </div>
+
+
+                            <!--last name-->
+                                <div class="col-md-6 ">
+                                  <label for="validationServer02" class="form-label font-weight-bold" style="font-size:20px;">Last name</label>
+                                  <input type="text" class="form-control " id="validationServer02" value="Otto"  style=" border:3px solid #493ea2;height:50px;font-size:18px;border-radius:15px;"placeholder="Last Name" formControlName="prenomE" >
+                                  <div class="alertText" *ngIf="UpdateFormEtudiant.get('prenomE')?.touched && UpdateFormEtudiant.get('prenomE')?.errors?.['required']">
+                                    <p class="text-danger" style="font-size: 18px;">Last name is required ! </p>
+                                  </div>
+                                </div>
+                              </div>
+
+                           
+
+
+                            <!--email-->
+                              <div class="row">
+                                <div class="col-md-12" >
+                                  <label for="validationServer03" class="form-label font-weight-bold" style="font-size:20px;">Email</label>
+                                  <input type="text" class="form-control " id="validationServer03" aria-describedby="validationServer03Feedback"  style=" border:3px solid #493ea2;height:50px;font-size:18px;"placeholder="Email" formControlName="email">
+                                  <div class="alertText" *ngIf="UpdateFormEtudiant.get('email')?.touched && UpdateFormEtudiant.get('email')?.errors?.['required']">
+                                    <p class="text-danger" style="font-size: 18px;">Email is required ! </p>
+                                  </div>
+                                  <div class="alertText" *ngIf="UpdateFormEtudiant.get('email')?.touched && UpdateFormEtudiant.get('email')?.errors?.['email']">
+                                    <p class="text-danger" style="font-size: 18px;"> Please select a valid email ! </p>
+                                  </div>
+                                </div>
+                               </div>
+                         
+
+
+                            
+                              <!--phone number-->
+                               <div class="row">
+                                <div class="col-md-6 "  >
+                                  <label for="validationServer01" class="form-label font-weight-bold" style="font-size:20px;">Phone Number</label>
+                                  <input type="text" class="form-control " id="validationServer01" value="Mark" style=" border:3px solid #493ea2;height:50px;font-size:18px;border-radius:15px;"placeholder="Phone Number"  formControlName="numeroTelephone">
+                                  <div class="alertText" *ngIf="UpdateFormEtudiant.get('numeroTelephone')?.touched && UpdateFormEtudiant.get('numeroTelephone')?.errors?.['required']">
+                                    <p class="text-danger" style="font-size: 18px;"> Phone Number is required ! </p>
+                                  </div>
+                                  <div class="alertText" *ngIf="UpdateFormEtudiant.get('numeroTelephone')?.touched && UpdateFormEtudiant.get('numeroTelephone')?.errors?.['minlength']">
+                                    <p class="text-danger " style="font-size: 18px;">Your Phone Number Must be 8 characters long! </p>
+                                  </div>
+                                </div>
+
+                                <!--adress-->
+                                <div class="col-md-6 ">
+                                  <label for="validationServer02" class="form-label font-weight-bold" style="font-size:20px;">Adress</label>
+                                  <input type="text" class="form-control " id="validationServer02" value="Otto"  style=" border:3px solid #493ea2;height:50px;font-size:18px;border-radius:15px;" placeholder="Adress"  formControlName="adresse">
+                                  <div class="alertText" *ngIf="UpdateFormEtudiant.get('adresse')?.touched && UpdateFormEtudiant.get('adresse')?.errors?.['required']">
+                                    <p class="text-danger" style="font-size: 18px;">Adress is required !</p>
+                                  </div>
+                                </div>
+                               </div>
+
+
+                                <!--age-->
+                               <div class="row">
+                                <div class="col-md-3 ">
+                                  <label for="validationServer02" class="form-label font-weight-bold" style="font-size:20px;">Age</label>
+                                  <input type="text" class="form-control " id="validationServer02" value="Otto"  style=" border:3px solid #493ea2;height:50px;font-size:18px;border-radius:15px;" placeholder=" Age"  formControlName="age">
+                                  <div class="alertText" *ngIf="UpdateFormEtudiant.get('age')?.touched && UpdateFormEtudiant.get('age')?.errors?.['required']">
+                                    <p class="text-danger" style="font-size: 18px;">Age is required !</p>
+                                  </div>
+                                </div>
+                              </div>
+
+                                <!--niveau-->
+                                <div class="row">
+                                <div class="col-md-3">
+                                  <label for="validationServer04" class="form-label font-weight-bold" style="font-size:20px;">Level</label>
+                                  <select class="form-select " id="validationServer04" aria-describedby="validationServer04Feedback"  style=" border:3px solid #493ea2;height:50px;font-size:18px;"  formControlName="niveauEtudiant">
+                                    <option selected disabled value="">Choose Level</option>
+                                    <option>1</option>
+                                    <option>2</option>
+                                    <option>3</option>
+                                    <option>4</option>
+                                    <option>5</option>
+                                  </select>
+                                  <div class="alertText" *ngIf="UpdateFormEtudiant.get('niveauEtudiant')?.touched && UpdateFormEtudiant.get('niveauEtudiant')?.errors?.['required']">
+                                    <p class="text-danger" style="font-size: 18px;">Level is required !</p>
+                                  </div>
+                                </div>
+                                 <!--option-->
+
+                                 <div class="col-md-3">
+                                  <label for="validationServer04" class="form-label font-weight-bold" style="font-size:20px;">Option</label>
+                                  <select class="form-select " id="validationServer04" aria-describedby="validationServer04Feedback"  style=" border:3px solid #493ea2;height:50px;font-size:18px;" formControlName="option" >
+                                    <option selected disabled value="">Choose Option</option>
+                                    <option>GAMIX</option>
+                                    <option>SE</option>
+                                    <option>SIM</option>
+                                    <option>NIDS</option>
+                                    <option>TWIN</option>
+                                    <option>INFINI</option>
+                                    <option>BI</option>
+                                  </select>
+                                
+                                  <div class="alertText" *ngIf="UpdateFormEtudiant.get('option')?.touched && UpdateFormEtudiant.get('option')?.errors?.['required']">
+                                    <p class="text-danger" style="font-size: 18px;">option is required !</p>
+                                  </div>
+                                </div>
+                                 <!--classe-->
+
+                                <div class="col-md-3 ">
+                                  <label for="validationServer02" class="form-label font-weight-bold" style="font-size:20px;">Class</label>
+                                  <input type="text" class="form-control " id="validationServer02" value="Otto"  style=" border:3px solid #493ea2;height:50px;font-size:18px;border-radius:15px;" placeholder="Class" formControlName="classe" >
+                                  <div class="alertText" *ngIf="UpdateFormEtudiant.get('classe')?.touched && UpdateFormEtudiant.get('classe')?.errors?.['required']">
+                                    <p class="text-danger" style="font-size: 18px;">class is required !</p>
+                                  </div>
+                                </div>
+                        
+                              </div>
+                            <!--moyenne
+                            <div class="row">
+                              <div class="col-md-3 ">
+                                <label for="validationServer02" class="form-label font-weight-bold" style="font-size:20px;">Moyenne</label>
+                                <input type="text" class="form-control " id="validationServer02" value="Otto"  style=" border:3px solid #493ea2;height:50px;font-size:18px;border-radius:15px;" placeholder="" formControlName="moyenneE"  >
+                                <div class="valid-feedback">
+                                  Looks good!
+                                </div>
+                               </div>
+                            </div>-->
+
+                            <!--departement
+                            <div class="row">
+                              <div class="col-md-4">
+                                <label for="validationServer04" class="form-label font-weight-bold" style="font-size:20px;">Department</label>
+                                <select class="form-select " id="validationServer04" aria-describedby="validationServer04Feedback"  style=" border:3px solid #493ea2;height:50px;font-size:18px;" formControlName="departement" >
+                                  <option selected disabled value="">Choose Department</option>
+                                  <option>...</option>
+                                </select>
+
+                                <div id="validationServer04Feedback" class="invalid-feedback">
+                                  Please select a valid state.
+                                </div>
+                              </div>
+                          </div>-->
+
+
+                            <div class="row">
+                                <div class="col-12">
+                                  <button class="btn btn-primary" type="submit" (click)="updateEtudiant()">Submit form</button>
+                                </div>
+                            </div>
+
+
+                            </form>
+                            </section>
+       
+                        </div>
+                        </div>
+</div>
+</section>
+
+
+
