@@ -1,22 +1,26 @@
 <header id="portfolio" class="w3-content " style="max-width:1300px; margin-top:80px">
     <div class="w3-container ">
-    <h1>Espace Universite</h1>
-    <div class="w3-section w3-bottombar ">
+        <h1>Espace Universite</h1>
+        <div class="w3-section w3-bottombar ">
+        </div>
     </div>
-    </div>
-  </header>
-  <body>
+</header>
+
+<body>
     <div class="container">
         <div class="table-responsive">
             <div class="table-wrapper">
                 <div class="table-title">
                     <div class="row">
-                        <div class="col-sm-8 "><h2>Customer <b>Details</b></h2></div>
+                        <div class="col-sm-8 ">
+                            <h2>Customer <b>Details</b></h2>
+                        </div>
                         <div class="col-sm-4">
-                            <button type="button" class="btn btn-primary btn-sm" routerLink="addUniversite">ADD Universite</button>
+                            <button type="button" class="btn btn-success btn-sm" routerLink="addUniversite">ADD
+                                Universite</button>
                             <div class="search-box">
                                 <i class="material-icons">&#xE8B6;</i>
-                                <input type="text" class="form-control" placeholder="Search&hellip;">
+                                <input type="text" class="form-control" [(ngModel)]="searchUniversite" placeholder="Search&hellip;">
                             </div>
                         </div>
                     </div>
@@ -24,41 +28,95 @@
                 <table class="table table-striped table-hover table-bordered">
                     <thead>
                         <tr>
-                            <th>Nom Universite<i class="fa fa-sort"></i></th>
-                            <th>Nom Departement</th>
+                            <th>Name Universite<i class="fa fa-sort"></i></th>
+                            <th>Name Department</th>
                         </tr>
                     </thead>
-                    <tbody>
+                    <tbody *ngFor="let universite of search()">
                         <tr>
-                            <td>Esprit</td>
-                            <td>Informatique</td>
+                            <td>{{universite.nomUniversite}}</td>
                             <td>
-                                <a href="#" class="view" title="View" data-toggle="tooltip"><i class="material-icons">&#xE417;</i></a>
-                                <a href="#" class="edit" title="Edit" data-toggle="tooltip"><i class="material-icons">&#xE254;</i></a>
-                                <a href="#" class="delete" title="Delete" data-toggle="tooltip" href="#myModal" data-toggle="modal"><i class="material-icons">&#xE872;</i></a>
+                                <p *ngFor="let departement of universite.departements">{{departement.nomDepart}}</p>
                             </td>
-                        </tr>    
+                            <td>
+                         
+                                <a class="view" title="view" data-toggle="tooltip" data-target="#myModall"
+                                    (click)="getIdUniversite(universite.idUniversite)" (click)="getAllDepartment()"
+                                    data-toggle="modal"><i class="material-icons">&#xE417;</i></a>
+                                <a class="edit" title="Edit" data-toggle="tooltip" (click)="up(universite)"><i
+                                        class="material-icons">&#xE254;</i></a>
+                                <a class="delete" title="Delete"
+                                (click)="getIdUniversite(universite.idUniversite)" 
+                                    data-toggle="tooltip" data-target="#myModal" data-toggle="modal"><i
+                                        class="material-icons">&#xE872;</i></a>
+                            </td>
+                        </tr>
                     </tbody>
                 </table>
             </div>
-        </div>  
-    </div> 
-    <button></button>  
-    </body>
-    <div class="modal fade" id="myModal">
-        <div class="modal-dialog" role="document">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h5 class="modal-title">Confirm Delete</h5>
-                    
-                </div>
-                <div class="modal-body">
-                    <p>Are you sure to delete Esprit Universite </p>
-                </div>
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-primary">Save changes</button>
-                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                </div>
+        </div>
+    </div>
+
+</body>
+
+
+
+
+
+
+<!--Delete Modal-->
+
+<div class="modal fade" id="myModal">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title">Confirm Delete</h5>
+
+            </div>
+            <div class="modal-body">
+                <p>Click confirm to delete</p>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-primary" data-dismiss="modal" (click)="delete()">Confirm</button>
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
             </div>
         </div>
     </div>
+</div>
+
+
+
+
+
+
+<!--Details Modal-->
+
+<!-- Modal -->
+<div class="modal fade" id="myModall">
+    <div class="modal-dialog modal-dialog-centered" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title">ADD Department</h5>
+
+            </div>
+            <div class="modal-body">
+                <label for="validationServer03" class="form-label font-weight-bold" style="font-size:20px;">Department
+                    Name</label>
+                <select class="form-select " id="validationServer04" aria-describedby="validationServer04Feedback"
+                    style=" border:3px solid #493ea2;height:50px;font-size:18px;" required #idDepart>
+                    <option selected disabled value="">Choose...</option>
+                    <option *ngFor="let departement of listDepartment" [value]="departement.idDepart">
+                        {{departement.nomDepart}}</option>
+                </select>
+
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-success" data-dismiss="modal"
+                    (click)="addDepartToUniv(idDepart.value)">Save</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<app-universite-form-update (updateEvent)="update($event)"></app-universite-form-update>

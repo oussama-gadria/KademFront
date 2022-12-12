@@ -1,4 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
+import { Etudiant } from 'src/app/Core/models/etudiant';
+import { EtudiantService } from 'src/app/Core/services/etudiant.service';
 
 @Component({
   selector: 'app-list-etudiant',
@@ -6,10 +9,43 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./list-etudiant.component.css']
 })
 export class ListEtudiantComponent implements OnInit {
-
-  constructor() { }
+  listEtudiant:Etudiant[];
+  IdEtudiantToDelete:number;
+  constructor(private route:Router, private etudiantServ:EtudiantService) { }
 
   ngOnInit(): void {
+  this.getAllEtudiant();
   }
 
+
+  ///////////routage 
+  GoToAddEtudiant()
+  {
+    this.route.navigate(['etudiant/AddEtudiant']);
+  }
+  GoToAddContrat(id:number)
+  {
+    this.route.navigate(['etudiant/AddContrat',id]);
+  }
+  GoToUpdateEtudiant(id:number)
+  {
+    this.route.navigate(['etudiant/UpdateEtudiant',id])
+  }
+/////////////////
+
+getAllEtudiant()
+{
+  this.etudiantServ.getAllEtudiant().subscribe((data)=>this.listEtudiant=data);
+}
+
+getIdEtudiantToDelete(id:number)
+{
+this.IdEtudiantToDelete=id;
+}
+
+
+deleteEtudiant()
+{
+  this.etudiantServ.deleteEtudiant(this.IdEtudiantToDelete).subscribe(() =>this.getAllEtudiant())
+}
 }

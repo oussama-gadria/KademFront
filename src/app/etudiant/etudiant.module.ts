@@ -6,6 +6,9 @@ import { AddEtudiantComponent } from './add-etudiant/add-etudiant.component';
 import { ListEtudiantComponent } from './list-etudiant/list-etudiant.component';
 import { UpdateEtudiantComponent } from './update-etudiant/update-etudiant.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { AddContratComponent } from './add-contrat/add-contrat.component';
+import { UpdateContratComponent } from './update-contrat/update-contrat.component';
+import { ListContratComponent } from './list-contrat/list-contrat.component';
 
 
 
@@ -13,7 +16,10 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
   declarations: [
     AddEtudiantComponent,
     ListEtudiantComponent,
-    UpdateEtudiantComponent
+    UpdateEtudiantComponent,
+    AddContratComponent,
+    UpdateContratComponent,
+    ListContratComponent
   ],
   imports: [
     CommonModule,

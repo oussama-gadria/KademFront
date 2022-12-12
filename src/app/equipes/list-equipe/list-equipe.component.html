@@ -1,4 +1,4 @@
-<header id="portfolio" class="w3-content " style="max-width:1300px; margin-top:80px">
+<header id="portfolio" class="w3-content " style="max-width:1600px; margin-top:80px">
     <div class="w3-container ">
     <h1>Espace Equipes</h1>
     <div class="w3-section w3-bottombar ">
@@ -6,10 +6,10 @@
          <!-- navbar -->
                 <ul class="navbar-nav me-auto mb-2 mb-lg-0 " style="padding-left: 78px;">
                   <li class="nav-item">
-                    <a class="nav-link " href="#" style="font-family:'Poppins', sans-serif;font-size: 20px; color: #493ea2 ;">Dashboard </a>
+                    <a class="nav-link " routerLink="" style="font-family:'Poppins', sans-serif;font-size: 20px; color: #493ea2 ;">Equipes</a>
                   </li>
                   <li class="nav-item">
-                    <a class="nav-link" href="#" style="font-family:'Poppins', sans-serif;font-size: 20px; color: #493ea2;">/ Team</a>
+                    <a class="nav-link" href="/addDetail" style="font-family:'Poppins', sans-serif;font-size: 20px; color: #493ea2;">/   Detail Equipe</a>
                   </li>
                 </ul> 
           </nav>
@@ -18,18 +18,21 @@
     </div>
   </header>
   <body>
-    <div class="container">
+    <div class="container-fluid" style="max-width: 1500px; background-color: white;">
         <div class="table-responsive">
             <div class="table-wrapper">
                 <div class="table-title">
                     <div class="row">
                         <div class="col-sm-8 "><h2>Customer <b>Details</b></h2></div>
-                        <div class="col-sm-4">
-                            <button type="button" class="btn btn-primary btn-sm" (click)="addEquipe()">ADD Equipe</button>
+                        <div class="col-sm-2">
+                            
                             <div class="search-box">
                                 <i class="material-icons">&#xE8B6;</i>
-                                <input type="text" class="form-control" placeholder="Search&hellip;">
+                                <input type="text" class="form-control"  [(ngModel)]="searchEquipe" placeholder="Search&hellip;">
                             </div>
+                        </div>
+                        <div class="col-sm-2">
+                            <button type="button" class="btn btn-secondary px-5 py-1" (click)="addEquipe()"><span class="bi bi-plus "></span>Add Contrat</button> 
                         </div>
                     </div>
                 </div>
@@ -41,23 +44,22 @@
                             <th>Score</th>
                             <th>Id Responsable</th>
                             <th>Niveau</th>
-                            <th>Membres Equipe</th>
                             <th>Actions</th>
                         </tr>
                     </thead>
                     <tbody>
-                        <tr *ngFor="let equipe of listEquipe">
+                        <tr *ngFor="let equipe of search()">
                             <td>{{equipe.idEquipe}}</td>
                             <td>{{equipe.nomEquipe}}</td>
                             <td>{{equipe.score}}</td>
                             <td>{{equipe.responsable}}</td>
                             <td>{{equipe.niveau}}</td>
-                            <td>
-                                <a routerLink="listMembres" class="view" title="View" data-toggle="tooltip"><i class="material-icons">&#xE417;</i></a>
-                            </td>
-                            <td>
-                                <a [routerLink]="['updateEquipe',0]" class="edit" title="Edit" data-toggle="tooltip"><i class="material-icons">&#xE254;</i></a>
-                                <button class="delete" title="Delete" data-toggle="tooltip" data-target="#myModal" (click)="getIdEquipe(equipe.idEquipe)" data-toggle="modal"><i class="material-icons">&#xE872;</i></button>
+                            <td colspan="2">                       
+                                <div class="d-flex">
+                                    <button type="button" class="btn btn-primary px-2 py-1" (click)="membres(equipe.idEquipe)"><span class="bi bi-eye-fill"></span> Membres</button>
+                                    <button type="button" class="btn btn-warning px-2 mx-1"><span class="bi bi-pencil-fill" (click)="onEditClicked(equipe.idEquipe)"></span></button>
+                                    <button type="button" class="btn btn-danger px-2 mx-1" data-target="#myModal" data-toggle="modal" (click)="getIdEquipe(equipe.idEquipe)"><span class="bi bi-trash"></span></button>
+                                </div>  
                             </td>
                         </tr>    
                     </tbody>
@@ -76,7 +78,7 @@
                     
                 </div>
                 <div class="modal-body">
-                    <p>Are you sure to delete Esprit Universite </p>
+                    <p>Are you sure to delete this Team</p>
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-primary" data-dismiss="modal" (click)="deleteEquipe()">Confirm</button>
@@ -85,3 +87,5 @@
             </div>
         </div>
     </div>
+
+    

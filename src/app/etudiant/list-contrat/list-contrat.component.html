@@ -1,0 +1,101 @@
+ <header id="portfolio" class="w3-content " style="max-width:1600px; margin-top:80px">
+        <div class="w3-container ">
+        <h1>Espace etudiant</h1>
+        <div class="w3-section w3-bottombar ">
+            <nav class="navbar navbar-expand-lg ">
+             <!-- navbar -->
+                    <ul class="navbar-nav me-auto mb-2 mb-lg-0 " style="padding-left: 78px;">
+                      <li class="nav-item">
+                        <a class="nav-link "  routerLink="/etudiant/"  style="font-family:'Poppins', sans-serif;font-size: 20px; color: #493ea2 ;">Etudiant </a>
+                      </li>
+                      <li class="nav-item">
+                        <a class="nav-link" style="font-family:'Poppins', sans-serif;font-size: 20px; color: #493ea2;">/ Contrat</a>
+                      </li>
+                    </ul> 
+              </nav>
+              <!-- Navbar -->
+        </div>
+        </div>
+      </header>
+      <body>
+        <div class="container-fluid  " style="max-width: 1550px;background-color: white;">
+            <div class="table-responsive">
+                <div class="table-wrapper">
+                   <!-- table title  -->
+                    <div class="table-title">
+                        <div class="row">
+                            <div class="col-sm-8 " style="color: black;"><h2>Contrat <b>Details</b></h2></div>
+                            <div class="col-sm-2 ">
+                                <div class="search-box">
+                                    <i class="material-icons">&#xE8B6;</i>
+                                    <input type="text" class="form-control" placeholder="Search&hellip;">
+                                </div> 
+                            </div>
+                            <div class="col-sm-2">
+                                <button type="button" class="btn btn-secondary px-5 py-1" (click)="GoToAddContrat()"><span class="bi bi-plus "></span>Add Contrat</button> 
+                            </div> 
+                        </div>
+                    </div>
+                    
+                    <table class="table table-striped table-hover table-bordered  w-100">
+                        <thead>
+                            <tr>
+                                <th>Date debut </th>
+                                <th>Date fin</th>
+                                <th>Specialite</th>
+                                <th>Archive</th>
+                                <th>Montant</th>
+                                <th>Etudiant</th>
+                              
+                            </tr>
+                        </thead>
+    
+                        <tbody>
+                            <tr *ngFor="let contrat of listContrat">
+                                <td>{{contrat.dateDebutContrat}}</td>
+                                <td>{{contrat.dateFinContrat}}</td>
+                                <td>{{contrat.specialite}}</td>
+                                <td>{{contrat.archive}}</td>
+                                <td>{{contrat.montantC}}</td>
+                                <td>{{contrat.etudiant.nomE}} {{contrat.etudiant.prenomE}}</td>
+                            
+                                <td colspan="3">
+                                <div class="d-flex">
+                                    <button type="button" class="btn btn-primary px-2 "><span class="bi bi-eye-fill"></span></button>
+                                    <button type="button" class="btn btn-warning px-2 mx-1" ><span class="bi bi-pencil-fill" (click)="updateContrat()"></span></button>
+                                    <button type="button" class="btn btn-danger px-2 mx-1" data-target="#myModal" data-toggle="modal" (click)="getIdContratToDelete(contrat.idContrat)"><span class="bi bi-trash"></span></button>
+                                </div>  
+                                </td>
+
+                            </tr>    
+                        </tbody>
+                    </table>
+                </div>
+            </div>  
+        </div> 
+        
+        </body>
+      
+    
+         <!-- modal delete  -->
+        <div class="modal fade" id="myModal">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title">Confirm Delete</h5>
+                        
+                    </div>
+                    <div class="modal-body">
+                        <p>Are you sure you to delete ? </p>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-primary" data-dismiss="modal" (click)="deleteContrat()">Confirm</button>
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+     
+    
+
+

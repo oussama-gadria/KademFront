@@ -16,7 +16,10 @@ export class AddEquipeComponent implements OnInit {
   listEquipe:equipe[];
   listEnseignant:Enseignant[];
   equipe:equipe;
-  public idE:number
+  public idE:number;
+  style1="red";
+  style2="bold";
+  style3="small";
   constructor(private formbuilder:FormBuilder,private equipeService:EquipeService,private route:Router) {
     this.myForm=this.formbuilder.group({
       fName:['',[Validators.required,Validators.pattern("[a-zA-Z ]*")]],
@@ -35,6 +38,6 @@ export class AddEquipeComponent implements OnInit {
     this.equipeService.addEquipeWithResponsable(this.equipe,id).subscribe(()=>this.listEquipe=[this.equipe,...this.listEquipe]);
     console.log(this.myForm);
     this.route.navigate(['/equipes'])
-
+ 
   }
 }

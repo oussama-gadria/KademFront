@@ -1,0 +1,123 @@
+<section class="colorRegister">
+    <div class="sigupbloc" >
+                        <div class="row no-gutters">
+                        <div class="col-md-10 offset-md-1">
+                                
+    
+                            <section id="portfolio" class="w3-content " style="max-width:1300px; margin-top:80px">
+                                <div class="w3-container ">
+                                <h1>Espace</h1>
+                                <div class="w3-section w3-bottombar ">
+                                </div>
+                                </div>
+                            </section>
+                          
+                          
+                            <section  class=" w3-content  offset-md-2 ">
+
+                             <form #contratForm="ngForm" class="row g-3">
+                           
+                            <!--date debut contrat-->
+                              <div class="row  ">
+                                <div class="col-md-6 "  >
+                                  <label for="validationServer01" class="form-label font-weight-bold" style="font-size:20px;">Date Debut Contrat</label>
+                                  <input type="date" class="form-control " id="validationServer01" value="" style=" border:3px solid #493ea2;height:50px;font-size:18px;border-radius:15px;" placeholder="Date debut contrat" name="dateDebut" [(ngModel)]="contrat.dateDebutContrat" #dateDebut="ngModel" required>
+                              
+                                  <div class="alertText" *ngIf="dateDebut.touched && dateDebut.errors?.['required']">
+                                    <p class="text-danger" style="font-size: 18px;" >Date Debut is required ! </p>
+                                  </div>
+                                </div>
+
+
+                            <!--date fin contrat-->
+                                <div class="col-md-6 ">
+                                  <label for="validationServer02" class="form-label font-weight-bold" style="font-size:20px;">Date Fin contrat</label>
+                                  <input type="date" class="form-control " id="validationServer02" value="Otto"  style=" border:3px solid #493ea2;height:50px;font-size:18px;border-radius:15px;"placeholder="Last Name" name="dateFin" [(ngModel)]="contrat.dateFinContrat" #dateFin="ngModel" required>
+                                  <div class="alertText" *ngIf="dateFin.touched && dateFin.errors?.['required']">
+                                    <p class="text-danger" style="font-size: 18px;">Date Fin is required ! </p>
+                                  </div>
+                                </div>
+                              </div>
+
+                        
+                                <!--specialite-->
+                                <div class="row">
+                                <div class="col-md-3">
+                                  <label for="validationServer04" class="form-label font-weight-bold" style="font-size:20px;">Specialite</label>
+                                  <select class="form-select " id="validationServer04" aria-describedby="validationServer04Feedback"  style=" border:3px solid #493ea2;height:50px;font-size:18px;"   name="specialite" [(ngModel)]="contrat.specialite" #specialite="ngModel" required>
+                                    <option selected disabled value="">Choose Specialite</option>
+                                    <option>IA</option>
+                                    <option>RESEAUX</option>
+                                    <option>CLOUD</option>
+                                    <option>SECURITE</option>
+                  
+                                  </select>
+                                  <div class="alertText" *ngIf="specialite.touched && specialite.errors?.['required']">
+                                    <p class="text-danger" style="font-size: 18px;">Specialite is required !</p>
+                                  </div>
+                                </div>
+
+                                
+                            <!--archive-->
+
+                            <div class="col-md-6 ">
+
+                              <div class="form-icon-wrapper">
+                                <div class="d-md-flex justify-content-start align-items-center mb-4 py-2">
+                                    <div class="mb-0 me-4">
+                                      <label for="validationServer02" class="form-label font-weight-bold" style="font-size:20px;"> Archive</label>
+                                    </div>
+
+                                    <div class="form-check form-check-inline mb-0 me-4">
+                                      <input class="form-check-input" type="radio" id="true"  name="archive" [(ngModel)]="contrat.archive" #archive="ngModel" required value="true"   checked  /> 
+                                      <label class="form-check-label font-weight-bold" for="true">true</label>
+                                    </div>
+                  
+                                    <div class="form-check form-check-inline mb-0 me-4">
+                                      <input class="form-check-input" type="radio"  id="false"  name="archive" [(ngModel)]="contrat.archive" #archive="ngModel" required value="false"/>
+                                      <label class="form-check-label font-weight-bold" for="false">false</label>
+                                    </div>
+                  
+                                  </div>
+                            </div>
+          
+                                <div class="alertText" *ngIf="archive.touched && archive.errors?.['required']">
+                                  <p class="text-danger" style="font-size: 18px;">Archive is required ! </p>
+                                </div>
+                              </div>
+                            </div>
+
+
+                             <!--montantC-->
+                            <div class="col-md-6 ">
+                                    <label for="validationServer02" class="form-label font-weight-bold" style="font-size:20px;">Montant contrat</label>
+                                    <input type="text" class="form-control " id="validationServer02" value="Otto"  style=" border:3px solid #493ea2;height:50px;font-size:18px;border-radius:15px;"placeholder="montantC" name="montantC" [(ngModel)]="contrat.montantC" #montantC="ngModel" required >
+                                    <div class="alertText" *ngIf="montantC.touched && montantC.errors?.['required']">
+                                      <p class="text-danger" style="font-size: 18px;">Montant Contrat is required ! </p>
+                                    </div>
+                            </div>
+
+                           
+                         
+                            </form>
+                            </section>
+
+                            
+                            <div class="row">
+                              <div class="col-12">
+                                <button class="btn btn-primary" (click)="AddContrat()">Submit form</button>
+                              </div>
+                          </div>
+
+
+                         
+       
+                        </div>
+                        </div>
+</div>
+</section>
+
+
+
+
+
