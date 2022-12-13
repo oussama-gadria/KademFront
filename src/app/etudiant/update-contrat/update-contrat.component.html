@@ -4,37 +4,38 @@
                         <div class="col-md-10 offset-md-1">
                                 
     
-                            <section id="portfolio" class="w3-content " style="max-width:1300px; margin-top:80px">
+                            <section id="portfolio" class="w3-content " style="max-width:1600px; margin-top:80px">
                                 <div class="w3-container ">
-                                <h1>Espace</h1>
+                                <h3  class="style-4 menu-4">Update Contract</h3>
                                 <div class="w3-section w3-bottombar ">
                                 </div>
                                 </div>
                             </section>
                           
                           
-                            <section  class=" w3-content  offset-md-2 ">
+                            <section  class=" d-flex ">
 
-                             <form [formGroup]="UpdateContratForm" class="row g-3">
+                            <div class="col-md-6 mt-2 ">
+                            <form [formGroup]="UpdateContratForm" class="row g-3">
                            
                             <!--date debut contrat-->
                               <div class="row  ">
                                 <div class="col-md-6 "  >
-                                  <label for="validationServer01" class="form-label font-weight-bold" style="font-size:20px;">Date Debut Contrat</label>
-                                  <input type="text" class="form-control " id="validationServer01" value="" style=" border:3px solid #493ea2;height:50px;font-size:18px;border-radius:15px;" placeholder="Date debut contrat" formControlName="dateDebutContrat">
+                                  <label for="validationServer01" class="form-label font-weight-bold" style="font-size:20px;">Start Date</label>
+                                  <input type="date" class="form-control " id="validationServer01" value="" style=" border:3px solid #493ea2;height:50px;font-size:18px;border-radius:15px;" placeholder="Date debut contrat" formControlName="dateDebutContrat">
                               
                                   <div class="alertText" *ngIf="UpdateContratForm.get('dateDebutContrat')?.touched && UpdateContratForm.get('dateDebutContrat')?.errors?.['required']">
-                                    <p class="text-danger" style="font-size: 18px;" >Date Debut is required ! </p>
+                                    <p [ngClass]="'redAlert'">Dtart Date is required ! </p>
                                   </div>
                                 </div>
 
 
                             <!--date fin contrat-->
                                 <div class="col-md-6 ">
-                                  <label for="validationServer02" class="form-label font-weight-bold" style="font-size:20px;">Date Fin</label>
-                                  <input type="text" class="form-control " id="validationServer02" value="Otto"  style=" border:3px solid #493ea2;height:50px;font-size:18px;border-radius:15px;"placeholder="Last Name" formControlName="dateFinContrat" >
+                                  <label for="validationServer02" class="form-label font-weight-bold" style="font-size:20px;">End Date</label>
+                                  <input type="date" class="form-control " id="validationServer02" value="Otto"  style=" border:3px solid #493ea2;height:50px;font-size:18px;border-radius:15px;"placeholder="Last Name" formControlName="dateFinContrat" >
                                   <div class="alertText" *ngIf="UpdateContratForm.get('dateFinContrat')?.touched && UpdateContratForm.get('dateFinContrat')?.errors?.['required']">
-                                    <p class="text-danger" style="font-size: 18px;">Date Fin is required ! </p>
+                                    <p [ngClass]="'redAlert'">End Date  is required ! </p>
                                   </div>
                                 </div>
                               </div>
@@ -43,17 +44,16 @@
                                 <!--specialite-->
                                 <div class="row">
                                 <div class="col-md-3">
-                                  <label for="validationServer04" class="form-label font-weight-bold" style="font-size:20px;">Specialite</label>
+                                  <label for="validationServer04" class="form-label font-weight-bold" style="font-size:20px;">Speciality</label>
                                   <select class="form-select " id="validationServer04" aria-describedby="validationServer04Feedback"  style=" border:3px solid #493ea2;height:50px;font-size:18px;"  formControlName="specialite">
-                                    <option selected disabled value="">Choose Specialite</option>
-                                    <option>1</option>
-                                    <option>2</option>
-                                    <option>3</option>
-                                    <option>4</option>
-                                    <option>5</option>
+                                    <option selected disabled value="">Choose Speciality</option>
+                                    <option>IA</option>
+                                    <option>RESEAUX</option>
+                                    <option>CLOUD</option>
+                                    <option>SECURITE</option>                
                                   </select>
                                   <div class="alertText" *ngIf="UpdateContratForm.get('specialite')?.touched && UpdateContratForm.get('specialite')?.errors?.['required']">
-                                    <p class="text-danger" style="font-size: 18px;">Specialite is required !</p>
+                                    <p [ngClass]="'redAlert'">Speciality is required !</p>
                                   </div>
                                 </div>
 
@@ -61,33 +61,40 @@
                             <!--archive-->
                             <div class="col-md-6 ">
                                 <label for="validationServer02" class="form-label font-weight-bold" style="font-size:20px;">Archive</label>
-                                <input type="text" class="form-control " id="validationServer02" value="Otto"  style=" border:3px solid #493ea2;height:50px;font-size:18px;border-radius:15px;"placeholder="archive" formControlName="archive" >
+                                <input type="text" class="form-control " id="validationServer02" value="Otto"  style=" border:3px solid #493ea2;height:50px;font-size:18px;border-radius:15px;"placeholder="true/false" formControlName="archive" >
                                 <div class="alertText" *ngIf="UpdateContratForm.get('archive')?.touched && UpdateContratForm.get('archive')?.errors?.['required']">
-                                  <p class="text-danger" style="font-size: 18px;">Last name is required ! </p>
+                                  <p [ngClass]="'redAlert'">Archive is required! </p>
                                 </div>
                               </div>
                             </div>
 
 
                              <!--montantC-->
+                             <div class="row">
                             <div class="col-md-6 ">
-                                    <label for="validationServer02" class="form-label font-weight-bold" style="font-size:20px;">Montant contrat</label>
+                                    <label for="validationServer02" class="form-label font-weight-bold" style="font-size:20px;">Contract Amount</label>
                                     <input type="text" class="form-control " id="validationServer02" value="Otto"  style=" border:3px solid #493ea2;height:50px;font-size:18px;border-radius:15px;"placeholder="montantC" formControlName="montantC" >
                                     <div class="alertText" *ngIf="UpdateContratForm.get('montantC')?.touched && UpdateContratForm.get('montantC')?.errors?.['required']">
-                                      <p class="text-danger" style="font-size: 18px;">Last name is required ! </p>
+                                      <p [ngClass]="'redAlert'">Contract Amount is required ! </p>
                                     </div>
                             </div>
 
 
-                            <div class="row">
-                                <div class="col-12">
-                                  <button class="btn btn-primary" type="submit">Submit form</button>
+                            
+                                <div class="col-md-6 mt-5">
+                                  <button class="btn btn-primary mt-2 px-5" style="background-color: #493ea2;"  (click)="upEvent()" type="submit"><span class="bi bi-plus "></span>Update contrat</button>
                                 </div>
                             </div>
 
-
                             </form>
-                            </section>
+                            </div>
+
+         
+                             <!--2 eme colonne pour l'image-->
+                           <div class="col-md-5  ">
+                            <img src="assets/images/update2.png" alt="" width="70%" class="img-fluid mt-1" style="margin-left:200px;">
+                           </div>
+                          </section>
        
                         </div>
                         </div>

@@ -13,18 +13,21 @@ import { EtudiantService } from 'src/app/Core/services/etudiant.service';
   styleUrls: ['./add-etudiant.component.css']
 })
 export class AddEtudiantComponent implements OnInit {
+  style1="red";
+  style2="bold";
+  style3="small";
   nomDepart:String
   listDepartments:Departement[]; 
   etudiant:Etudiant
   
 
     AddFormEtudiant=this.fb.group({  
-    nomE:["",Validators.required],
-    prenomE:["",Validators.required],
+    nomE:["",[Validators.required,Validators.pattern("[a-zA-Z ]*")]],
+    prenomE:["",[Validators.required,Validators.pattern("[a-zA-Z ]*")]],
     email:["",[Validators.required,Validators.email]],
     numeroTelephone:["",[Validators.required,Validators.minLength(8)]],
     adresse:["",Validators.required],
-    age:["",Validators.required],
+    age:["",[Validators.required,Validators.max(100)]],
     niveauEtudiant:[0,Validators.required],
     option:["",Validators.required],
     classe:[0,Validators.required],
