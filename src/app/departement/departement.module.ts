@@ -9,6 +9,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { AddModuleComponent } from './add-module/add-module.component';
 import { UpdateModuleComponent } from './update-module/update-module.component';
 import { ListModuleComponent } from './list-module/list-module.component';
+import { TableModuleComponent } from './table-module/table-module.component';
 
 
 @NgModule({
@@ -19,6 +20,7 @@ import { ListModuleComponent } from './list-module/list-module.component';
     AddModuleComponent,
     UpdateModuleComponent,
     ListModuleComponent,
+    TableModuleComponent
 
   ],
   imports: [
