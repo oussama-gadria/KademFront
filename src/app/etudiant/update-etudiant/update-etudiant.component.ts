@@ -12,12 +12,12 @@ import { EtudiantService } from 'src/app/Core/services/etudiant.service';
 export class UpdateEtudiantComponent implements OnInit {
   
   UpdateFormEtudiant=this.fb.group({  
-    nomE:["",Validators.required],
-    prenomE:["",Validators.required],
+    nomE:["",[Validators.required,Validators.pattern("[a-zA-Z ]*")]],
+    prenomE:["",[Validators.required,Validators.pattern("[a-zA-Z ]*")]],
     email:["",[Validators.required,Validators.email]],
     numeroTelephone:["",[Validators.required,Validators.minLength(8)]],
     adresse:["",Validators.required],
-    age:["",Validators.required],
+    age:["",[Validators.required,Validators.max(100)]],
     niveauEtudiant:[0,Validators.required],
     option:["",Validators.required],
     classe:[0,Validators.required],
@@ -36,7 +36,8 @@ export class UpdateEtudiantComponent implements OnInit {
    this.etudiantServ.getEtudiantById(this.IdEtudiant).subscribe((data)=>
    {this.etudiant=data
 
-      this.UpdateFormEtudiant.setValue({nomE: String(this.etudiant.nomE),  
+      this.UpdateFormEtudiant.setValue(
+      {nomE: String(this.etudiant.nomE),  
       prenomE:String(this.etudiant.prenomE), 
       email:String(this.etudiant.email),
       numeroTelephone:String(this.etudiant.numeroTelephone), 
@@ -44,7 +45,8 @@ export class UpdateEtudiantComponent implements OnInit {
       age:String(this.etudiant.age),
       niveauEtudiant: Number(this.etudiant.niveauEtudiant),
       option: String(this.etudiant.option), 
-      classe: Number(this.etudiant.classe)},)
+      classe: Number(this.etudiant.classe)},
+      )
 
     });
   }
