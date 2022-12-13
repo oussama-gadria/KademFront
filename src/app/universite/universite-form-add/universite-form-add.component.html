@@ -4,26 +4,35 @@
     <div class="col-md-10 offset-md-1">                             
     <header id="portfolio" class="w3-content " style="max-width:1300px; margin-top:80px">
        <div class="w3-container ">
-        <h1>Espace Universite</h1>
+        <h1 class="style-4 menu-4">University Module</h1>
         <div class="w3-section w3-bottombar ">
         </div>
        </div>
     </header>  
-<section  class=" w3-content  offset-md-2 ">
+    <section  class="d-flex">
+      <!--1 ere colonne pour la formulaire-->
+     <div class="col-md-6 offset-md-1 mt-5">
     <form class="row g-3" #universiteForm="ngForm">
 
        <!--Name of Univerisite-->
        <div class="col-md-6"  >
            <label  for="validationServer01" class="form-label font-weight-bold" style="font-size:15px;">Name Universite</label>
-           <input name="nomUniversite" type="text" class="form-control " id="validationServer01" style=" border:2px solid #493ea2;height:39px;font-size:14px;width:400px; border-radius: 10px;" [(ngModel)]="universite.nomUniversite" #nomUniv="ngModel" required>     
+           <input name="nomUniversite" type="text" class="form-control " id="validationServer01" style=" border:3px solid #493ea2;height:39px;font-size:14px;width:400px; border-radius: 12px;" [(ngModel)]="universite.nomUniversite" #nomUniv="ngModel" required>     
        </div>                           
        <div class="alertText" *ngIf=" nomUniv.touched && nomUniv.errors?.['required']">                                 
            <p class="text-danger">Please enter the name of universite !</p>
        </div>
-       <div class="col-12"  >
-           <button class="btn btn-success" type="submit" (click)="save()" [disabled]="universiteForm.invalid" >ADD Universite</button>
-       </div>
+    
+       <div class="col-12 ">
+        <button class="btn btn-primary mt-4 px-5 "  style="background-color: #493ea2;"(click)="save()" [disabled]="universiteForm.invalid"><span class="bi bi-plus "></span>ADD Universite</button> 
+      </div>
+
     </form>
+     </div>
+
+     <div class="col-md-5  ">
+      <img src="assets/images/reg.png" alt="" width="70%" class="img-fluid mx-5 mt-2">
+    </div>
  </section>  
 
       </div>

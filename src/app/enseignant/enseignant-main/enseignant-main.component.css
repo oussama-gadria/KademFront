@@ -117,4 +117,9 @@ table.table td i {
     margin-top: 6px;
     font-size: 95%;
 }    
-
+/* style navbar */
+.menu-4 {
+   
+    text-transform: uppercase;
+    font-weight: 500;
+  }

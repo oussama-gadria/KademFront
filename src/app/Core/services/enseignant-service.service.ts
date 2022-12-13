@@ -8,7 +8,7 @@ import { Observable } from 'rxjs';
   providedIn: 'root'
 })
 export class EnseignantServiceService {
-  url="http://localhost:8091/Enseignant";
+  url="http://localhost:8089/Enseignant";
 
   constructor(private http:HttpClient) {}
   getAllEnseignant():Observable<Enseignant[]>{

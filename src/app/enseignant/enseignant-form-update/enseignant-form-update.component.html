@@ -4,19 +4,21 @@
         <div class="col-md-10 offset-md-1">                                
           <header id="portfolio" class="w3-content " style="max-width:1300px; margin-top:80px">
             <div class="w3-container ">
-              <h1>Update Enseignant</h1>
+              <h1 class="style-4 menu-4">Update Enseignant</h1> 
               <div class="w3-section w3-bottombar ">
               </div>
             </div>
-          </header>                         
-          <section  class=" w3-content  offset-md-2 "> 
+          </header>  
+
+         <section  class=" d-flex ">
+            <div class="col-md-6 offset-md-1 ">
             <form class="row g-3" [formGroup]="myforme">
  
               
             <!-----------------------------------------Nom Enseignant--------------------------------------------->
             <div class="col-md-6">
                <label for="validationServer01" class="form-label font-weight-bold" style="font-size:15px;">First name</label>
-               <input name="nomEnseignant" type="text" class="form-control " id="validationServer01" style=" border:2px solid #493ea2;height:39px;font-size:14px;width: 400px; border-radius: 10px;" formControlName="nomEnseignant">
+               <input name="nomEnseignant" type="text" class="form-control " id="validationServer01" style=" border:2px solid #493ea2;height:39px;font-size:14px; border-radius: 10px;" formControlName="nomEnseignant">
                <div class="alertText"  *ngIf=" myforme.get('nomEnseignant')?.touched && myforme.get('nomEnseignant')?.errors?.['required'] ">
                   <p class="text-danger">Please enter the First name to continue !</p>
                </div>
@@ -26,7 +28,7 @@
              <!------------------------------------------Prenom Enseignant---------------------------------------->
               <div class="col-md-6">
                   <label for="validationServer02" class="form-label font-weight-bold" style="font-size:15px;" >Last name</label>
-                  <input name="prenomEnseignant" type="text" class="form-control " id="validationServer02"  style=" border:2px solid #493ea2;height:39px;font-size:14px;width: 400px; border-radius: 10px;" formControlName="prenomEnseignant">
+                  <input name="prenomEnseignant" type="text" class="form-control " id="validationServer02"  style=" border:2px solid #493ea2;height:39px;font-size:14px; border-radius: 10px;" formControlName="prenomEnseignant">
                   <div class="alertText"  *ngIf=" myforme.get('prenomEnseignant')?.touched && myforme.get('prenomEnseignant')?.errors?.['required'] ">                                 
                      <p class="text-danger">Please enter the last name to continue !</p>
                   </div>
@@ -36,7 +38,7 @@
              <!---------------------------------------------Subject Name------------------------------------------------->                         
                <div class="col-md-6">
                   <label for="validationServer03" class="form-label font-weight-bold" style="font-size:15px;">Subject</label>
-                  <input name="nomMatiere" type="text" class="form-control " id="validationServer03" aria-describedby="validationServer03Feedback"  style=" border:2px solid #493ea2;height:39px;font-size:14px;width: 400px; border-radius: 10px;"  formControlName="nomMatiere">
+                  <input name="nomMatiere" type="text" class="form-control " id="validationServer03" aria-describedby="validationServer03Feedback"  style=" border:2px solid #493ea2;height:39px;font-size:14px; border-radius: 10px;"  formControlName="nomMatiere">
                   <div class="alertText" *ngIf=" myforme.get('nomMatiere')?.touched && myforme.get('nomMatiere')?.errors?.['required'] ">                                 
                     <p class="text-danger">Please enter the Subject to continue !</p>
                   </div>
@@ -46,7 +48,7 @@
   
                <div class="col-md-6">
                   <label for="validationServer03" class="form-label font-weight-bold" style="font-size:15px;">Email</label>
-                  <input name="email" type="text" class="form-control " id="validationServer03" aria-describedby="validationServer03Feedback" style=" border:2px solid #493ea2;height:39px;font-size:14px;width: 400px; border-radius: 10px;"  formControlName="email">
+                  <input name="email" type="text" class="form-control " id="validationServer03" aria-describedby="validationServer03Feedback" style=" border:2px solid #493ea2;height:39px;font-size:14px; border-radius: 10px;"  formControlName="email">
                   <div class="alertText" *ngIf=" myforme.get('email')?.touched && myforme.get('email')?.errors?.['required'] ">                                 
                     <p class="text-danger">Please enter the email to continue !</p>
                   </div>
@@ -59,7 +61,7 @@
   
                 <div class="col-md-6">
                    <label for="validationServer03" class="form-label font-weight-bold" style="font-size:15px;">Age</label>
-                   <input name="age" type="number" class="form-control " id="validationServer03" aria-describedby="validationServer03Feedback"  style=" border:2px solid #493ea2;height:39px;font-size:14px;width:400px; border-radius: 10px;"  formControlName="age">
+                   <input name="age" type="number" class="form-control " id="validationServer03" aria-describedby="validationServer03Feedback"  style=" border:2px solid #493ea2;height:39px;font-size:14px; border-radius: 10px;"  formControlName="age">
                    <div class="alertText" *ngIf=" myforme.get('age')?.touched && myforme.get('age')?.errors?.['required'] ">                                 
                      <p class="text-danger">Please enter the age to continue !</p>
                    </div>
@@ -68,7 +70,7 @@
                 <!----------------------------------------------salary--------------------------------------------------->
               <div class="col-md-6">
                  <label for="validationServer03" class="form-label font-weight-bold" style="font-size:15px;">Salary</label>
-                 <input name="salaire" type="number" class="form-control " id="validationServer03" aria-describedby="validationServer03Feedback"  style=" border:2px solid #493ea2;height:39px;font-size:14px;width: 400px; border-radius: 10px;"  formControlName="salaire">
+                 <input name="salaire" type="number" class="form-control " id="validationServer03" aria-describedby="validationServer03Feedback"  style=" border:2px solid #493ea2;height:39px;font-size:14px; border-radius: 10px;"  formControlName="salaire">
                    <div class="alertText" *ngIf=" myforme.get('salaire')?.touched && myforme.get('salaire')?.errors?.['required'] ">                                 
                      <p class="text-danger">Please the salary to continue !</p>
                    </div>
@@ -77,7 +79,7 @@
                 <!---------------------------------------------Experience------------------------------------------------>
               <div class="col-md-6">
                    <label for="validationServer03" class="form-label font-weight-bold" style="font-size:15px;">Experience</label>
-                   <input name=" experienceParAnnee" type="number" class="form-control " id="validationServer03" aria-describedby="validationServer03Feedback" style=" border:2px solid #493ea2;height:39px;font-size:14px;width: 400px; border-radius: 10px;"  formControlName="experienceParAnnee">
+                   <input name=" experienceParAnnee" type="number" class="form-control " id="validationServer03" aria-describedby="validationServer03Feedback" style=" border:2px solid #493ea2;height:39px;font-size:14px; border-radius: 10px;"  formControlName="experienceParAnnee">
                     <div class="alertText" *ngIf=" myforme.get('experienceParAnnee')?.touched && myforme.get('experienceParAnnee')?.errors?.['required'] ">                                 
                        <p class="text-danger">Please enter the number of experience year  to continue !</p>
                     </div>
@@ -86,10 +88,18 @@
 
                    <!-------------------------------------------UPDATE()------------------------------------------------>              
                   <div class="col-12"  >
-                    <button class="btn btn-success" (click)="update()" >Update Enseignant</button>
+                  
+                    <button class="btn btn-primary mt-3 px-5 "  style="background-color: #493ea2;" (click)="update()"><span class="bi bi-plus "></span>Update Enseignant</button> 
+
                   </div>
 
             </form>
+            </div>
+
+
+            <div class="col-md-5  ">
+              <img src="assets/images/update.png" alt="" width="80%" class="img-fluid mx-5 mt-3">
+            </div>
           </section>
          </div>
       </div>

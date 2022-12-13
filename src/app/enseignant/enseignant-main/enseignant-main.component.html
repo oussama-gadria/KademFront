@@ -1,6 +1,6 @@
 <header id="portfolio" class="w3-content " style="max-width:1300px; margin-top:80px">
     <div class="w3-container ">
-      <h1>Espace Enseignant</h1>   
+        <h1 class="style-4 menu-4">Enseignant Module</h1> 
     <div class="w3-section w3-bottombar ">
     </div>
     </div>
@@ -17,18 +17,24 @@
                             <button    type="button" class="btn-primary  btn-sm "(click)="tricroissant()"style="width:135px;background:#493ea2;">Salaire Décroissant</button>
                             <button type="button" class="btn btn-primary btn-sm" (click)="triDecroissant()" style="margin-left:10px;width:145px;background:#493ea2;height: 31px;">Salaire croissant</button>
                         </div>
-
+                    </div>
 
                         <!---------------------------------------Search-------------------------------------------->
-                        <div class="col-sm-4">
-                            <button type="button" class="btn btn-primary btn-sm" style="background:#493ea2; margin-right:10px" routerLink="addEnseignant">ADD Enseignant</button>
+                        <div class="row">
+                        <div class="col-sm-7 " style="color: black;"><h2 style="color:#e67e22">Enseignants <b style="color:#493ea2">Details</b></h2></div>
+                        <div class="col-sm-2">
+
                             <div class="search-box">
                                 <i class="material-icons">&#xE8B6;</i>
                                 <input type="text" class="form-control"  [(ngModel)]="searchEnseignant" placeholder="Search&hellip;">
                             </div>
                         </div>
+                        <div class="col-sm-3">
+                            <button type="button" class="btn btn-secondary px-5 py-1"  routerLink="addEnseignant"><span class="bi bi-plus "></span>ADD Enseignant</button> 
+                        </div> 
+                        </div>
+                        
                     </div>
-                </div>
 
 
                 <!-------------------------------------My table Enseignant ---------------------------------------->

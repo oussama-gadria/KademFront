@@ -12,7 +12,7 @@
                 <p *ngFor="let departement of universite.departements">{{departement.nomDepart}}</p>
             </td>
             <td>
-                <button type="button" class="btn btn-primary px-2 " title="view" data-toggle="tooltip" data-target="#myModall" (click)="getIdUniversite(universite.idUniversite)" (click)="getAllDepartment()" data-toggle="modal"><span class="bi bi-plus "></span></button>
+                <button type="button" class="btn btn-success px-2 " title="view" data-toggle="tooltip" data-target="#myModall" (click)="getIdUniversite(universite.idUniversite)" (click)="getAllDepartment()" data-toggle="modal"><span class="bi bi-plus "></span>Add Department</button>
                 <button type="button" class="btn btn-warning px-2 mx-1"  title="Edit" data-toggle="tooltip" (click)="up(universite)"><span class="bi bi-pencil-fill"></span></button>
                 <button type="button" class="btn btn-danger px-2 mx-1" title="Delete" (click)="getIdUniversite(universite.idUniversite)"   data-toggle="tooltip" data-target="#myModal" data-toggle="modal"><span class="bi bi-trash"></span></button>
             </td>
