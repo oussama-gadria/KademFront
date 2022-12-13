@@ -24,7 +24,11 @@ public ListModule:module[];
   updateModule(m:module,id:number){
     return this.http.put(this.url+"updateModule/"+id,m)
   }
-  getModuleById(id:number){
-    return this.http.get<module>(this.url+"getModuleById/"+id)
+  getModuleById(id:number):Observable<module>
+  {
+   return  this.http.get<module>(this.url+"getModuleById"+"/"+id);
   }
+
+
+
 }

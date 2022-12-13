@@ -12,14 +12,11 @@ import { DepartementService } from 'src/app/Core/services/departement.service';
 export class AddDepartementComponent implements OnInit {
 
   ListDepart:Departement[];
-  departement:Departement
+  departement=new Departement();
+  retour:String;
 
-  myForm = new FormGroup({
-    name: new FormControl('',Validators.required),
-    bloc: new FormControl('',Validators.required)
-  })
   constructor(private route:Router,private departementService:DepartementService) { 
-    this.departement=new Departement();
+   
   }
 
  
@@ -27,7 +24,11 @@ export class AddDepartementComponent implements OnInit {
   }
 
   GoToAddDep(){
-    this.departementService.addDepartement(this.departement).subscribe(()=>this.ListDepart=[this.departement,...this.ListDepart]);
-    this.route.navigate(['departement']);
+    this.departementService.addDepartement(this.departement).subscribe((data)=>
+    {
+      this.retour=data
+      
+      })
+      this.route.navigate(['/departement']);
   }
 }

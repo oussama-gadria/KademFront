@@ -16,9 +16,12 @@ export class AddModuleComponent implements OnInit {
 module:module;
 ListDep:Departement[];
 ListModule:module[];
+style1="red";
+  style2="bold";
+  style3="small";
 
   myFormM = new FormGroup({
-    moduleNom: new FormControl('',Validators.required),
+    moduleNom: new FormControl('',[Validators.required,Validators.pattern("[a-zA-Z ]*")]),
     moduleNbr: new FormControl('',Validators.required),
     DepartmentNom:new FormControl('',Validators.required)
   })
@@ -32,7 +35,10 @@ ListModule:module[];
   }
 
   AddMod(nomDepart:String){
-    this.moduleService.addModuleWithDepName(this.module,nomDepart).subscribe(data=>this.ListModule=data);
-    this.route.navigate(['/departement/ListModule']);
+    this.moduleService.addModuleWithDepName(this.module,nomDepart).subscribe(data=>
+    {this.ListModule=data
+      this.route.navigate(['/departement/ListModule']);
+    });
+  
   }
 }
