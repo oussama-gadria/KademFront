@@ -1,35 +1,34 @@
-<header id="portfolio" class="w3-content " style="max-width:1300px; margin-top:80px">
+  <header id="portfolio" class="w3-content " style="max-width:1400px; margin-top:80px">
     <div class="w3-container ">
-    <h1>Espace</h1>
+    <h1 class="style-4 menu-4">Department Module</h1>
     <div class="w3-section w3-bottombar ">
-        <nav class="navbar navbar-expand-lg ">
-         <!-- navbar -->
-                <ul class="navbar-nav me-auto mb-2 mb-lg-0 " style="padding-left: 78px;">
-                  <li class="nav-item">
-                    <a class="nav-link " style="font-family:'Poppins', sans-serif;font-size: 20px; color: #493ea2 ;">Department </a>
-                  </li>
-                  <li class="nav-item">
-                    <a class="nav-link" routerLink="ListModule" style="font-family:'Poppins', sans-serif;font-size: 20px; color: #493ea2;">/ Module</a>
-                  </li>
-                </ul> 
-          </nav>
           <!-- Navbar -->
+         <nav class="style-4 navbar-expand-lg">
+            <ul class="menu-4">
+            <li class="current"><a data-hover="Department">Department</a></li>
+            <li><a data-hover="Module" routerLink="ListModule" >Module</a></li>
+          </ul>
+         </nav>
+          <!-- navbar -->
     </div>
     </div>
   </header>
   <body>
-    <div class="container">
+    <div class="container" >
         <div class="table-responsive">
             <div class="table-wrapper">
                 <div class="table-title">
+              
                     <div class="row">
-                        <div class="col-sm-8 " style="color:black"><h2>Department <b>Details</b></h2></div>
-                        <div class="col-sm-4">
-                            <button type="button" class="btn btn-primary btn-sm" (click)="GoToAddDepartement()">ADD Departement</button>
+                        <div class="col-sm-7 " style="color:black"><h2 style="color:#e67e22">Department <b style="color:#493ea2">Details</b></h2></div>
+                        <div class="col-sm-2">
                             <div class="search-box">
                                 <i class="material-icons">&#xE8B6;</i>
-                                <input type="text" class="form-control" placeholder="Search&hellip;">
+                                <input [(ngModel)]="searchDepart" type="text" class="form-control" placeholder="Search&hellip;">
                             </div>
+                        </div>
+                        <div class="col-sm-3">
+                            <button type="button" class="btn btn-secondary px-5 py-1" (click)="GoToAddDepartement()"><span class="bi bi-plus "></span>Add Departement</button> 
                         </div>
                     </div>
                 </div>
@@ -39,19 +38,26 @@
                             <th>Id <i class="fa fa-sort"></i></th>
                             <th>Department Name <i class="fa fa-sort"></i></th>
                             <th>Bloc <i class="fa fa-sort"></i></th>
+                            <th>Modules <i class="fa fa-sort"></i></th>
                             <th> </th>
                         </tr>
                     </thead>
                     <tbody>
-                        <tr *ngFor="let depart of ListDepart">
+                        <tr *ngFor="let depart of search()">
                             <td>{{depart.idDepart}}</td>
                             <td>{{depart.nomDepart}}</td>
                             <td>{{depart.bloc}}</td>
-                            <td>
-                                <a href="#" class="view" title="View" data-toggle="tooltip"><i class="material-icons">&#xE417;</i></a>
-                                <a [routerLink]="['UpdateDepartement',0]" class="edit" title="Edit" data-toggle="tooltip"><i class="material-icons">&#xE254;</i></a>
-                                <a href="#" class="delete" title="Delete" data-toggle="tooltip"   data-target="#myModal"  (click)="getIdToDelete(depart.idDepart)"  data-toggle="modal"><i class="material-icons">&#xE872;</i></a>
+                            <td >
+                                <tr *ngFor="let mod of depart.modules">{{mod.nomModule}}</tr>
                             </td>
+                            <td colspan="1">
+                             
+                                <div class="d-flex">
+                                    <button type="button" class="btn btn-warning px-2 mx-1"><span class="bi bi-pencil-fill" (click)="initToChild(depart)"></span></button>
+                                    <button type="button" class="btn btn-danger px-2 mx-1" data-target="#myModal" data-toggle="modal" (click)="getIdToDelete(depart.idDepart)"><span class="bi bi-trash"></span></button>
+                                </div>  
+                                
+                                </td>
                         </tr>    
                     </tbody>
                 </table>
@@ -59,7 +65,7 @@
         </div>  
     </div> 
   
-    </body>
+</body>
     <div class="modal fade" id="myModal">
         <div class="modal-dialog" role="document">
             <div class="modal-content">
@@ -68,7 +74,7 @@
                     
                 </div>
                 <div class="modal-body">
-                    <p>Are you sure to delete Esprit Universite </p>
+                    <p>Are you sure to delete this department </p>
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-primary"  data-dismiss="modal" (click)="deleteDepart()" >Confirm</button>
@@ -77,3 +83,4 @@
             </div>
         </div>
     </div>
+    <app-update-departmenet (updateEvent)="update($event)"></app-update-departmenet>
