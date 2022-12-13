@@ -36,7 +36,6 @@ export class AddContratComponent implements OnInit {
   }
 
 
-
   AddContrat()
   {
    this.ContratServ.addContrat(this.IdEtudiant,this.contrat).subscribe((data)=>

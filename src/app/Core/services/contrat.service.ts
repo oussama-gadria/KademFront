@@ -27,4 +27,10 @@ export class ContratService {
   {
     return this.http.post<Contrat>(this.url+"AddEtudiantToContratwithId"+"/"+idEtudiant,contrat);
   }
+
+
+  updateContrat(idContrat:number,contrat:Contrat):Observable<Contrat>
+  {
+    return this.http.put<Contrat>(this.url+"upadateContrat"+"/"+idContrat,contrat);
+  }
 }
