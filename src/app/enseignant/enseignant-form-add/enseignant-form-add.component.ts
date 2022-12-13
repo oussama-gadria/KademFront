@@ -12,32 +12,38 @@ import { ModuleService } from 'src/app/Core/services/module.service';
   styleUrls: ['./enseignant-form-add.component.css']
 })
 export class EnseignantFormAddComponent implements OnInit {
+  /*---------------------les Variables --------------------*/
   enseignant:Enseignant;
   listModule:module[];
- 
+  style1="grey";
+  style2="bold";
+  style3="small";
 
   
   constructor(private enseignantService:EnseignantServiceService,private moduleService:ModuleService,private route:Router) { 
-    
-    
-  }
+    }
+
+    /*---------------------------------myforme-------------------------------*/ 
     myforme=new FormGroup({ 
     nomEnseignant:new FormControl('',Validators.required),
     prenomEnseignant:new FormControl('',Validators.required),
     nomMatiere:new FormControl('',[Validators.required]),
     email:new FormControl('',[Validators.required,Validators.pattern("[a-zA-Z0-9._-]+@[a-zA-Z0-9._-]+.[a-zA-Z.]{2,15}")]),
-    age:new FormControl(0,Validators.required),
-    salaire:new FormControl(0,Validators.required),
-    experienceParAnnee:new FormControl(0,Validators.required),
+    age:new FormControl(0,[Validators.required,Validators.min(1)]),
+    salaire:new FormControl(0,[Validators.required,Validators.min(1)]),
+    experienceParAnnee:new FormControl(0,[Validators.required,Validators.min(0)]),
   })
 
+  /*------------------------Get All Module------------------------------------*/
   ngOnInit(): void {
    this.moduleService.getModule().subscribe((data)=>this.listModule=data)
   }
+
+  /*------------------------Save Enseignant -----------------------------------*/
   save(id:String){
     let enseignantAdd=this.myforme.value as Enseignant ;
-    this.enseignantService.addEneignantWithModule(id,enseignantAdd).subscribe();
-    this.route.navigate(['/enseignant']);     
+    this.enseignantService.addEneignantWithModule(id,enseignantAdd).subscribe(()=>this.route.navigate(['/enseignant']));
+        
   }
 
 }

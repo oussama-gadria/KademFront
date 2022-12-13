@@ -1,24 +1,27 @@
 <header id="portfolio" class="w3-content " style="max-width:1300px; margin-top:80px">
     <div class="w3-container ">
-    <h1>Espace Enseignant</h1>
-    
+      <h1>Espace Enseignant</h1>   
     <div class="w3-section w3-bottombar ">
     </div>
     </div>
-  </header>
+</header>
   <body>
     <div class="container">
         <div class="table-responsive">
             <div class="table-wrapper">
                 <div class="table-title">
                     <div class="row">
+                        <!----------------------------Les bouton de tri ------------------------------------------->
                         <p class="font-weight-bold" style="color: black;">trier selon : </p>
                         <div class="col-sm-8 ">
-                            <button   type="button" class="btn btn-primary btn-sm"(click)="tricroissant()"style="width:130px">Salaire croissant</button>
-                            <button type="button" class="btn btn-primary btn-sm" (click)="triDecroissant()" style="margin-left:10px;width:130px">Salaire Décroissant</button>
+                            <button    type="button" class="btn-primary  btn-sm "(click)="tricroissant()"style="width:135px;background:#493ea2;">Salaire Décroissant</button>
+                            <button type="button" class="btn btn-primary btn-sm" (click)="triDecroissant()" style="margin-left:10px;width:145px;background:#493ea2;height: 31px;">Salaire croissant</button>
                         </div>
+
+
+                        <!---------------------------------------Search-------------------------------------------->
                         <div class="col-sm-4">
-                            <button type="button" class="btn btn-primary btn-sm" routerLink="addEnseignant">ADD Enseignant</button>
+                            <button type="button" class="btn btn-primary btn-sm" style="background:#493ea2; margin-right:10px" routerLink="addEnseignant">ADD Enseignant</button>
                             <div class="search-box">
                                 <i class="material-icons">&#xE8B6;</i>
                                 <input type="text" class="form-control"  [(ngModel)]="searchEnseignant" placeholder="Search&hellip;">
@@ -26,6 +29,9 @@
                         </div>
                     </div>
                 </div>
+
+
+                <!-------------------------------------My table Enseignant ---------------------------------------->
                 <table class="table table-striped table-hover table-bordered">
                     <thead>
                         <tr>
@@ -48,10 +54,9 @@
                             <td>{{enseignant.age}}</td>
                             <td>{{enseignant.salaire}}</td>
                             <td>{{enseignant.experienceParAnnee}} ans</td>
-                            <td>
-                                
-                                <a  class="edit" title="Edit" data-toggle="tooltip"><i class="material-icons" [routerLink]="['EditEnseignant',0]">&#xE254;</i></a>
-                                <a  class="delete" title="Delete" data-toggle="tooltip" href="#myModal" data-toggle="modal" (click)="getEnseignantid(enseignant.idEnseignant)"><i class="material-icons">&#xE872;</i></a>
+                            <td>                                
+                                <button  type="button" class="btn btn-warning px-2 " title="Edit" data-toggle="tooltip" (click)="gotToEnseignant(enseignant.idEnseignant)"><span class="bi bi-pencil-fill"></span></button>
+                                <button  type="button" class="btn btn-danger px-2 mx-1"  title="Delete" data-toggle="tooltip" href="#myModal" data-toggle="modal" (click)="getEnseignantid(enseignant.idEnseignant)"><span class="bi bi-trash"></span></button>
                             </td>
                         </tr>    
                     </tbody>
@@ -60,12 +65,13 @@
         </div>  
     </div> 
     </body>
+
+    <!----------------------------------------Modal Delete ------------------------------------->
     <div class="modal fade" id="myModal">
         <div class="modal-dialog" role="document">
             <div class="modal-content">
                 <div class="modal-header">
-                    <h5 class="modal-title">Confirm Delete</h5>
-                    
+                    <h5 class="modal-title">Confirm Delete</h5>               
                 </div>
                 <div class="modal-body">
                     <p>Click Confirm to Delete  </p>

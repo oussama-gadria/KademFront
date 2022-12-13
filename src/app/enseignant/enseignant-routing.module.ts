@@ -8,7 +8,7 @@ import { EnseignantMainComponent } from './enseignant-main/enseignant-main.compo
 const routes: Routes = [
   {path:"",component:EnseignantMainComponent},
   {path:"addEnseignant",component:EnseignantFormAddComponent},
-  {path:"EditEnseignant/:id",component:EnseignantFormUpdateComponent}
+  {path:"UpdateEnseignant/:id",component:EnseignantFormUpdateComponent},
 ];
 
 @NgModule({
