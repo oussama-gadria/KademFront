@@ -19,7 +19,7 @@
 
                                 <div class="col-md-7 mt-5"  >
                                   <label for="validationServer01" class="form-label font-weight-bold" style="font-size:15px;">Club Name</label>
-                                  <input type="text" class="form-control " id="validationServer01" formControlName="nomClub" value="Mark" style="border:3px solid #493ea2;height:39px;font-size:15px;width: 400px; border-radius: 10px;" formControlName="nomClub">
+                                  <input type="text" class="form-control " id="validationServer01" formControlName="nomClub"  style="border:3px solid #493ea2;height:39px;font-size:15px;width: 400px; border-radius: 10px;" formControlName="nomClub">
                                   <div class="alertText" *ngIf="myformeclub.get('nomClub')?.touched && myformeclub.get('nomClub')?.errors?.['required']">
                                     <p class="text-danger">club name is required !</p>
                                 </div>
