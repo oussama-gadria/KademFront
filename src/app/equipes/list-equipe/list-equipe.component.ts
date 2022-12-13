@@ -29,7 +29,7 @@ export class ListEquipeComponent implements OnInit {
   }
 
   deleteEquipe(){
-   this.equipeService.deleteEquipe(this.idEquipeToDelete).subscribe(()=>this.listEquipe=this.listEquipe.filter(Equipe =>Equipe.idEquipe!=this.idEquipeToDelete)); //pour effacer et actualiser la page
+   this.equipeService.deleteEquipe(this.idEquipeToDelete).subscribe(()=>this.listEquipe=this.listEquipe.filter(Equipe =>Equipe.idEquipe!=this.idEquipeToDelete));
   }
 
   membres(id:number){
@@ -45,10 +45,5 @@ export class ListEquipeComponent implements OnInit {
   {
     this.route.navigate(["/equipes/updateEquipe",id]);
   }
-
-
-
-
-
 
 }

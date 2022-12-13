@@ -1,4 +1,4 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { equipe } from 'src/app/Core/models/equipe';
 import { EquipeService } from 'src/app/Core/services/equipe.service'; 
@@ -14,9 +14,9 @@ export class ListEtudiantComponent implements OnInit {
   constructor(private equipeService:EquipeService,private activatedRoute:ActivatedRoute) { }
 
   ngOnInit(): void {
-    this.activatedRoute.paramMap.subscribe(data => this.idEquipe = Number(data.get('id'))); //recuperer l'id equipe depuis l'url
+    this.activatedRoute.paramMap.subscribe(data => this.idEquipe = Number(data.get('id')));
 
-    this.equipeService.getEquipeById(this.idEquipe).subscribe((data)=>{this.equipe=data}); //rajaat l'equipe li bech nekhou menha les etudiants par id equipe
+    this.equipeService.getEquipeById(this.idEquipe).subscribe((data)=>{this.equipe=data});
   }
 
 

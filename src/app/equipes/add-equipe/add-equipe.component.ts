@@ -1,6 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
-import { ActivatedRoute, Router } from '@angular/router';
+import { Router } from '@angular/router';
 import { Enseignant } from 'src/app/Core/models/enseignant';
 import { equipe } from 'src/app/Core/models/equipe';
 import { EquipeService } from 'src/app/Core/services/equipe.service';
@@ -17,7 +16,7 @@ export class AddEquipeComponent implements OnInit {
 
 
   constructor(private equipeService:EquipeService,private route:Router) {
-    this.equipe=new equipe(); //pour ajouter une nouveau equipe
+    this.equipe=new equipe();
    }
 
   ngOnInit(): void {

@@ -1,6 +1,6 @@
-import { Component, OnInit, ViewChild } from '@angular/core';
+import { Component, OnInit} from '@angular/core';
 import { FormBuilder, Validators } from '@angular/forms';
-import { ActivatedRoute, Route, Router } from '@angular/router';
+import { ActivatedRoute,Router } from '@angular/router';
 import { Enseignant } from 'src/app/Core/models/enseignant';
 import { equipe } from 'src/app/Core/models/equipe';
 import { EquipeService } from 'src/app/Core/services/equipe.service';
