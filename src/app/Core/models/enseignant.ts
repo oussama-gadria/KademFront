@@ -10,6 +10,5 @@ export class Enseignant{
     age:number;
     salaire:number;
     experienceParAnnee:number; 
-    equipes:equipe[];
-    module:module[];
+    module:module;
 }

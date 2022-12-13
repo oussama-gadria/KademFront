@@ -10,7 +10,7 @@ import { UniversiteServiceService } from 'src/app/Core/services/universite-servi
 })
 export class UniversiteFormUpdateComponent implements OnInit {
   universiteList:Universite[];
- myforme=new FormGroup({
+  myforme=new FormGroup({
   idUniversite:new FormControl(0),  
   nomUniversite:new FormControl('',Validators.required)
 })
@@ -18,16 +18,19 @@ export class UniversiteFormUpdateComponent implements OnInit {
   constructor(private universiteService:UniversiteServiceService) { }
   @Output() updateEvent=new EventEmitter();
 
-  ngOnInit(): void {
-    
+  ngOnInit(): void { 
   }
+
+  /*----------------------------------init()--------------------------------- */
   init( u:Universite){
     this.myforme.patchValue({idUniversite:u.idUniversite,nomUniversite:u.nomUniversite})
   }
+
+
+  /*---------------------------------upEvent()---------------------------------- */
   upEvent(){
     let universiteUpdated=this.myforme.value as Universite; 
     this.updateEvent.emit(universiteUpdated);
-    this.universiteService.getAllUniversite().subscribe(data=>this.universiteList=data);
   }
 
  
