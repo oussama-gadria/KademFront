@@ -9,6 +9,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { AddContratComponent } from './add-contrat/add-contrat.component';
 import { UpdateContratComponent } from './update-contrat/update-contrat.component';
 import { ListContratComponent } from './list-contrat/list-contrat.component';
+import { TableContratComponent } from './table-contrat/table-contrat.component';
 
 
 
@@ -19,7 +20,8 @@ import { ListContratComponent } from './list-contrat/list-contrat.component';
     UpdateEtudiantComponent,
     AddContratComponent,
     UpdateContratComponent,
-    ListContratComponent
+    ListContratComponent,
+    TableContratComponent,
   ],
   imports: [
     CommonModule,
