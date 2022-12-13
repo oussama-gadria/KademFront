@@ -13,6 +13,7 @@ export class EquipeService {
   url2="http://localhost:8089/Enseignant";
 
   public listEtudiant:Etudiant[];
+  public equipeUp:any;
 
   constructor(private http:HttpClient) {}
   getAllEquipe(): Observable<equipe[]>{
@@ -21,7 +22,7 @@ export class EquipeService {
   getEquipeById(id:number): Observable<equipe>{
     return this.http.get<equipe>(this.url+"get-equipe/"+id);
   }
-  updateEquipe(e:equipe,id:number){
+  updateEquipe(id:number,e:equipe){
     return this.http.put(this.url+"modify-equipe/"+id,e)
   }
   addEquipe(e:equipe){
@@ -33,8 +34,6 @@ export class EquipeService {
   addEquipeWithResponsable(e:equipe,id:String){
     return this.http.post(this.url+"addEquipeWithResponsable/"+id,e)
   }
-
-
   getAllEnseignant():Observable<Enseignant[]>{
     return this.http.get<Enseignant[]>(this.url2+'/'+'getAllEnseignant'); 
   }
