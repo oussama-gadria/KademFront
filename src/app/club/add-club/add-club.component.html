@@ -6,52 +6,69 @@
     
                             <section id="portfolio" class="w3-content " style="max-width:1300px; margin-top:80px">
                                 <div class="w3-container ">
-                                <h1>Espace Club</h1>
+                                  <h1  class="style-4 menu-4">Club module</h1>
                                 <div class="w3-section w3-bottombar ">
                                 </div>
                                 </div>
                             </section>
                           
                           
-                            <section  class=" w3-content  offset-md-2 ">
+                            <section class="d-flex" >
+                              <div class="col-md-6 offset-md-1 ">
 
-                             <form class="row g-3">
+                             <form class="row g-3" [formGroup]="myformeclub">
 
                                 <div class="col-md-7"  >
-                                  <label for="validationServer01" class="form-label font-weight-bold" style="font-size:20px;">Club Name</label>
-                                  <input type="text" class="form-control " id="validationServer01" value="Mark" style=" border:3px solid #493ea2;height:50px;font-size:18px;" >
-                                  <div class="valid-feedback">
-                                    Looks good!
-                                  </div>
+                                  <label for="validationServer01" class="form-label font-weight-bold" style="font-size:15px;">Club Name</label>
+                                  <input type="text" [(ngModel)]="club_add.nomClub" class="form-control " id="validationServer01" formControlName="nomClub" required pattern="[a-zA-Z ]*" value="Mark" style=" border:3px solid #493ea2;height:39px;font-size:15px;width: 400px; border-radius: 10px;" >
+                                  <div class="alertText" *ngIf="myformeclub.get('nomClub')?.touched && myformeclub.get('nomClub')?.errors?.['required']">
+                                    <p [ngClass]="'redAlert'">club name is required !</p>
+                                </div>
+                                <div class="alertText" *ngIf="myformeclub.get('nomClub')?.touched && myformeclub.get('nomClub')?.errors?.['pattern']">
+                                  <p [ngClass]="'redAlert'">club name can contain only letters !</p>
+                              </div>
                                 </div>
 
 
 
                                 <div class="col-md-7">
-                                  <label for="validationServer02" class="form-label font-weight-bold" style="font-size:20px;">Responsible First Name</label>
-                                  <input type="text" class="form-control " id="validationServer02" value="Otto"  style=" border:3px solid #493ea2;height:50px;font-size:18px;" >
-                                  <div class="valid-feedback">
-                                    Looks good!
-                                  </div>
+                                  <label for="validationServer02" class="form-label font-weight-bold" style="font-size:15px;">Manager First Name</label>
+                                  <input type="text" class="form-control "  [(ngModel)]="club_add.responsableClub.nomE"  id="validationServer02" formControlName="managerfname" required pattern="[a-zA-Z ]*"   style=" border:3px solid #493ea2;height:39px;font-size:15px;width: 400px; border-radius: 10px;" >
+                                  <div class="alertText" *ngIf="myformeclub.get('managerfname')?.touched && myformeclub.get('managerfname')?.errors?.['required']">
+                                    <p [ngStyle]="{'color':style1,'font-weight':style2,'font-size':style3}">first name is required !</p>
+                                </div>
+                                <div class="alertText" *ngIf="myformeclub.get('managerfname')?.touched && myformeclub.get('managerfname')?.errors?.['pattern']">
+                                  <p [ngStyle]="{'color':style1,'font-weight':style2,'font-size':style3}">first name can contain only letters !</p>
+                              </div>
                                 </div>
 
 
 
                           
                                 <div class="col-md-7">
-                                  <label for="validationServer03" class="form-label font-weight-bold" style="font-size:20px;">Responsible Last Name                                  </label>
-                                  <input type="text" class="form-control " id="validationServer03" aria-describedby="validationServer03Feedback"  style=" border:3px solid #493ea2;height:50px;font-size:18px;">
-                                  <div id="validationServer03Feedback" class="invalid-feedback">
-                                    Please provide a valid city.
-                                  </div>
+                                  <label for="validationServer03" class="form-label font-weight-bold" style="font-size:15px;">Manager Last Name                                  </label>
+                                  <input type="text" class="form-control "  [(ngModel)]="club_add.responsableClub.prenomE"  id="validationServer03" formControlName="managerlname" aria-describedby="validationServer03Feedback" required pattern="[a-zA-Z ]*" style="border:3px solid #493ea2;height:39px;font-size:15px;width: 400px; border-radius: 10px;">
+                                  <div class="alertText" *ngIf="myformeclub.get('managerlname')?.touched && myformeclub.get('managerlname')?.errors?.['required']">
+                                    <p [ngStyle]="{'color':style1,'font-weight':style2,'font-size':style3}"> last name is required !</p>
+                                </div>
+                                <div class="alertText" *ngIf="myformeclub.get('managerlname')?.touched && myformeclub.get('managerlname')?.errors?.['pattern']">
+                                  <p [ngStyle]="{'color':style1,'font-weight':style2,'font-size':style3}"> last name can contain only letters !</p>
+                              </div>
                                 </div>
 
                                 <div class="col-md-7">
-                                  <label for="validationServer03" class="form-label font-weight-bold" style="font-size:20px;">Responsible Email                                 </label>
-                                  <input type="text" class="form-control " id="validationServer03" aria-describedby="validationServer03Feedback"  style=" border:3px solid #493ea2;height:50px;font-size:18px;">
-                                  <div id="validationServer03Feedback" class="invalid-feedback">
-                                    Please provide a valid city.
-                                  </div>
+                                  <label for="validationServer03" class="form-label font-weight-bold" style="font-size:15px;">Manager Email                                 </label>
+                                  <input type="text" class="form-control "  [(ngModel)]="club_add.responsableClub.email"  id="validationServer03" formControlName="manageremail" aria-describedby="validationServer03Feedback"  style=" border:3px solid #493ea2;height:39px;font-size:15px;width: 400px; border-radius: 10px;">
+                                  <div class="alertText" *ngIf="myformeclub.get('manageremail')?.touched && myformeclub.get('manageremail')?.errors?.['required']">
+                                    <p [ngStyle]="{'color':style1,'font-weight':style2,'font-size':style3}" >email is required  !</p>
+                                </div>
+                                <div class="alertText" *ngIf="myformeclub.get('manageremail')?.touched && myformeclub.get('manageremail')?.errors?.['email']">
+                                  <p [ngClass]="'redAlert'">Please enter a valid email !</p>
+                              </div>
+                              
+                              <div class="alertText" *ngIf="error_back">
+                                <p [ngClass]="'redAlert'">etudiant invalide</p>
+                            </div>
                                 </div>
                                
 
@@ -60,10 +77,16 @@
 
 
                                 
-                                <div class="col-12">
-                                  <button class="btn btn-primary" type="submit">ADD</button>
+                                <div class="col-12 my-3">
+                                  <button class="btn btn-primary mt-5 px-5 "  style="background-color: #493ea2;" (click)="add_club()" type="submit"><span class="bi bi-plus "></span>ADD Club</button>
                                 </div>
                               </form>
+                            </div>
+                            <div class="col-md-5  ">
+                              <img src="assets/images/reg.png" alt="" width="80%" class="img-fluid mx-5 mt-3">
+                            </div>
+
+
                             </section>
        
                         </div>

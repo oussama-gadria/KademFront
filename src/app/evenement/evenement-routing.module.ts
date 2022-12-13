@@ -7,8 +7,8 @@ import { UpdateEvenementComponent } from './update-evenement/update-evenement.co
 const routes: Routes = [
   
   {path:"",component:ListEvenementComponent},
-  {path:"AddEvenement",component:AddEvenementComponent},
-  {path:"UpdateEvenement",component:UpdateEvenementComponent}
+  {path:"AddEvenement/:idClub",component:AddEvenementComponent},
+  {path:"UpdateEvenement/:id",component:UpdateEvenementComponent}
 
 ];
 

@@ -1,28 +1,28 @@
 <section class="colorRegister">
     <div class="sigupbloc" >
                         <div class="row no-gutters">
-                        <div class="col-md-10 offset-md-1">
+                        <div class="col-md-10 offset-md-1" style="margin-top: -85px;">
                                 
     
                             <section id="portfolio" class="w3-content " style="max-width:1300px; margin-top:80px">
                                 <div class="w3-container ">
-                                <h1>Espace Club</h1>
+                                  <h3  class="style-4 menu-4">Update Club </h3>
                                 <div class="w3-section w3-bottombar ">
                                 </div>
                                 </div>
                             </section>
                           
                           
-                            <section  class=" w3-content  offset-md-2 ">
+                            <section  class=" d-flex ">
+                              <div class="col-md-6 offset-md-1 ">
+                             <form class="row g-3" [formGroup]="myformeclub" (ngSubmit)="upEvent()" >
 
-                             <form class="row g-3">
-
-                                <div class="col-md-7"  >
-                                  <label for="validationServer01" class="form-label font-weight-bold" style="font-size:20px;">Club Name</label>
-                                  <input type="text" class="form-control " id="validationServer01" value="Mark" style=" border:3px solid #493ea2;height:50px;font-size:18px;" >
-                                  <div class="valid-feedback">
-                                    Looks good!
-                                  </div>
+                                <div class="col-md-7 mt-5"  >
+                                  <label for="validationServer01" class="form-label font-weight-bold" style="font-size:15px;">Club Name</label>
+                                  <input type="text" class="form-control " id="validationServer01" formControlName="nomClub"  style="border:3px solid #493ea2;height:39px;font-size:15px;width: 400px; border-radius: 10px;" formControlName="nomClub">
+                                  <div class="alertText" *ngIf="myformeclub.get('nomClub')?.touched && myformeclub.get('nomClub')?.errors?.['required']">
+                                    <p class="text-danger">club name is required !</p>
+                                </div>
                                 </div>
 
 
@@ -31,10 +31,16 @@
 
 
                                 
-                                <div class="col-12">
-                                  <button class="btn btn-primary" type="submit">Update</button>
+                                <div class="col-12 my-3 mt-5">
+                                  <button class="btn btn-primary mt-3 px-5 "  style="background-color: #493ea2;" type="submit"><span class="bi bi-plus "></span>Update </button>
                                 </div>
                               </form>
+                              </div>
+
+                                 <!--2 eme colonne pour l'image-->
+                             <div class="col-md-5  ">
+                              <img src="assets/images/update.png" alt="" width="60%" class="img-fluid mx-5 mt-2">
+                            </div>
                             </section>
        
                         </div>

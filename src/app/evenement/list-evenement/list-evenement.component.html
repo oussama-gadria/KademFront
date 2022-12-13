@@ -1,19 +1,7 @@
 <header id="portfolio" class="w3-content " style="max-width:1300px; margin-top:80px">
     <div class="w3-container ">
-    <h1>Espace</h1>
+        <h1  class="style-4 menu-4">Evenement module</h1>
     <div class="w3-section w3-bottombar ">
-        <nav class="navbar navbar-expand-lg ">
-         <!-- navbar -->
-                <ul class="navbar-nav me-auto mb-2 mb-lg-0 " style="padding-left: 78px;">
-                  <li class="nav-item">
-                    <a class="nav-link " href="#" style="font-family:'Poppins', sans-serif;font-size: 20px; color: #493ea2 ;">Dashboard </a>
-                  </li>
-                  <li class="nav-item">
-                    <a class="nav-link" href="#" style="font-family:'Poppins', sans-serif;font-size: 20px; color: #493ea2;">/ Team</a>
-                  </li>
-                </ul> 
-          </nav>
-          <!-- Navbar -->
     </div>
     </div>
   </header>
@@ -23,45 +11,37 @@
             <div class="table-wrapper">
                 <div class="table-title">
                     <div class="row">
-                        <div class="col-sm-8 "><h2>Customer <b>Details</b></h2></div>
+                        <div class="col-sm-8 " style="color: black;"><h2 style="color:#e67e22">Event <b style="color:#493ea2">Details</b></h2></div>
+                  
                         <div class="col-sm-4">
-                            <button type="button" class="btn btn-primary btn-sm">ADD Enseignant</button>
+                          
                             <div class="search-box">
                                 <i class="material-icons">&#xE8B6;</i>
-                                <input type="text" class="form-control" placeholder="Search&hellip;">
+                                <input [(ngModel)]="searchevenement" type="text" class="form-control" placeholder="Search by event name">
                             </div>
                         </div>
                     </div>
                 </div>
-                <table class="table table-striped table-hover table-bordered">
-                    <thead>
-                        <tr>
-                            <th>Name <i class="fa fa-sort"></i></th>
-                            <th>Address</th>
-                            <th>City <i class="fa fa-sort"></i></th>
-                            <th>Pin Code</th>
-                            <th>Country <i class="fa fa-sort"></i></th>
-                            <th>Actions</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr>
-                            <td>1</td>
-                            <td>Thomas Hardy</td>
-                            <td>89 Chiaroscuro Rd.</td>
-                            <td>Portland</td>
-                            <td>97219</td>
-                            <td>USA</td>
-                            <td>
-                                <a href="#" class="view" title="View" data-toggle="tooltip"><i class="material-icons">&#xE417;</i></a>
-                                <a href="#" class="edit" title="Edit" data-toggle="tooltip"><i class="material-icons">&#xE254;</i></a>
-                                <a href="#" class="delete" title="Delete" data-toggle="tooltip"><i class="material-icons">&#xE872;</i></a>
-                            </td>
-                        </tr>    
-                    </tbody>
-                </table>
+               <app-tableevent [Listevent]="Listevenement" (GoToUpdateEvenementevent)="GoToUpdateEvenement($event)" (getIdToDeleteevent)="getIdToDelete($event)"> </app-tableevent>
             </div>
         </div>  
     </div> 
     
     </body>
+    <div class="modal fade" id="myModal">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">Confirm Delete</h5>
+                    
+                </div>
+                <div class="modal-body">
+                    <p>Are you sure to delete this event ? </p>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-primary"  data-dismiss="modal" (click)= "deleteEvenement()" >Confirm</button>
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                </div>
+            </div>
+        </div>
+    </div>

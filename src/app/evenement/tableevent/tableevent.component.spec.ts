@@ -1,19 +1,18 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
+import { TableeventComponent } from './tableevent.component';
 
-import { ListClubComponent } from './list-club.component';
-
-describe('ListClubComponent', () => {
-  let component: ListClubComponent;
-  let fixture: ComponentFixture<ListClubComponent>;
+describe('TableeventComponent', () => {
+  let component: TableeventComponent;
+  let fixture: ComponentFixture<TableeventComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ ListClubComponent ]
+      declarations: [ TableeventComponent ]
     })
     .compileComponents();
 
-    fixture = TestBed.createComponent(ListClubComponent);
+    fixture = TestBed.createComponent(TableeventComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });
@@ -21,6 +20,4 @@ describe('ListClubComponent', () => {
   it('should create', () => {
     expect(component).toBeTruthy();
   });
- 
 });
-
