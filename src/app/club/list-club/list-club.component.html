@@ -97,7 +97,7 @@
                     <h5 class="modal-title">List Etudiants :</h5>
                     
                 </div>
-                <table>
+                <table class="table table-striped table-hover table-bordered-4">
                     <tr>
                         <th>
                             Id
@@ -119,9 +119,9 @@
         </table>
                 <div class="modal-body">
                     <div class="col-md-4"  >
-                    <p>Add etudiant : </p>  <input type="text" [(ngModel)]="idetudiant" class="form-control" placeholder="id">
+                    <h6   style =" margin-bottom: -29px;" >Add etudiant : </h6>  <input type="text" [(ngModel)]="idetudiant" class="form-control" placeholder="id" style="  width: 216px; margin-bottom: -53px; margin-left: 147px; ">
                     </div>
-                    <button type="button" class="btn btn-primary"  data-dismiss="modal" (click)="assignetudiant(idetudiant,idclub.idClub)" >add </button>
+                    <button type="button" class="btn btn-primary"  data-dismiss="modal" (click)="assignetudiant(idetudiant,idclub.idClub)" style = "margin-top: 18px;  margin-left: 392px; " >add </button>
 
                 </div>
                 <div class="modal-footer">
