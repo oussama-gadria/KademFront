@@ -6,38 +6,47 @@
     
                             <section id="portfolio" class="w3-content " style="max-width:1500px; margin-top:80px">
                                 <div class="w3-container ">
-                                <h1>Espace</h1>
+                                <h1  class="style-4 menu-4">student module</h1>
                                 <div class="w3-section w3-bottombar ">
                                 </div>
                                 </div>
                             </section>
                           
                           
-                            <section  class=" w3-content  offset-md-2 ">
-
+                            <section  class="d-flex">
+                             <!--1 ere colonne pour la formulaire-->
+                            <div class="col-md-6 offset-md-1 ">
                              <form [formGroup]="AddFormEtudiant" class="row g-3">
-                           
+
+
                             <!--first name-->
                               <div class="row  ">
                                 <div class="col-md-6 "  >
+
                                   <label for="validationServer01" class="form-label font-weight-bold" style="font-size:20px;">First name</label>
-                                  <input type="text" class="form-control " id="validationServer01" value="" style=" border:3px solid #493ea2;height:50px;font-size:18px;border-radius:15px;" placeholder="First Name" formControlName="nomE">
+                                  <input type="text" class="form-control " id="validationServer01" value="" style=" border:3px solid #493ea2;height:50px;font-size:18px;border-radius:12px;" placeholder="First Name" formControlName="nomE">
                               
                                   <div class="alertText" *ngIf="AddFormEtudiant.get('nomE')?.touched && AddFormEtudiant.get('nomE')?.errors?.['required']">
-                                    <p class="text-danger" style="font-size: 18px;" >First name is required ! </p>
+                                    <p  [ngStyle]="{'color':style1,'font-weight':style2,'font-size':style3}">First name is required ! </p>
                                   </div>
-                                </div>
+                                  <div class="alertText" *ngIf="AddFormEtudiant.get('nomE')?.touched && AddFormEtudiant.get('nomE')?.errors?.['pattern']">
+                                    <p  [ngStyle]="{'color':style1,'font-weight':style2,'font-size':style3}">First name must be with Only Characters ! </p>
+                                  </div>
+                                 </div>
 
 
                             <!--last name-->
                                 <div class="col-md-6 ">
                                   <label for="validationServer02" class="form-label font-weight-bold" style="font-size:20px;">Last name</label>
-                                  <input type="text" class="form-control " id="validationServer02" value="Otto"  style=" border:3px solid #493ea2;height:50px;font-size:18px;border-radius:15px;"placeholder="Last Name" formControlName="prenomE" >
+                                  <input type="text" class="form-control " id="validationServer02" value="Otto"  style=" border:3px solid #493ea2;height:50px;font-size:18px;border-radius:12px;"placeholder="Last Name" formControlName="prenomE" >
                                   <div class="alertText" *ngIf="AddFormEtudiant.get('prenomE')?.touched && AddFormEtudiant.get('prenomE')?.errors?.['required']">
-                                    <p class="text-danger" style="font-size: 18px;">Last name is required ! </p>
+                                    <p [ngStyle]="{'color':style1,'font-weight':style2,'font-size':style3}">Last name is required ! </p>
+                                  </div>
+                                  <div class="alertText" *ngIf="AddFormEtudiant.get('prenomE')?.touched && AddFormEtudiant.get('prenomE')?.errors?.['pattern']">
+                                    <p [ngStyle]="{'color':style1,'font-weight':style2,'font-size':style3}">Last name must be with Only Characters ! </p>
                                   </div>
                                 </div>
-                              </div>
+                                </div>
 
                            
 
@@ -46,12 +55,15 @@
                               <div class="row">
                                 <div class="col-md-12" >
                                   <label for="validationServer03" class="form-label font-weight-bold" style="font-size:20px;">Email</label>
-                                  <input type="text" class="form-control " id="validationServer03" aria-describedby="validationServer03Feedback"  style=" border:3px solid #493ea2;height:50px;font-size:18px;"placeholder="Email" formControlName="email">
+                                  <input type="text" class="form-control " id="validationServer03" aria-describedby="validationServer03Feedback"  style=" border:3px solid #493ea2;height:50px;font-size:18px;border-radius:12px;"placeholder="Email" formControlName="email">
                                   <div class="alertText" *ngIf="AddFormEtudiant.get('email')?.touched && AddFormEtudiant.get('email')?.errors?.['required']">
-                                    <p class="text-danger" style="font-size: 18px;">Email is required ! </p>
+                                    <p [ngStyle]="{'color':style1,'font-weight':style2,'font-size':style3}">Email is required ! </p>
                                   </div>
                                   <div class="alertText" *ngIf="AddFormEtudiant.get('email')?.touched && AddFormEtudiant.get('email')?.errors?.['email']">
-                                    <p class="text-danger" style="font-size: 18px;"> Please select a valid email ! </p>
+                                    <p [ngStyle]="{'color':style1,'font-weight':style2,'font-size':style3}"> Please select a valid email ! </p>
+                                  </div>
+                                  <div class="alertText" *ngIf="AddFormEtudiant.get('email')?.valid">
+                                    <p [ngClass]="'greenAlert'"> your email is valid ! </p>
                                   </div>
                                 </div>
                                </div>
@@ -59,47 +71,51 @@
 
 
                             
-                              <!--phone number-->
+                              <!-- phone number -->
                                <div class="row">
                                 <div class="col-md-6 "  >
-                                  <label for="validationServer01" class="form-label font-weight-bold" style="font-size:20px;">Phone Number</label>
-                                  <input type="text" class="form-control " id="validationServer01" value="Mark" style=" border:3px solid #493ea2;height:50px;font-size:18px;border-radius:15px;"placeholder="Phone Number"  formControlName="numeroTelephone">
+                                  <label for="validationServer04" class="form-label font-weight-bold" style="font-size:20px;">Phone Number</label>
+                                  <input type="text" class="form-control " id="validationServer04" value="Mark" style=" border:3px solid #493ea2;height:50px;font-size:18px;border-radius:15px;border-radius:12px;"placeholder="Phone Number"  formControlName="numeroTelephone">
                                   <div class="alertText" *ngIf="AddFormEtudiant.get('numeroTelephone')?.touched && AddFormEtudiant.get('numeroTelephone')?.errors?.['required']">
-                                    <p class="text-danger" style="font-size: 18px;"> Phone Number is required ! </p>
+                                    <p [ngClass]="'redAlert'"> Phone Number is required ! </p>
                                   </div>
                                   <div class="alertText" *ngIf="AddFormEtudiant.get('numeroTelephone')?.touched && AddFormEtudiant.get('numeroTelephone')?.errors?.['minlength']">
-                                    <p class="text-danger " style="font-size: 18px;">Your Phone Number Must be 8 characters long! </p>
+                                    <p [ngClass]="'redAlert'">Your Phone Number Must be 8 characters long! </p>
                                   </div>
                                 </div>
 
-                                <!--adress-->
+
+                                <!-- adress -->
                                 <div class="col-md-6 ">
-                                  <label for="validationServer02" class="form-label font-weight-bold" style="font-size:20px;">Adress</label>
-                                  <input type="text" class="form-control " id="validationServer02" value="Otto"  style=" border:3px solid #493ea2;height:50px;font-size:18px;border-radius:15px;" placeholder="Adress"  formControlName="adresse">
+                                  <label for="validationServer05" class="form-label font-weight-bold" style="font-size:20px;">Adress</label>
+                                  <input type="text" class="form-control " id="validationServer05" value="Otto"  style=" border:3px solid #493ea2;height:50px;font-size:18px;border-radius:15px;border-radius:12px;" placeholder="Adress"  formControlName="adresse">
                                   <div class="alertText" *ngIf="AddFormEtudiant.get('adresse')?.touched && AddFormEtudiant.get('adresse')?.errors?.['required']">
-                                    <p class="text-danger" style="font-size: 18px;">Adress is required !</p>
+                                    <p [ngClass]="'redAlert'">Adress is required !</p>
                                   </div>
                                 </div>
                                </div>
 
 
-                                <!--age-->
+                                <!-- age -->
                                <div class="row">
                                 <div class="col-md-3 ">
-                                  <label for="validationServer02" class="form-label font-weight-bold" style="font-size:20px;">Age</label>
-                                  <input type="text" class="form-control " id="validationServer02" value="Otto"  style=" border:3px solid #493ea2;height:50px;font-size:18px;border-radius:15px;" placeholder=" Age"  formControlName="age">
+                                  <label for="validationServer06" class="form-label font-weight-bold" style="font-size:20px;">Age</label>
+                                  <input type="text" class="form-control " id="validationServer06" value="Otto"  style=" border:3px solid #493ea2;height:50px;font-size:18px;border-radius:15px;border-radius:12px;" placeholder=" Age"  formControlName="age">
                                   <div class="alertText" *ngIf="AddFormEtudiant.get('age')?.touched && AddFormEtudiant.get('age')?.errors?.['required']">
-                                    <p class="text-danger" style="font-size: 18px;">Age is required !</p>
+                                    <p [ngClass]="'redAlert'">Age is required !</p>
+                                  </div>
+                                  <div class="alertText" *ngIf="AddFormEtudiant.get('age')?.touched && AddFormEtudiant.get('age')?.errors?.['max']">
+                                    <p [ngClass]="'redAlert'">max Age is 100 !</p>
                                   </div>
                                 </div>
                               </div>
 
-                                <!--niveau-->
+                                <!-- niveau -->
                                 <div class="row">
-                                <div class="col-md-3">
-                                  <label for="validationServer04" class="form-label font-weight-bold" style="font-size:20px;">Level</label>
-                                  <select class="form-select " id="validationServer04" aria-describedby="validationServer04Feedback"  style=" border:3px solid #493ea2;height:50px;font-size:18px;"  formControlName="niveauEtudiant">
-                                    <option selected disabled value="">Choose Level</option>
+                                <div class="col-md-4">
+                                  <label for="validationServer07" class="form-label font-weight-bold" style="font-size:20px;">Level</label>
+                                  <select class="form-select " id="validationServer07" aria-describedby="validationServer07Feedback"  style=" border:3px solid #493ea2;height:50px;font-size:18px;border-radius:12px;"  formControlName="niveauEtudiant">
+                                    <option selected disabled value="">Choose level</option>
                                     <option>1</option>
                                     <option>2</option>
                                     <option>3</option>
@@ -107,14 +123,16 @@
                                     <option>5</option>
                                   </select>
                                   <div class="alertText" *ngIf="AddFormEtudiant.get('niveauEtudiant')?.touched && AddFormEtudiant.get('niveauEtudiant')?.errors?.['required']">
-                                    <p class="text-danger" style="font-size: 18px;">Level is required !</p>
+                                    <p [ngClass]="'redAlert'">Level is required !</p>
                                   </div>
                                 </div>
-                                 <!--option-->
+                            
 
-                                 <div class="col-md-3">
-                                  <label for="validationServer04" class="form-label font-weight-bold" style="font-size:20px;">Option</label>
-                                  <select class="form-select " id="validationServer04" aria-describedby="validationServer04Feedback"  style=" border:3px solid #493ea2;height:50px;font-size:18px;" formControlName="option" >
+
+                                 <!-- option -->
+                                 <div class="col-md-4">
+                                  <label for="validationServer08" class="form-label font-weight-bold" style="font-size:20px;">Option</label>
+                                  <select class="form-select " id="validationServer08" aria-describedby="validationServer04Feedback"  style=" border:3px solid #493ea2;height:50px;font-size:18px;border-radius:12px;" formControlName="option" >
                                     <option selected disabled value="">Choose Option</option>
                                     <option>GAMIX</option>
                                     <option>SE</option>
@@ -124,68 +142,72 @@
                                     <option>INFINI</option>
                                     <option>BI</option>
                                   </select>
-                                
                                   <div class="alertText" *ngIf="AddFormEtudiant.get('option')?.touched && AddFormEtudiant.get('option')?.errors?.['required']">
-                                    <p class="text-danger" style="font-size: 18px;">option is required !</p>
+                                    <p [ngClass]="'redAlert'">option is required !</p>
                                   </div>
                                 </div>
-                                 <!--classe-->
 
-                                <div class="col-md-3 ">
-                                  <label for="validationServer02" class="form-label font-weight-bold" style="font-size:20px;">Class</label>
-                                  <input type="text" class="form-control " id="validationServer02" value="Otto"  style=" border:3px solid #493ea2;height:50px;font-size:18px;border-radius:15px;" placeholder="Class" formControlName="classe" >
+
+                                 <!-- classe -->
+                                <div class="col-md-4 ">
+                                  <label for="validationServer09" class="form-label font-weight-bold" style="font-size:20px;">Class</label>
+                                  <input type="text" class="form-control " id="validationServer09" value="Otto"  style=" border:3px solid #493ea2;height:50px;font-size:18px;border-radius:12px;" placeholder="Class" formControlName="classe" >
                                   <div class="alertText" *ngIf="AddFormEtudiant.get('classe')?.touched && AddFormEtudiant.get('classe')?.errors?.['required']">
-                                    <p class="text-danger" style="font-size: 18px;">class is required !</p>
+                                    <p [ngClass]="'redAlert'">class is required !</p>
                                   </div>
                                 </div>
                               </div>
-                              </form>
-                            </section>
 
+                             <!--department-->
+                              <div class="row">
+                              <div class="col-md-4">
+                                <label for="validationServer10" class="form-label font-weight-bold" style="font-size:20px;">Department</label>
+                                <select class="form-select " id="validationServer10" aria-describedby="validationServer04Feedback"  style=" border:3px solid #493ea2;height:50px;font-size:18px;border-radius:12px;" #nomDepart required >
+                                  <option selected disabled value="">Choose Department</option>
+                                  <option *ngFor="let depart of listDepartments" [value]="depart.nomDepart">{{depart.nomDepart}} </option>
+                                </select>
+                              </div>
 
-                            <section  class=" w3-content  offset-md-1 ">
-                            <form  class="row g-3">
-                               
-                                <div class="col-md-4">
-                                  <label for="validationServer04" class="form-label font-weight-bold" style="font-size:20px;">Department</label>
-                                  <select class="form-select " id="validationServer04" aria-describedby="validationServer04Feedback"  style=" border:3px solid #493ea2;height:50px;font-size:18px;" #nomDepart  >
-                                    <option selected disabled value="">Choose Department</option>
-
-                                    <option *ngFor="let depart of listDepartments" [value]="depart.nomDepart">{{depart.nomDepart}} </option>
-                                    
-                                  </select>
-                                  <div class="alertText" >
-                                    <p class="text-danger" style="font-size: 18px;">Departement is required !</p>
-                                  </div>
+                            
+                                <div class="col-4 offset-md-4">
+                                  <button class="btn btn-primary mt-5 px-5 "  style="background-color: #493ea2;" (click)="AddEtudiant(nomDepart.value) "><span class="bi bi-plus "></span>Add Student</button> 
                                   
                                 </div>
+                         
+
+
+
+                            </div>
 
                               </form>
-                            </section>
-                              
-                            <!--moyenne
+                          
+
+
+                    
+
+                            <!-- moyenne
                             <div class="row">
                               <div class="col-md-3 ">
                                 <label for="validationServer02" class="form-label font-weight-bold" style="font-size:20px;">Moyenne</label>
-                                <input type="text" class="form-control " id="validationServer02" value="Otto"  style=" border:3px solid #493ea2;height:50px;font-size:18px;border-radius:15px;" placeholder="" formControlName="moyenneE"  >
+                                <input type="text" class="form-control" id="validationServer02" value="Otto"  style=" border:3px solid #493ea2;height:50px;font-size:18px;border-radius:15px;" placeholder="" formControlName="moyenneE"  >
                                 <div class="valid-feedback">
                                   Looks good!
                                 </div>
                                </div>
-                            </div>-->
+                            </div> -->
 
                   
+                       
+                          </div>
+
+                          
+                             <!--2 eme colonne pour l'image-->
+                          <div class="col-md-5  ">
+                            <img src="assets/images/reg.png" alt="" width="80%" class="img-fluid mx-5 mt-5">
+                          </div>
+                        </section>
 
 
-                            <div class="row">
-                                <div class="col-12">
-                                  <button class="btn btn-primary" (click)="AddEtudiant(nomDepart.value)">Submit form</button>
-                                </div>
-                            </div>
-
-
-                           
-       
                         </div>
                         </div>
 </div>
