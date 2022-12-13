@@ -4,7 +4,7 @@
 }
 body {
     color:  #fff;
-    background: #f5f5f5;
+    background: #ffffff;
     font-family: 'Roboto', sans-serif;
 }
 .table-responsive {
@@ -117,4 +117,9 @@ table.table td i {
     margin-top: 6px;
     font-size: 95%;
 }    
-
+/* style navbar */
+.menu-4 {
+   
+    text-transform: uppercase;
+    font-weight: 500;
+  }

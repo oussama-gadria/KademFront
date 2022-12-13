@@ -7,7 +7,7 @@ import { HttpClient } from '@angular/common/http';
 })
 export class UniversiteServiceService {
 
-  url="http://localhost:8091/Universite";
+  url="http://localhost:8089/Universite";
   constructor(private http:HttpClient) { }
   getAllUniversite(){
     return this.http.get<Universite[]>(this.url+'/'+'getAllUniversite'); 
