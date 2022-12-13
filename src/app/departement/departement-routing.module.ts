@@ -14,7 +14,7 @@ const routes: Routes = [
 
   {path:"ListModule",component:ListModuleComponent},
   {path:"AddModule",component:AddModuleComponent},
-  {path:"ListModule/UpdateModule",component:UpdateModuleComponent}
+  {path:"UpdateModule/:id",component:UpdateModuleComponent}
 ];
 
 @NgModule({

@@ -20,17 +20,20 @@
                               <div class="row"  >
                                 <div class="col-md-4"  >
                                   <label for="validationServer01" class="form-label font-weight-bold" style="font-size:20px;">Module name</label>
-                                  <input type="text" class="form-control " id="validationServer01" formControlName="moduleNom" style=" border:3px solid #493ea2;height:50px;font-size:18px;" formControlName="moduleNom">
-                                  <div class="alertText" *ngIf="myFormM.get('moduleNom')?.touched && myFormM.get('moduleNom')?.errors?.['required']">
-                                    <p class="text-danger">Please enter the module name to continue !</p>
+                                  <input type="text" class="form-control " id="validationServer01" formControlName="moduleNom" style=" border:3px solid #493ea2;height:50px;font-size:18px;" formControlName="nomModule">
+                                  <div class="alertText" *ngIf="myFormM.get('nomModule')?.touched && myFormM.get('nomModule')?.errors?.['required']">
+                                    <p [ngStyle]="{'color':style1,'font-weight':style2,'font-size':style3}">Please enter the module name to continue !</p>
                                 </div>
+                                <div class="alertText" *ngIf="myFormM.get('nomModule')?.touched && myFormM.get('nomModule')?.errors?.['pattern']">
+                                  <p [ngStyle]="{'color':style1,'font-weight':style2,'font-size':style3}">The module name must be with only characters !</p>
+                              </div>
                                 </div>   
                               </div>
                                 
                               <div class="row"  >
                                 <div class="col-md-3">
                                   <label for="validationServer04" class="form-label font-weight-bold" style="font-size:20px;">Subject number</label>
-                                  <select class="form-select " id="validationServer04" aria-describedby="validationServer04Feedback"  style=" border:3px solid #493ea2;height:50px;font-size:18px;" formControlName="moduleNbr">
+                                  <select class="form-select " id="validationServer04" aria-describedby="validationServer04Feedback"  style=" border:3px solid #493ea2;height:50px;font-size:18px;" formControlName="nbrMatieres">
                                     <option selected disabled value="">Choose a number</option>
                                     <option>1</option>
                                     <option>2</option>
@@ -43,8 +46,8 @@
                                     <option>9</option>
                                     <option>10</option>
                                   </select>
-                                  <div class="alertText" *ngIf="myFormM.get('moduleNbr')?.touched && myFormM.get('moduleNbr')?.errors?.['required']">
-                                    <p class="text-danger">Please enter the number to continue !</p>
+                                  <div class="alertText" *ngIf="myFormM.get('nbrMatieres')?.touched && myFormM.get('nbrMatieres')?.errors?.['required']">
+                                    <p [ngStyle]="{'color':style1,'font-weight':style2,'font-size':style3}">Please enter the number to continue !</p>
                                 </div>
                                   <div id="validationServer04Feedback" class="invalid-feedback">
                                     Please select a valid number.
@@ -52,27 +55,12 @@
                                 </div>
                               </div>
 
-                              <div class="row"  >
-                                <div class="col-md-4">
-                                  <label for="validationServer04" class="form-label font-weight-bold" style="font-size:20px;">Department name</label>
-                                  <select class="form-select " id="validationServer04" aria-describedby="validationServer04Feedback"  style=" border:3px solid #493ea2;height:50px;font-size:18px;" formControlName="DepartmentNom">
-                                    <option selected disabled value="">Choose a Department name</option>
-                                    <option>1</option>
-                         
-                                  </select>
-                                  <div class="alertText" *ngIf="myFormM.get('DepartmentNom')?.touched && myFormM.get('DepartmentNom')?.errors?.['required']">
-                                    <p class="text-danger">Please enter the Department name to continue !</p>
-                                </div>
-                                  <div id="validationServer04Feedback" class="invalid-feedback">
-                                    Please select a valid Department name.
-                                  </div>
-                                </div>
-                              </div>
+                
 
 
                                 
                                 <div class="col-12">
-                                  <button class="btn btn-primary" type="submit">Update</button>
+                                  <button class="btn btn-primary" type="submit" (click)="updateModule()">Update</button>
                                 </div>
                               </form>
                             </section>

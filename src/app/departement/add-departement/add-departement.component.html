@@ -15,22 +15,25 @@
                           
                             <section  class=" w3-content  offset-md-2 ">
 
-                             <form class="row g-3" [formGroup]="myForm">
+                             <form class="row g-3" #myForm="ngForm">
 
                               <div class="row"  >
                                 <div class="col-md-4"  >
                                   <label for="validationServer01" class="form-label font-weight-bold" style="font-size:20px;">Department name</label>
-                                  <input type="text" class="form-control " id="validationServer01" formControlName="name" style=" border:3px solid #493ea2;height:50px;font-size:18px;" formControlName="name" [(ngModel)]="departement.nomDepart">
-                                  <div class="alertText" *ngIf="myForm.get('name')?.touched && myForm.get('name')?.errors?.['required']">
+                                  <input type="text" class="form-control " id="validationServer01"  style=" border:3px solid #493ea2;height:50px;font-size:18px;"  name="departementNom" [(ngModel)]="departement.nomDepart"  #departementNom="ngModel" required pattern="[a-zA-Z ]*">
+                                  <div class="alertText" *ngIf="departementNom.touched && departementNom.errors?.['required']">
                                     <p [ngClass]="'redAlert'">Please enter the department name to continue !</p>
+                                  </div>
+                                    <div class="alertText" *ngIf="departementNom.touched && departementNom.errors?.['pattern']">
+                                      <p [ngClass]="'redAlert'">the department name must be with only characters !</p>
+                                    </div>  
                                 </div>
-                                </div>   
                               </div>
                                 
                               <div class="row"  >
                                 <div class="col-md-3">
                                   <label for="validationServer04" class="form-label font-weight-bold" style="font-size:20px;">Bloc</label>
-                                  <select class="form-select " id="validationServer04" aria-describedby="validationServer04Feedback"  style=" border:3px solid #493ea2;height:50px;font-size:18px;" formControlName="bloc" [(ngModel)]="departement.bloc">
+                                  <select class="form-select " id="validationServer04" aria-describedby="validationServer04Feedback"  style=" border:3px solid #493ea2;height:50px;font-size:18px;"   name="bloc" [(ngModel)]="departement.bloc" #bloc="ngModel" required>
                                     <option selected disabled value="">Choose a bloc</option>
                                     <option>A</option>
                                     <option>B</option>
@@ -59,7 +62,7 @@
                                     <option>Y</option>
                                     <option>Z</option>
                                   </select>
-                                  <div class="alertText" *ngIf="myForm.get('bloc')?.touched && myForm.get('bloc')?.errors?.['required']">
+                                  <div class="alertText" *ngIf="bloc.touched && bloc.errors?.['required']">
                                     <p [ngClass]="'redAlert'">Please enter the bloc to continue !</p>
                                 </div>
                                   <div id="validationServer04Feedback" class="invalid-feedback">

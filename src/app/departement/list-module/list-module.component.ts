@@ -25,6 +25,11 @@ export class ListModuleComponent implements OnInit {
     this.route.navigate(['departement/AddModule']);
   }
 
+  GoToUpdateModule(id:number)
+  {
+    this.route.navigate(['departement/UpdateModule',id]);
+  }
+
   getIdTooDelete(id:number){
     this.idTodelete=id;
   }

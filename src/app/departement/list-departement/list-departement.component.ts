@@ -1,8 +1,9 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
 import { Router } from '@angular/router';
 import { Departement } from 'src/app/Core/models/departement';
 import { module } from 'src/app/Core/models/module';
 import { DepartementService } from 'src/app/Core/services/departement.service';
+import { UpdateDepartmenetComponent } from '../update-departement/update-departmenet.component';
 
 @Component({
   selector: 'app-list-departement',
@@ -15,12 +16,19 @@ export class ListDepartementComponent implements OnInit {
   idTodelete:number;
   departement:Departement;
   searchDepart:string="";
+  IdDepart:number;
 
   constructor(private route:Router,private departementService:DepartementService) { }
+
+  @ViewChild(UpdateDepartmenetComponent) private updateDepartementCp:UpdateDepartmenetComponent;
 
   ngOnInit(): void {
     this.departementService.getDepart().subscribe((data:Departement[])=>this.ListDepart=data);
   
+  }
+  getALLdepartments()
+  {
+    this.departementService.getDepart().subscribe((data:Departement[])=>this.ListDepart=data); 
   }
 
   GoToAddDepartement(){
@@ -43,4 +51,15 @@ export class ListDepartementComponent implements OnInit {
       return departement.nomDepart.includes(this.searchDepart);
     })
   }
+
+  initToChild(departement:Departement){
+    this.updateDepartementCp.initFormUpdateDep(departement);
+    this.IdDepart=departement.idDepart;
+  }
+
+  update(departement:Departement){
+    this.departementService.updateDepartement(departement,this.IdDepart).subscribe(()=>this.getALLdepartments()) 
+   
+  }
+
 }

@@ -21,7 +21,7 @@ style1="red";
   style3="small";
 
   myFormM = new FormGroup({
-    moduleNom: new FormControl('',Validators.required),
+    moduleNom: new FormControl('',[Validators.required,Validators.pattern("[a-zA-Z ]*")]),
     moduleNbr: new FormControl('',Validators.required),
     DepartmentNom:new FormControl('',Validators.required)
   })
@@ -35,7 +35,10 @@ style1="red";
   }
 
   AddMod(nomDepart:String){
-    this.moduleService.addModuleWithDepName(this.module,nomDepart).subscribe(data=>this.ListModule=data);
-    this.route.navigate(['/departement/ListModule']);
+    this.moduleService.addModuleWithDepName(this.module,nomDepart).subscribe(data=>
+    {this.ListModule=data
+      this.route.navigate(['/departement/ListModule']);
+    });
+  
   }
 }

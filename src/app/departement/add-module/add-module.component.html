@@ -24,6 +24,9 @@
                                   <div class="alertText" *ngIf="myFormM.get('moduleNom')?.touched && myFormM.get('moduleNom')?.errors?.['required']">
                                     <p [ngStyle]="{'color':style1,'font-weight':style2,'font-size':style3}">Please enter the module name to continue !</p>
                                 </div>
+                                <div class="alertText" *ngIf="myFormM.get('moduleNom')?.touched && myFormM.get('moduleNom')?.errors?.['pattern']">
+                                  <p [ngStyle]="{'color':style1,'font-weight':style2,'font-size':style3}">The module name must be with only characters  !</p>
+                              </div>
                                 </div>   
                               </div>
                                 

@@ -1,6 +1,6 @@
 <header id="portfolio" class="w3-content " style="max-width:1400px; margin-top:80px">
     <div class="w3-container ">
-    <h1>Espace</h1>
+    <h1>Espace departement</h1>
     <div class="w3-section w3-bottombar ">
         <nav class="navbar navbar-expand-lg ">
          <!-- navbar -->
@@ -56,8 +56,7 @@
                             <td colspan="1">
                              
                                 <div class="d-flex">
-                                    <button type="button" class="btn btn-primary px-2 "><span class="bi bi-eye-fill"></span></button>
-                                    <button type="button" [routerLink]="['UpdateDepartement',0]"  class="btn btn-warning px-2 mx-1"><span class="bi bi-pencil-fill"></span></button>
+                                    <button type="button" class="btn btn-warning px-2 mx-1"><span class="bi bi-pencil-fill" (click)="initToChild(depart)"></span></button>
                                     <button type="button" class="btn btn-danger px-2 mx-1" data-target="#myModal" data-toggle="modal" (click)="getIdToDelete(depart.idDepart)"><span class="bi bi-trash"></span></button>
                                 </div>  
                                 
@@ -78,7 +77,7 @@
                     
                 </div>
                 <div class="modal-body">
-                    <p>Are you sure to delete Esprit Universite </p>
+                    <p>Are you sure to delete this department </p>
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-primary"  data-dismiss="modal" (click)="deleteDepart()" >Confirm</button>
@@ -87,3 +86,4 @@
             </div>
         </div>
     </div>
+    <app-update-departmenet (updateEvent)="update($event)"></app-update-departmenet>

@@ -51,8 +51,7 @@
                             <td>{{mod.nbrMatieres}}</td>
                             <td colspan="1">
                                 <div class="d-flex">
-                                    <button type="button" class="btn btn-primary px-2 "><span class="bi bi-eye-fill"></span></button>
-                                    <button type="button" [routerLink]="['UpdateModule']"  class="btn btn-warning px-2 mx-1"><span class="bi bi-pencil-fill"></span></button>
+                                    <button type="button" (click)="GoToUpdateModule(mod.idModule)" class="btn btn-warning px-2 mx-1"><span class="bi bi-pencil-fill"></span></button>
                                     <button type="button" class="btn btn-danger px-2 mx-1" data-target="#myModal" data-toggle="modal" (click)="getIdTooDelete(mod.idModule)"><span class="bi bi-trash"></span></button>
                                 </div>  
                                 
@@ -73,7 +72,7 @@
                     
                 </div>
                 <div class="modal-body">
-                    <p>Are you sure to delete Esprit Universite </p>
+                    <p>Are you sure to delete this module</p>
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-primary"  data-dismiss="modal" (click)="deleteModule()">Confirm</button>
