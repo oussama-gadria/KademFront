@@ -1,7 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit} from '@angular/core';
 import { Router } from '@angular/router';
 import { equipe } from 'src/app/Core/models/equipe';
-import { Etudiant } from 'src/app/Core/models/etudiant';
 import { EquipeService } from 'src/app/Core/services/equipe.service';
 
 @Component({
@@ -12,6 +11,8 @@ import { EquipeService } from 'src/app/Core/services/equipe.service';
 export class ListEquipeComponent implements OnInit {
   listEquipe:equipe[];
   idEquipeToDelete:number;
+  searchEquipe:string="";
+  x:equipe;
   constructor(private equipeService:EquipeService,private route:Router) { }
 
   ngOnInit(): void {
@@ -30,9 +31,22 @@ export class ListEquipeComponent implements OnInit {
    this.equipeService.deleteEquipe(this.idEquipeToDelete).subscribe(()=>this.listEquipe=this.listEquipe.filter(Equipe =>Equipe.idEquipe!=this.idEquipeToDelete));
   }
 
-  membres(listEtudiant:Etudiant[]){
-    this.equipeService.listEtudiant=listEtudiant;
+  membres(id:number){
+    this.route.navigate(["/equipes/listMembres",id]);
   }
+
+  search() 
+  { 
+    return this.listEquipe.filter(equipe=> { 
+      return equipe.nomEquipe.includes(this.searchEquipe);
+    })
+  }
+
+  onEditClicked(id:number){
+    this.route.navigate(["/equipes/updateEquipe",id]);   
+  }
+
+
 
 
 

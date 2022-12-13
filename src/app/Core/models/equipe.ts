@@ -9,5 +9,5 @@ export class equipe{
     responsable:number;
     niveau:niveau;
     detailEquipe:detailEquipe;
-    etudiant:Etudiant[];   
+    etudiants:Etudiant[];   
 }
