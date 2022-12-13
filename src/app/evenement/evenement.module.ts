@@ -6,6 +6,8 @@ import { UpdateEvenementComponent } from './update-evenement/update-evenement.co
 import { ListEvenementComponent } from './list-evenement/list-evenement.component';
 import { AddEvenementComponent } from './add-evenement/add-evenement.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { TableeventComponent } from './tableevent/tableevent.component';
+
 
 
 @NgModule({
@@ -13,6 +15,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
     AddEvenementComponent,
     ListEvenementComponent,
     UpdateEvenementComponent,
+    TableeventComponent,
   ],
   imports: [
     CommonModule,
