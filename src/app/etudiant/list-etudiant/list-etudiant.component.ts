@@ -11,6 +11,7 @@ import { EtudiantService } from 'src/app/Core/services/etudiant.service';
 export class ListEtudiantComponent implements OnInit {
   listEtudiant:Etudiant[];
   IdEtudiantToDelete:number;
+  searchEtudiant:string=""
   constructor(private route:Router, private etudiantServ:EtudiantService) { }
 
   ngOnInit(): void {
@@ -32,6 +33,13 @@ export class ListEtudiantComponent implements OnInit {
     this.route.navigate(['etudiant/UpdateEtudiant',id])
   }
 /////////////////
+
+search() 
+  { 
+    return this.listEtudiant.filter(etudiant=> { 
+      return etudiant.prenomE.includes(this.searchEtudiant);
+    })
+  }
 
 getAllEtudiant()
 {

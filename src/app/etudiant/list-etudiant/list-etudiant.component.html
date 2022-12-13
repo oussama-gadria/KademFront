@@ -1,22 +1,22 @@
 <header id="portfolio" class="w3-content " style="max-width:1600px; margin-top:80px">
     <div class="w3-container ">
-    <h1>Espace etudiant</h1>
+    <h1 class="style-4 menu-4">Student Module</h1>
     <div class="w3-section w3-bottombar ">
-        <nav class="navbar navbar-expand-lg ">
-         <!-- navbar -->
-                <ul class="navbar-nav me-auto mb-2 mb-lg-0 " style="padding-left: 78px;">
-                  <li class="nav-item">
-                    <a class="nav-link "    style="font-family:'Poppins', sans-serif;font-size: 20px; color: #493ea2 ;">Etudiant </a>
-                  </li>
-                  <li class="nav-item">
-                    <a class="nav-link" routerLink="ListContrat"  style="font-family:'Poppins', sans-serif;font-size: 20px; color: #493ea2;">/ Contrat</a>
-                  </li>
-                </ul> 
-          </nav>
           <!-- Navbar -->
+         <nav class="style-4 navbar-expand-lg">
+            <ul class="menu-4">
+            <li class="current"><a data-hover="Student">Student</a></li>
+            <li><a data-hover="Contract" routerLink="ListContrat" >Contract</a></li>
+          </ul>
+         </nav>
+          <!-- navbar -->
     </div>
     </div>
   </header>
+
+
+
+
   <body>
     <div class="container-fluid  " style="max-width: 1550px;background-color: white;">
         <div class="table-responsive">
@@ -24,15 +24,15 @@
                <!-- table title  -->
                 <div class="table-title">
                     <div class="row">
-                        <div class="col-sm-8 " style="color: black;"><h2>Etudiant <b>Details</b></h2></div>
+                        <div class="col-sm-8 " style="color: black;"><h2 style="color:#e67e22">Student <b style="color:#493ea2">Details</b></h2></div>
                         <div class="col-sm-2 ">
                             <div class="search-box">
                                 <i class="material-icons">&#xE8B6;</i>
-                                <input type="text" class="form-control" placeholder="Search&hellip;">
+                                <input [(ngModel)]="searchEtudiant" type="text" class="form-control" placeholder="Search&hellip;">
                             </div> 
                         </div>
                         <div class="col-sm-2">
-                            <button type="button" class="btn btn-secondary px-5 py-1" (click)="GoToAddEtudiant()"><span class="bi bi-plus "></span>Add Etduiant</button> 
+                            <button type="button" class="btn btn-secondary px-5 py-1" (click)="GoToAddEtudiant()"><span class="bi bi-plus "></span>Add Student</button> 
                         </div> 
                     </div>
                 </div>
@@ -54,7 +54,7 @@
                     </thead>
 
                     <tbody>
-                        <tr *ngFor="let etudiant of listEtudiant">
+                        <tr *ngFor="let etudiant of search()">
                             <td>{{etudiant.prenomE}}</td>
                             <td>{{etudiant.nomE}}</td>
                             <td>{{etudiant.age}}</td>
@@ -72,7 +72,7 @@
                                 <button type="button" class="btn btn-primary px-2 "><span class="bi bi-eye-fill"></span></button>
                                 <button type="button" class="btn btn-warning px-2 mx-1" (click)="GoToUpdateEtudiant(etudiant.idEtudiant)"><span class="bi bi-pencil-fill"></span></button>
                                 <button type="button" class="btn btn-danger px-2 mx-1" data-target="#myModal" data-toggle="modal" (click)="getIdEtudiantToDelete(etudiant.idEtudiant)"><span class="bi bi-trash"></span></button>
-                                <button type="button" class="btn btn-success px-2 py-1" (click)="GoToAddContrat(etudiant.idEtudiant)"><span class="bi bi-plus "></span>Add Contrat</button> 
+                                <button type="button" class="btn btn-success px-2 py-1" (click)="GoToAddContrat(etudiant.idEtudiant)"><span class="bi bi-plus "></span>Add Contract</button> 
                             </div>  
                             
                             </td>
