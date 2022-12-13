@@ -6,25 +6,29 @@
     
                             <section id="portfolio" class="w3-content " style="max-width:1300px; margin-top:80px">
                                 <div class="w3-container ">
-                                <h1>Espace Evenement </h1>
+                                  <h1  class="style-4 menu-4">Evenement module</h1>
                                 <div class="w3-section w3-bottombar ">
                                 </div>
                                 </div>
                             </section>
                           
                           
-                            <section  class=" w3-content  offset-md-2 ">
+                            <section class="d-flex" >
+                              <div class="col-md-6 offset-md-1 ">
 
                              <form class="row g-3" #myformeevent="ngForm">
 
                                 <div class="col-md-7"  >
                                   <label for="validationServer01" class="form-label font-weight-bold" style="font-size:15px;">Event Name</label>
-                                  <input type="text" class="form-control " id="validationServer01" name="eventname" [(ngModel)]="event.nomEvenement" #eventname="ngModel" required
+                                  <input type="text" class="form-control " id="validationServer01" name="eventname" [(ngModel)]="event.nomEvenement" #eventname="ngModel" required minlength="3"
                                   value="" style=" border:3px solid #493ea2;height:39px;font-size:15px;width: 400px; border-radius: 10px;" >
                                   <div class="alertText" *ngIf="eventname.touched && eventname.errors?.['required']">
                                     <p class="text-danger">event name is required !</p>
                                 </div>
                                 </div>
+                                <div class="alertText" *ngIf="eventname.touched && eventname.errors?.['minlength']">
+                                  <p class="text-danger">event name must be at least 3 characters long !</p>
+                              </div>
 
 
 
@@ -53,9 +57,17 @@
 
                                 
                                 <div class="col-12 my-3">
-                                  <button class="btn btn-primary" (click)="AddEvenement()"   type="submit">ADD</button>
+                                  <button class="btn btn-primary mt-5 px-5 "  style="background-color: #493ea2;" (click)="AddEvenement()"   type="submit"><span class="bi bi-plus "></span>ADD Event</button>
                                 </div>
                               </form>
+                              </div>
+
+                              <div class="col-md-5  ">
+                                <img src="assets/images/reg.png" alt="" width="80%" class="img-fluid mx-5 mt-1">
+                              </div>
+
+
+
                             </section>
        
                         </div>
