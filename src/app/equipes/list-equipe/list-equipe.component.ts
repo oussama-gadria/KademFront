@@ -12,7 +12,8 @@ export class ListEquipeComponent implements OnInit {
   listEquipe:equipe[];
   idEquipeToDelete:number;
   searchEquipe:string="";
-  x:equipe;
+  idEquipe:number;
+  
   constructor(private equipeService:EquipeService,private route:Router) { }
 
   ngOnInit(): void {
@@ -33,22 +34,16 @@ export class ListEquipeComponent implements OnInit {
 
   membres(id:number){
     this.route.navigate(["/equipes/listMembres",id]);
+    this.idEquipe=id;
   }
 
-  search() 
-  { 
-    return this.listEquipe.filter(equipe=> { 
-      return equipe.nomEquipe.includes(this.searchEquipe);
-    })
+  search() { 
+    return this.listEquipe.filter(equipe=> { return equipe.nomEquipe.includes(this.searchEquipe);})
   }
 
-  onEditClicked(id:number){
-    this.route.navigate(["/equipes/updateEquipe",id]);   
+  GoToUpdateEquipe(id:number)
+  {
+    this.route.navigate(["/equipes/updateEquipe",id]);
   }
-
-
-
-
-
 
 }

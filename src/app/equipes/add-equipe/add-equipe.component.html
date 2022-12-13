@@ -1,91 +1,116 @@
 <section class="colorRegister">
-    <div class="sigupbloc" >
-                        <div class="row no-gutters">
-                        <div class="col-md-10 offset-md-1">
-                                
-    
-                            <section id="portfolio" class="w3-content " style="max-width:1300px; margin-top:80px">
-                                <div class="w3-container ">
-                                <h1>Add Equipe</h1>
-                                <div class="w3-section w3-bottombar ">
+  <div class="sigupbloc" >
+                      <div class="row no-gutters">
+                      <div class="col-md-10 offset-md-1">
+                              
+  
+                          <section id="portfolio" class="w3-content " style="max-width:1500px; margin-top:80px">
+                              <div class="w3-container ">
+                                <h1  class="style-4 menu-4">Equipe module</h1>
+                              <div class="w3-section w3-bottombar ">
+                              </div>
+                              </div>
+                          </section>
+                        
+                        
+                          <section  class="d-flex">
+                            <div class="col-md-6 offset-md-1 mt-5">
+                           <form class="row g-3" #f="ngForm">
+
+                              <div class="col-md-6"  >
+                                <label for="validationServer01" class="form-label font-weight-bold" style="font-size:20px;">Name</label>
+                                <input type="text" class="form-control" style=" border:3px solid #493ea2;height:50px;font-size:18px;" name="nomEquipe" placeholder="Name" [(ngModel)]="equipe.nomEquipe" required #nomEquipe="ngModel" pattern="[a-zA-Z ]*">
+                                <div class="alertText" *ngIf="nomEquipe.errors?.['required'] && nomEquipe.touched">
+                                  <p [ngClass]="'redAlert'">this input Name is required</p>
                                 </div>
+                                <div class="alertText" *ngIf="nomEquipe.errors?.['pattern'] && nomEquipe.touched">
+                                  <p [ngClass]="'redAlert'">Only Characters</p>
                                 </div>
-                            </section>
-                          
-                          
-                            <section  class=" w3-content  offset-md-2 ">
+                              </div>
 
-                             <form class="row g-3" [formGroup]="myForm">
-                                <div class="col-md-4"  >
-                                  <label for="validationServer01" class="form-label font-weight-bold" style="font-size:20px;">Equipe Name</label>
-                                  <input type="text" class="form-control" style=" border:3px solid #493ea2;height:50px;font-size:18px;" formControlName="fName" required pattern="[a-zA-Z ]*" [(ngModel)]="equipe.nomEquipe">
-                                  <div class="alertText" *ngIf="myForm.get('fName').touched && myForm.get('fName').hasError('required')">
-                                    <p [ngClass]="'redAlert'">this input Name is required</p>
-                                  </div>
-                                  <div class="alertText" *ngIf="myForm.get('fName').touched && myForm.get('fName').hasError('pattern')">
-                                    <p [ngClass]="'redAlert'">Only Characters</p>
-                                  </div>
+
+                            
+                              <div class="col-md-6" >
+                                <label for="validationServer02" class="form-label font-weight-bold" style="font-size:20px;">Score</label>
+                                <input type="number" class="form-control " id="validationServer02" value="Otto"  style=" border:3px solid #493ea2;height:50px;font-size:18px;" name="score" placeholder="Score" [(ngModel)]="equipe.score" required #score="ngModel" min="0" max="100">
+                                <div class="alertText" *ngIf="score.errors?.['required'] && score.touched">
+                                  <p [ngClass]="'redAlert'">this input Score is required</p>
                                 </div>
-
-
-
-                                <div class="col-md-4">
-                                  <label for="validationServer02" class="form-label font-weight-bold" style="font-size:20px;">Score</label>
-                                  <input type="number" class="form-control " id="validationServer02" value="Otto"  style=" border:3px solid #493ea2;height:50px;font-size:18px;" formControlName="fScore" required min="0" max="100" [(ngModel)]="equipe.score">
-                                  <div class="alertText" *ngIf="myForm.get('fScore').touched && myForm.get('fScore').hasError('required')">
-                                    <p [ngStyle]="{'color':style1,'font-weight':style2,'font-size':style3}">this input Score is required</p>
-                                  </div>
-                                  <div class="alertText" *ngIf="myForm.get('fScore').touched && myForm.get('fScore').hasError('min')">
-                                    <p [ngStyle]="{'color':style1,'font-weight':style2,'font-size':style3}">Minimum score is 0</p>
-                                  </div>
-                                  <div class="alertText" *ngIf="myForm.get('fScore').touched && myForm.get('fScore').hasError('max')">
-                                    <p [ngStyle]="{'color':style1,'font-weight':style2,'font-size':style3}">Maximum score is 100</p>
-                                  </div>
+                                <div class="alertText" *ngIf="score.errors?.['min'] && score.touched">
+                                  <p [ngClass]="'redAlert'">Minimum score is 0</p>
                                 </div>
-
-
-
-                          
-                                <div class="col-md-6">
-                                  <label for="validationServer03" class="form-label font-weight-bold" style="font-size:20px;">Responsable</label>
-                                  <select class="form-select " id="validationServer04" aria-describedby="validationServer04Feedback"  style=" border:3px solid #493ea2;height:50px;font-size:18px;" formControlName="fResponsable" required #idEnseignant>
-                                    <option selected disabled value="">Choose...</option>
-                                    <option *ngFor="let enseignant of listEnseignant" [value]="enseignant.idEnseignant">{{enseignant.nomEnseignant}} {{enseignant.prenomEnseignant}}</option>
-                                  </select>
-                                  <div id="validationServer03Feedback" class="alertText" *ngIf="myForm.get('fResponsable').touched && myForm.get('fResponsable').hasError('required')">
-                                    <p [ngClass]="'redAlert'">this input Responsable is required</p>
-                                  </div>
+                                <div class="alertText" *ngIf="score.errors?.['max'] && score.touched">
+                                  <p [ngClass]="'redAlert'">Maximum score is 100</p>
                                 </div>
+                              </div>
+                            
 
 
-                                <div class="col-md-3">
-                                  <label for="validationServer04" class="form-label font-weight-bold" style="font-size:20px;">Niveau</label>
-                                  <select class="form-select" id="validationServer04" aria-describedby="validationServer04Feedback"  style=" border:3px solid #493ea2;height:50px;font-size:18px;" formControlName="fNiveau" required [(ngModel)]="equipe.niveau">
-                                    <option selected disabled value="">Choose...</option>
-                                    <option>JUNIOR</option>
-                                    <option>SENIOR</option>
-                                    <option>EXPERT</option>
-                                  </select>
-                                  <div id="validationServer04Feedback" class="alertText" *ngIf="myForm.get('fNiveau').touched && myForm.get('fNiveau').hasError('required')">
-                                    <p [ngStyle]="{'color':style1,'font-weight':style2,'font-size':style3}">this input Niveau is required</p>
-                                  </div>
+
+                            <div class="row">
+                              <div class="col-md-6 ">
+                                <label for="validationServer03" class="form-label font-weight-bold" style="font-size:20px;">Responsable</label>
+                                <select class="form-select " id="validationServer04" aria-describedby="validationServer04Feedback"  style=" border:3px solid #493ea2;height:50px;font-size:18px;" name="responsable" aria-placeholder="Responsable" [(ngModel)]="equipe.responsable" required #responsable="ngModel">
+                                  <option selected disabled value="">Choose...</option>
+                                  <option *ngFor="let enseignant of listEnseignant" [value]="enseignant.idEnseignant">{{enseignant.nomEnseignant}} {{enseignant.prenomEnseignant}}</option>
+                                </select>
+                                <div id="validationServer03Feedback" class="alertText" *ngIf="responsable.errors?.['required'] && responsable.touched">
+                                  <p [ngClass]="'redAlert'">this input Responsable is required</p>
                                 </div>
+                              </div>
+                            
 
 
-                                
-
-
-                                
-                                <div class="col-12">
-                                  <button class="btn btn-primary" type="submit" [disabled]="myForm.invalid" (click)="save(idEnseignant.value)">Submit form</button>
+                              <div class="col-md-6 ">
+                                <label for="validationServer04" class="form-label font-weight-bold" style="font-size:20px;">Niveau</label>
+                                <select class="form-select" id="validationServer04" aria-describedby="validationServer04Feedback"  style=" border:3px solid #493ea2;height:50px;font-size:18px;" name="niveau" [(ngModel)]="equipe.niveau" required #niveau="ngModel">
+                                  <option selected disabled value="">Choose...</option>
+                                  <option>JUNIOR</option>
+                                  <option>SENIOR</option>
+                                  <option>EXPERT</option>
+                                </select>
+                                <div id="validationServer04Feedback" class="alertText" *ngIf="niveau.errors?.['required'] && niveau.touched">
+                                  <p [ngClass]="'redAlert'">this input Niveau is required</p>
                                 </div>
-                              </form>
-                            </section>
-       
-                        </div>
-                        </div>
+                              </div>
+                            </div>
+
+
+                              
+
+
+                              
+                              <div class="col-12"> 
+                                <button class="btn btn-primary mt-5 px-5 "  style="background-color: #493ea2;"  type="submit" [disabled]="f.invalid" (click)="save(responsable.value)"><span class="bi bi-plus "></span>ADD Equipe</button>
+                              </div>
+                            </form>
+                            </div>
+
+
+
+                            <div class="col-md-5  ">
+                              <img src="assets/images/reg.png" alt="" width="60%" class="img-fluid mx-5 mt-3">
+                            </div>
+                          </section>
+     
+                      </div>
+                      </div>
 </div>
 </section>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
