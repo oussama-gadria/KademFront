@@ -69,7 +69,7 @@
                 <p  [ngStyle]="{'color':style1,'font-weight':style2,'font-size':style3}">Please enter the age to continue !</p>
                </div>
                <div class="alertText" *ngIf=" myforme.get('age')?.touched && myforme.get('age')?.hasError('min')">                                 
-                <p  [ngStyle]="{'color':style1,'font-weight':style2,'font-size':style3}">Please select  !</p>
+                <p  [ngStyle]="{'color':style1,'font-weight':style2,'font-size':style3}">Please select valid age  !</p>
                </div>
               </div>
 
