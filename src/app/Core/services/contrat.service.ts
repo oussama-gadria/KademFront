@@ -33,4 +33,11 @@ export class ContratService {
   {
     return this.http.put<Contrat>(this.url+"upadateContrat"+"/"+idContrat,contrat);
   }
+
+
+  getContratByIDetudiant(idEtud:number):Observable<Contrat[]>
+  {
+    return  this.http.get<Contrat[]>(this.url+"getContratByidEtudiant"+"/"+idEtud);
+  }
+
 }
