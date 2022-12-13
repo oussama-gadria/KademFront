@@ -5,7 +5,7 @@ import { HomeComponent } from './home/home.component';
 
 const routes: Routes = [
   {path:"",component:HomeComponent},
-  {path:'equipes', loadChildren:()=>import('./equipes/equipes.module').then(m=>m.EquipesModule)},
+  {path:"equipes", loadChildren:()=>import('./equipes/equipes.module').then(m=>m.EquipesModule)},
   {path:"enseignant", loadChildren:()=>import('./enseignant/enseignant.module').then(m=>m.EnseignantModule)},
   {path:"departement", loadChildren:()=>import('./departement/departement.module').then(m=>m.DepartementModule)},
   {path:"etudiant", loadChildren:()=>import('./etudiant/etudiant.module').then(m=>m.EtudiantModule)},

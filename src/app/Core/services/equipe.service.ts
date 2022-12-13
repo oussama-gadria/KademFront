@@ -1,6 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
+import { detailEquipe } from '../models/detailEquipe';
 import { Enseignant } from '../models/enseignant';
 import { equipe } from '../models/equipe';
 import { Etudiant } from '../models/etudiant';
@@ -13,7 +14,6 @@ export class EquipeService {
   url2="http://localhost:8089/Enseignant";
 
   public listEtudiant:Etudiant[];
-  public equipeUp:any;
 
   constructor(private http:HttpClient) {}
   getAllEquipe(): Observable<equipe[]>{
@@ -23,7 +23,7 @@ export class EquipeService {
     return this.http.get<equipe>(this.url+"get-equipe/"+id);
   }
   updateEquipe(id:number,e:equipe){
-    return this.http.put(this.url+"modify-equipe/"+id,e)
+    return this.http.put<equipe>(this.url+"modify-equipe/"+id,e)
   }
   addEquipe(e:equipe){
     return this.http.post(this.url+"add-equipe",e);
