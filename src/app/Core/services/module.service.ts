@@ -8,7 +8,7 @@ import { module } from '../models/module';
   providedIn: 'root'
 })
 export class ModuleService {
-  url='http://localhost:8090/Module/'
+  url='http://localhost:8089/Module/'
 public ListModule:module[];
 
   constructor(private http:HttpClient) { }
@@ -24,4 +24,11 @@ public ListModule:module[];
   updateModule(m:module,id:number){
     return this.http.put(this.url+"updateModule/"+id,m)
   }
+  getModuleById(id:number):Observable<module>
+  {
+   return  this.http.get<module>(this.url+"getModuleById"+"/"+id);
+  }
+
+
+
 }

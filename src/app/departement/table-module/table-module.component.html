@@ -1,0 +1,24 @@
+<table class="table table-striped table-hover table-bordered">
+    <thead>
+        <tr>
+            <th>Id <i class="fa fa-sort"></i></th>
+            <th>Module name <i class="fa fa-sort"></i></th>
+            <th>Subject number <i class="fa fa-sort"></i></th>
+            <th> </th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let mod of ListMod">
+            <td>{{mod.idModule}}</td>
+            <td>{{mod.nomModule}}</td>
+            <td>{{mod.nbrMatieres}}</td>
+            <td colspan="1">
+                <div class="d-flex">
+                    <button type="button" (click)="GoToUpdateModule(mod.idModule)" class="btn btn-warning px-2 mx-1"><span class="bi bi-pencil-fill"></span></button>
+                    <button type="button" class="btn btn-danger px-2 mx-1" data-target="#myModal" data-toggle="modal" (click)="getIdTooDelete(mod.idModule)"><span class="bi bi-trash"></span></button>
+                </div>  
+                
+                </td>
+        </tr>    
+    </tbody>
+</table>
